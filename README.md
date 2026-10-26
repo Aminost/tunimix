@@ -7,7 +7,11 @@ TuniMix button on any recipe page. TuniMix turns it into a **Thermomix guided-co
 ("5 Min./100°C/Linkslauf/Stufe 1"). One more click saves it to **your Cookidoo "Created recipes"**,
 and it appears on your TM5 / TM6 / TM7.
 
-- **Any AI.** One-click conversion with Claude, OpenAI/ChatGPT, Google Gemini, OpenRouter (300+
+- **No AI needed.** By default, open-source tools read the recipe right in your browser: schema.org
+  data from links, **pdf.js** for PDFs, **mammoth.js** for Word and **tesseract.js** OCR for photos.
+  A Thermomix rules engine then writes the guided-cooking steps. It is free, needs no key and works
+  offline once loaded.
+- **Optional: any AI.** One-click conversion with Claude, OpenAI/ChatGPT, Google Gemini, OpenRouter (300+
   models, some free), Groq, Mistral, DeepSeek, any OpenAI-compatible endpoint, or **free and local
   with Ollama or LM Studio**. Without any key, the free route copies the instruction into any AI
   chat and pastes the answer back.
@@ -33,8 +37,10 @@ and it appears on your TM5 / TM6 / TM7.
                                                   → appears on the Thermomix
 ```
 
-1. **Add a recipe.** Paste anything on the website, or press the TuniMix bookmark on a recipe page.
-2. **Convert.** Use "Free with an AI chat" (copy, paste, paste back) or one click with your own key.
+1. **Add a recipe.** Paste a link or text, add a photo, PDF or Word file, or press the TuniMix
+   bookmark on a recipe page.
+2. **Convert.** Press **Umwandeln**. The rules engine runs without AI, and the AI routes stay
+   available as an option.
 3. **Save to Cookidoo.** Open Cookidoo, press the same TuniMix bookmark, and the recipe is saved.
 
 Setting up the button takes one minute: open the **Cookidoo button** tab and drag it to your
@@ -135,7 +141,9 @@ follow the address the site is served from.
 | File | What it is |
 |---|---|
 | `index.html`, `app.js`, `i18n.js` | the web app |
-| `core.js` | recipe model, Thermomix rules, setting strings, Cookidoo payload (shared with tests & Action) |
+| `core.js` | recipe model, Thermomix limits, setting strings, Cookidoo payload (shared with tests & Action) |
+| `rules.js` | **rules engine without AI** (ingredient parser, action lexicon, Thermomix settings, text structurer), a 1:1 port of `toolkit/tunimix/convert/rulebased.py`, verified by `tests/rules-parity.test.mjs` |
+| `docs.js` | reads PDF (pdf.js), Word (mammoth.js) and photos (tesseract.js OCR) in the browser |
 | `ai.js` | AI providers from the browser: Claude (with web fetch/search), any OpenAI-compatible API, native Ollama |
 | `bookmarklet.js` | the TuniMix button (capture on recipe pages, save on Cookidoo) |
 | `bridge.html` | hands queued recipes to the button on Cookidoo |

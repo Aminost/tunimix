@@ -19,3 +19,8 @@ jobs:
       - run: sudo apt-get update && sudo apt-get install -y tesseract-ocr
       - run: pip install -r requirements.txt pytest
       - run: python -m pytest -q
+      - name: Python and website rules engines give identical results
+        working-directory: .
+        run: |
+          python toolkit/scripts_rules_expected.py
+          git diff --exit-code tests/fixtures/rules-expected.json

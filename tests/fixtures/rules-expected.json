@@ -1,0 +1,1704 @@
+{
+ "structured": [
+  {
+   "title": "Ojja aux merguez",
+   "language": "fr",
+   "servings": 4,
+   "prep_time_min": 20,
+   "total_time_min": 47,
+   "category": "Plat principal",
+   "ingredients": [
+    {
+     "amount": "300",
+     "unit": "g",
+     "name": "merguez",
+     "note": "",
+     "group": ""
+    },
+    {
+     "amount": "4",
+     "unit": "",
+     "name": "oeufs",
+     "note": "",
+     "group": ""
+    },
+    {
+     "amount": "3",
+     "unit": "gousse(s)",
+     "name": "ail",
+     "note": "",
+     "group": ""
+    },
+    {
+     "amount": "2",
+     "unit": "c. à s.",
+     "name": "concentré de tomate",
+     "note": "",
+     "group": ""
+    },
+    {
+     "amount": "1",
+     "unit": "c. à c.",
+     "name": "harissa",
+     "note": "",
+     "group": ""
+    },
+    {
+     "amount": "4",
+     "unit": "c. à s.",
+     "name": "huile d'olive",
+     "note": "",
+     "group": ""
+    },
+    {
+     "amount": "2",
+     "unit": "",
+     "name": "poivrons verts",
+     "note": "",
+     "group": ""
+    },
+    {
+     "amount": "400",
+     "unit": "g",
+     "name": "tomates",
+     "note": "",
+     "group": ""
+    },
+    {
+     "amount": "1",
+     "unit": "c. à c.",
+     "name": "carvi",
+     "note": "",
+     "group": ""
+    },
+    {
+     "amount": "",
+     "unit": "",
+     "name": "sel, poivre",
+     "note": "",
+     "group": ""
+    }
+   ],
+   "steps": [
+    {
+     "text": "Mettre ail dans le bol, mixer {S} et racler les parois avec la spatule.",
+     "setting": {
+      "time_s": 5,
+      "temperature": null,
+      "speed": "5",
+      "reverse": false,
+      "mode": null,
+      "accessory": null,
+      "browning_power": null
+     },
+     "off_machine": false
+    },
+    {
+     "text": "Ajouter concentré de tomate, harissa, huile d'olive et carvi et faire revenir {S}.",
+     "setting": {
+      "time_s": 180,
+      "temperature": 120,
+      "speed": "1",
+      "reverse": false,
+      "mode": null,
+      "accessory": null,
+      "browning_power": null
+     },
+     "off_machine": false
+    },
+    {
+     "text": "Ajouter poivrons verts et tomates et cuire {S}.",
+     "setting": {
+      "time_s": 900,
+      "temperature": 100,
+      "speed": "1",
+      "reverse": false,
+      "mode": null,
+      "accessory": null,
+      "browning_power": null
+     },
+     "off_machine": false
+    },
+    {
+     "text": "Ajouter merguez et cuire {S}.",
+     "setting": {
+      "time_s": 600,
+      "temperature": 100,
+      "speed": "soft",
+      "reverse": true,
+      "mode": null,
+      "accessory": null,
+      "browning_power": null
+     },
+     "off_machine": false
+    },
+    {
+     "text": "Ajouter oeufs et cuire {S}.",
+     "setting": {
+      "time_s": 240,
+      "temperature": 90,
+      "speed": "soft",
+      "reverse": true,
+      "mode": null,
+      "accessory": null,
+      "browning_power": null
+     },
+     "off_machine": false
+    },
+    {
+     "text": "Servir chaud avec du pain.",
+     "setting": null,
+     "off_machine": true
+    }
+   ],
+   "first_warning": "Converti automatiquement par règles (sans IA) – vérifier les réglages avant de cuisiner.",
+   "rule_warnings": []
+  },
+  {
+   "title": "Linsensuppe",
+   "language": "de",
+   "servings": 4,
+   "prep_time_min": 20,
+   "total_time_min": 44,
+   "category": "Suppe",
+   "ingredients": [
+    {
+     "amount": "1",
+     "unit": "",
+     "name": "Zwiebel",
+     "note": "",
+     "group": ""
+    },
+    {
+     "amount": "2",
+     "unit": "",
+     "name": "Knoblauchzehen",
+     "note": "",
+     "group": ""
+    },
+    {
+     "amount": "2",
+     "unit": "EL",
+     "name": "Olivenöl",
+     "note": "",
+     "group": ""
+    },
+    {
+     "amount": "250",
+     "unit": "g",
+     "name": "rote Linsen",
+     "note": "",
+     "group": ""
+    },
+    {
+     "amount": "1",
+     "unit": "",
+     "name": "Karotte",
+     "note": "",
+     "group": ""
+    },
+    {
+     "amount": "1000",
+     "unit": "ml",
+     "name": "Gemüsebrühe",
+     "note": "",
+     "group": ""
+    },
+    {
+     "amount": "1",
+     "unit": "TL",
+     "name": "Kreuzkümmel",
+     "note": "",
+     "group": ""
+    },
+    {
+     "amount": "½",
+     "unit": "Bund",
+     "name": "Petersilie",
+     "note": "",
+     "group": ""
+    },
+    {
+     "amount": "",
+     "unit": "",
+     "name": "Saft einer Zitrone",
+     "note": "",
+     "group": ""
+    }
+   ],
+   "steps": [
+    {
+     "text": "Petersilie in den trockenen Mixtopf geben, {S} zerkleinern und umfüllen.",
+     "setting": {
+      "time_s": 3,
+      "temperature": null,
+      "speed": "7",
+      "reverse": false,
+      "mode": null,
+      "accessory": null,
+      "browning_power": null
+     },
+     "off_machine": false
+    },
+    {
+     "text": "Zwiebel und Knoblauchzehen in den Mixtopf geben, {S} zerkleinern und mit dem Spatel nach unten schieben.",
+     "setting": {
+      "time_s": 5,
+      "temperature": null,
+      "speed": "5",
+      "reverse": false,
+      "mode": null,
+      "accessory": null,
+      "browning_power": null
+     },
+     "off_machine": false
+    },
+    {
+     "text": "Olivenöl zugeben und {S} dünsten.",
+     "setting": {
+      "time_s": 180,
+      "temperature": 120,
+      "speed": "1",
+      "reverse": false,
+      "mode": null,
+      "accessory": null,
+      "browning_power": null
+     },
+     "off_machine": false
+    },
+    {
+     "text": "Rote Linsen, Karotte, Gemüsebrühe und Kreuzkümmel zugeben und {S} garen.",
+     "setting": {
+      "time_s": 1500,
+      "temperature": 100,
+      "speed": "soft",
+      "reverse": true,
+      "mode": null,
+      "accessory": null,
+      "browning_power": null
+     },
+     "off_machine": false
+    },
+    {
+     "text": "{S} pürieren, dabei die Stufe langsam von 5 auf 10 erhöhen.",
+     "setting": {
+      "time_s": 60,
+      "temperature": null,
+      "speed": "10",
+      "reverse": false,
+      "mode": null,
+      "accessory": null,
+      "browning_power": null
+     },
+     "off_machine": false
+    },
+    {
+     "text": "Mit Saft einer Zitrone abschmecken.",
+     "setting": null,
+     "off_machine": false
+    },
+    {
+     "text": "Zum Servieren mit Petersilie bestreuen.",
+     "setting": null,
+     "off_machine": true
+    }
+   ],
+   "first_warning": "Automatisch mit Regeln umgewandelt (ohne KI) – Einstellungen vor dem Kochen prüfen.",
+   "rule_warnings": []
+  },
+  {
+   "title": "Banana bread",
+   "language": "en",
+   "servings": 8,
+   "prep_time_min": 20,
+   "total_time_min": 75,
+   "category": "Bread",
+   "ingredients": [
+    {
+     "amount": "3",
+     "unit": "",
+     "name": "ripe bananas",
+     "note": "",
+     "group": ""
+    },
+    {
+     "amount": "240",
+     "unit": "g",
+     "name": "flour",
+     "note": "",
+     "group": ""
+    },
+    {
+     "amount": "100",
+     "unit": "g",
+     "name": "sugar",
+     "note": "",
+     "group": ""
+    },
+    {
+     "amount": "75",
+     "unit": "g",
+     "name": "melted butter",
+     "note": "",
+     "group": ""
+    },
+    {
+     "amount": "1",
+     "unit": "",
+     "name": "egg",
+     "note": "",
+     "group": ""
+    },
+    {
+     "amount": "1",
+     "unit": "tsp",
+     "name": "baking soda",
+     "note": "",
+     "group": ""
+    },
+    {
+     "amount": "60",
+     "unit": "g",
+     "name": "walnuts",
+     "note": "",
+     "group": ""
+    }
+   ],
+   "steps": [
+    {
+     "text": "Preheat the oven to 175°C.",
+     "setting": null,
+     "off_machine": true
+    },
+    {
+     "text": "Place walnuts in the dry mixing bowl, chop {S} and set aside.",
+     "setting": {
+      "time_s": 10,
+      "temperature": null,
+      "speed": "7",
+      "reverse": false,
+      "mode": null,
+      "accessory": null,
+      "browning_power": null
+     },
+     "off_machine": false
+    },
+    {
+     "text": "Place ripe bananas, sugar, melted butter and egg in the mixing bowl and mash {S}.",
+     "setting": {
+      "time_s": 10,
+      "temperature": null,
+      "speed": "4",
+      "reverse": false,
+      "mode": null,
+      "accessory": null,
+      "browning_power": null
+     },
+     "off_machine": false
+    },
+    {
+     "text": "Add flour, baking soda and walnuts and fold in {S}.",
+     "setting": {
+      "time_s": 15,
+      "temperature": null,
+      "speed": "2",
+      "reverse": true,
+      "mode": null,
+      "accessory": null,
+      "browning_power": null
+     },
+     "off_machine": false
+    },
+    {
+     "text": "Pour into a loaf pan and bake for 60 minutes.",
+     "setting": null,
+     "off_machine": true
+    }
+   ],
+   "first_warning": "Converted automatically with rules (no AI) – check the settings before cooking.",
+   "rule_warnings": []
+  },
+  {
+   "title": "Chorba Frik",
+   "language": "fr",
+   "servings": 4,
+   "prep_time_min": 20,
+   "total_time_min": 93,
+   "category": "Soupe",
+   "ingredients": [
+    {
+     "amount": "300",
+     "unit": "g",
+     "name": "agneau en petits dés",
+     "note": "",
+     "group": ""
+    },
+    {
+     "amount": "1",
+     "unit": "",
+     "name": "oignon",
+     "note": "",
+     "group": ""
+    },
+    {
+     "amount": "2",
+     "unit": "gousse(s)",
+     "name": "ail",
+     "note": "",
+     "group": ""
+    },
+    {
+     "amount": "3",
+     "unit": "c. à s.",
+     "name": "huile d'olive",
+     "note": "",
+     "group": ""
+    },
+    {
+     "amount": "2",
+     "unit": "c. à s.",
+     "name": "concentré de tomate",
+     "note": "",
+     "group": ""
+    },
+    {
+     "amount": "1",
+     "unit": "c. à c.",
+     "name": "harissa",
+     "note": "",
+     "group": ""
+    },
+    {
+     "amount": "80",
+     "unit": "g",
+     "name": "frik",
+     "note": "",
+     "group": ""
+    },
+    {
+     "amount": "1200",
+     "unit": "ml",
+     "name": "eau",
+     "note": "",
+     "group": ""
+    },
+    {
+     "amount": "1",
+     "unit": "botte",
+     "name": "persil",
+     "note": "",
+     "group": ""
+    },
+    {
+     "amount": "",
+     "unit": "",
+     "name": "sel, poivre",
+     "note": "",
+     "group": ""
+    }
+   ],
+   "steps": [
+    {
+     "text": "Mettre persil dans le bol sec, mixer {S} et réserver.",
+     "setting": {
+      "time_s": 3,
+      "temperature": null,
+      "speed": "7",
+      "reverse": false,
+      "mode": null,
+      "accessory": null,
+      "browning_power": null
+     },
+     "off_machine": false
+    },
+    {
+     "text": "Mettre oignon et ail dans le bol, mixer {S} et racler les parois avec la spatule.",
+     "setting": {
+      "time_s": 5,
+      "temperature": null,
+      "speed": "5",
+      "reverse": false,
+      "mode": null,
+      "accessory": null,
+      "browning_power": null
+     },
+     "off_machine": false
+    },
+    {
+     "text": "Ajouter huile d'olive et faire revenir {S}.",
+     "setting": {
+      "time_s": 180,
+      "temperature": 120,
+      "speed": "1",
+      "reverse": false,
+      "mode": null,
+      "accessory": null,
+      "browning_power": null
+     },
+     "off_machine": false
+    },
+    {
+     "text": "Ajouter agneau en petits dés et faire dorer {S}.",
+     "setting": {
+      "time_s": 300,
+      "temperature": 120,
+      "speed": "soft",
+      "reverse": true,
+      "mode": null,
+      "accessory": null,
+      "browning_power": null
+     },
+     "off_machine": false
+    },
+    {
+     "text": "Ajouter concentré de tomate, harissa et eau et cuire {S}.",
+     "setting": {
+      "time_s": 2700,
+      "temperature": 100,
+      "speed": "soft",
+      "reverse": true,
+      "mode": null,
+      "accessory": null,
+      "browning_power": null
+     },
+     "off_machine": false
+    },
+    {
+     "text": "Ajouter frik et cuire {S}.",
+     "setting": {
+      "time_s": 1500,
+      "temperature": 100,
+      "speed": "soft",
+      "reverse": true,
+      "mode": null,
+      "accessory": null,
+      "browning_power": null
+     },
+     "off_machine": false
+    },
+    {
+     "text": "Au moment de servir, parsemer de persil.",
+     "setting": null,
+     "off_machine": true
+    }
+   ],
+   "first_warning": "Converti automatiquement par règles (sans IA) – vérifier les réglages avant de cuisiner.",
+   "rule_warnings": []
+  },
+  {
+   "title": "Couscous au poulet",
+   "language": "fr",
+   "servings": 6,
+   "prep_time_min": 20,
+   "total_time_min": 98,
+   "category": "Plat principal",
+   "ingredients": [
+    {
+     "amount": "800",
+     "unit": "g",
+     "name": "poulet",
+     "note": "",
+     "group": "Pour la sauce"
+    },
+    {
+     "amount": "1",
+     "unit": "",
+     "name": "oignon",
+     "note": "",
+     "group": "Pour la sauce"
+    },
+    {
+     "amount": "3",
+     "unit": "c. à s.",
+     "name": "huile d'olive",
+     "note": "",
+     "group": "Pour la sauce"
+    },
+    {
+     "amount": "2",
+     "unit": "c. à s.",
+     "name": "concentré de tomate",
+     "note": "",
+     "group": "Pour la sauce"
+    },
+    {
+     "amount": "1500",
+     "unit": "ml",
+     "name": "eau",
+     "note": "",
+     "group": "Pour la sauce"
+    },
+    {
+     "amount": "500",
+     "unit": "g",
+     "name": "couscous moyen",
+     "note": "",
+     "group": "Pour le couscous"
+    },
+    {
+     "amount": "30",
+     "unit": "g",
+     "name": "beurre",
+     "note": "",
+     "group": "Pour le couscous"
+    },
+    {
+     "amount": "2",
+     "unit": "",
+     "name": "carottes",
+     "note": "",
+     "group": "Pour le couscous"
+    },
+    {
+     "amount": "2",
+     "unit": "",
+     "name": "courgettes",
+     "note": "",
+     "group": "Pour le couscous"
+    }
+   ],
+   "steps": [
+    {
+     "text": "Mettre oignon dans le bol, mixer {S} et racler les parois avec la spatule.",
+     "setting": {
+      "time_s": 5,
+      "temperature": null,
+      "speed": "5",
+      "reverse": false,
+      "mode": null,
+      "accessory": null,
+      "browning_power": null
+     },
+     "off_machine": false
+    },
+    {
+     "text": "Ajouter huile d'olive et faire revenir {S}.",
+     "setting": {
+      "time_s": 180,
+      "temperature": 120,
+      "speed": "1",
+      "reverse": false,
+      "mode": null,
+      "accessory": null,
+      "browning_power": null
+     },
+     "off_machine": false
+    },
+    {
+     "text": "Ajouter poulet, concentré de tomate et eau et cuire {S}.",
+     "setting": {
+      "time_s": 2400,
+      "temperature": 100,
+      "speed": "soft",
+      "reverse": true,
+      "mode": null,
+      "accessory": null,
+      "browning_power": null
+     },
+     "off_machine": false
+    },
+    {
+     "text": "Mettre carottes et courgettes dans le Varoma, le mettre en place et cuire {S}.",
+     "setting": {
+      "time_s": 1500,
+      "temperature": "varoma",
+      "speed": "soft",
+      "reverse": true,
+      "mode": null,
+      "accessory": null,
+      "browning_power": null
+     },
+     "off_machine": false
+    },
+    {
+     "text": "Mettre couscous moyen dans le Varoma, le mettre en place et cuire {S}.",
+     "setting": {
+      "time_s": 900,
+      "temperature": "varoma",
+      "speed": "soft",
+      "reverse": true,
+      "mode": null,
+      "accessory": null,
+      "browning_power": null
+     },
+     "off_machine": false
+    },
+    {
+     "text": "Ajouter beurre.",
+     "setting": null,
+     "off_machine": false
+    }
+   ],
+   "first_warning": "Converti automatiquement par règles (sans IA) – vérifier les réglages avant de cuisiner.",
+   "rule_warnings": []
+  },
+  {
+   "title": "Makroudh",
+   "language": "fr",
+   "servings": 30,
+   "prep_time_min": 20,
+   "total_time_min": 56,
+   "category": "Dessert",
+   "ingredients": [
+    {
+     "amount": "500",
+     "unit": "g",
+     "name": "semoule moyenne",
+     "note": "",
+     "group": ""
+    },
+    {
+     "amount": "125",
+     "unit": "ml",
+     "name": "huile",
+     "note": "",
+     "group": ""
+    },
+    {
+     "amount": "150",
+     "unit": "ml",
+     "name": "eau tiède",
+     "note": "",
+     "group": ""
+    },
+    {
+     "amount": "300",
+     "unit": "g",
+     "name": "pâte de dattes",
+     "note": "",
+     "group": ""
+    },
+    {
+     "amount": "300",
+     "unit": "g",
+     "name": "sucre",
+     "note": "",
+     "group": ""
+    },
+    {
+     "amount": "150",
+     "unit": "ml",
+     "name": "eau",
+     "note": "",
+     "group": ""
+    },
+    {
+     "amount": "1",
+     "unit": "c. à s.",
+     "name": "jus de citron",
+     "note": "",
+     "group": ""
+    }
+   ],
+   "steps": [
+    {
+     "text": "Mettre sucre, eau et jus de citron dans le bol et cuire {S}, sans le gobelet doseur.",
+     "setting": {
+      "time_s": 600,
+      "temperature": "varoma",
+      "speed": "1",
+      "reverse": false,
+      "mode": null,
+      "accessory": null,
+      "browning_power": null
+     },
+     "off_machine": false
+    },
+    {
+     "text": "Ajouter semoule moyenne et huile et mélanger {S}.",
+     "setting": {
+      "time_s": 20,
+      "temperature": null,
+      "speed": "3",
+      "reverse": false,
+      "mode": null,
+      "accessory": null,
+      "browning_power": null
+     },
+     "off_machine": false
+    },
+    {
+     "text": "Laisser reposer 30 minutes.",
+     "setting": null,
+     "off_machine": true
+    },
+    {
+     "text": "Ajouter eau tiède et pétrir {S}.",
+     "setting": {
+      "time_s": 60,
+      "temperature": null,
+      "speed": null,
+      "reverse": false,
+      "mode": "dough",
+      "accessory": null,
+      "browning_power": null
+     },
+     "off_machine": false
+    },
+    {
+     "text": "Façonner des boudins, farcir de pâte de dattes et couper en losanges.",
+     "setting": null,
+     "off_machine": true
+    },
+    {
+     "text": "Frire dans l'huile chaude jusqu'à ce qu'ils soient dorés.",
+     "setting": null,
+     "off_machine": true
+    },
+    {
+     "text": "Tremper dans le sirop.",
+     "setting": null,
+     "off_machine": true
+    }
+   ],
+   "first_warning": "Converti automatiquement par règles (sans IA) – vérifier les réglages avant de cuisiner.",
+   "rule_warnings": []
+  },
+  {
+   "title": "Schlagsahne mit Erdbeeren",
+   "language": "de",
+   "servings": 4,
+   "prep_time_min": 20,
+   "total_time_min": 22,
+   "category": "Hauptgericht",
+   "ingredients": [
+    {
+     "amount": "400",
+     "unit": "g",
+     "name": "Sahne",
+     "note": "",
+     "group": ""
+    },
+    {
+     "amount": "1",
+     "unit": "Pck.",
+     "name": "Vanillezucker",
+     "note": "",
+     "group": ""
+    },
+    {
+     "amount": "500",
+     "unit": "g",
+     "name": "Erdbeeren",
+     "note": "",
+     "group": ""
+    },
+    {
+     "amount": "50",
+     "unit": "g",
+     "name": "Zartbitterschokolade",
+     "note": "",
+     "group": ""
+    }
+   ],
+   "steps": [
+    {
+     "text": "Rühraufsatz einsetzen, Sahne und Vanillezucker in den Mixtopf geben und {S} aufschlagen. Rühraufsatz entfernen.",
+     "setting": {
+      "time_s": 240,
+      "temperature": null,
+      "speed": "3.5",
+      "reverse": false,
+      "mode": null,
+      "accessory": null,
+      "browning_power": null
+     },
+     "off_machine": false
+    },
+    {
+     "text": "Zartbitterschokolade in den Mixtopf geben und {S} schmelzen.",
+     "setting": {
+      "time_s": 180,
+      "temperature": 50,
+      "speed": "2",
+      "reverse": false,
+      "mode": null,
+      "accessory": null,
+      "browning_power": null
+     },
+     "off_machine": false
+    },
+    {
+     "text": "Erdbeeren waschen und halbieren.",
+     "setting": null,
+     "off_machine": true
+    }
+   ],
+   "first_warning": "Automatisch mit Regeln umgewandelt (ohne KI) – Einstellungen vor dem Kochen prüfen.",
+   "rule_warnings": []
+  },
+  {
+   "title": "Pizzateig",
+   "language": "de",
+   "servings": 2,
+   "prep_time_min": 20,
+   "total_time_min": 79,
+   "category": "Hauptgericht",
+   "ingredients": [
+    {
+     "amount": "300",
+     "unit": "g",
+     "name": "Mehl",
+     "note": "",
+     "group": ""
+    },
+    {
+     "amount": "200",
+     "unit": "ml",
+     "name": "Wasser",
+     "note": "",
+     "group": ""
+    },
+    {
+     "amount": "1",
+     "unit": "TL",
+     "name": "Salz",
+     "note": "",
+     "group": ""
+    },
+    {
+     "amount": "2",
+     "unit": "EL",
+     "name": "Olivenöl",
+     "note": "",
+     "group": ""
+    },
+    {
+     "amount": "1/2",
+     "unit": "Würfel",
+     "name": "Hefe",
+     "note": "",
+     "group": ""
+    }
+   ],
+   "steps": [
+    {
+     "text": "Wasser und Hefe zugeben und {S} erhitzen.",
+     "setting": {
+      "time_s": 120,
+      "temperature": 37,
+      "speed": "2",
+      "reverse": false,
+      "mode": null,
+      "accessory": null,
+      "browning_power": null
+     },
+     "off_machine": false
+    },
+    {
+     "text": "Mehl, Salz und Olivenöl zugeben und {S} zu einem Teig verarbeiten.",
+     "setting": {
+      "time_s": 120,
+      "temperature": null,
+      "speed": null,
+      "reverse": false,
+      "mode": "dough",
+      "accessory": null,
+      "browning_power": null
+     },
+     "off_machine": false
+    },
+    {
+     "text": "Teig 1 Stunde ruhen lassen.",
+     "setting": null,
+     "off_machine": true
+    }
+   ],
+   "first_warning": "Automatisch mit Regeln umgewandelt (ohne KI) – Einstellungen vor dem Kochen prüfen.",
+   "rule_warnings": []
+  },
+  {
+   "title": "Mloukhia",
+   "language": "de",
+   "servings": 4,
+   "prep_time_min": 20,
+   "total_time_min": 195,
+   "category": "Hauptgericht",
+   "ingredients": [
+    {
+     "amount": "400",
+     "unit": "g",
+     "name": "Rindfleisch",
+     "note": "",
+     "group": ""
+    },
+    {
+     "amount": "2500",
+     "unit": "ml",
+     "name": "Wasser",
+     "note": "",
+     "group": ""
+    },
+    {
+     "amount": "50",
+     "unit": "g",
+     "name": "Mloukhia-Pulver",
+     "note": "",
+     "group": ""
+    },
+    {
+     "amount": "120",
+     "unit": "g",
+     "name": "Olivenöl",
+     "note": "",
+     "group": ""
+    }
+   ],
+   "steps": [
+    {
+     "text": "Rindfleisch und Wasser zugeben und {S} garen.",
+     "setting": {
+      "time_s": 5940,
+      "temperature": 100,
+      "speed": "soft",
+      "reverse": true,
+      "mode": null,
+      "accessory": null,
+      "browning_power": null
+     },
+     "off_machine": false
+    },
+    {
+     "text": "Weitergaren {S}.",
+     "setting": {
+      "time_s": 4860,
+      "temperature": 100,
+      "speed": "soft",
+      "reverse": true,
+      "mode": null,
+      "accessory": null,
+      "browning_power": null
+     },
+     "off_machine": false
+    }
+   ],
+   "first_warning": "Automatisch mit Regeln umgewandelt (ohne KI) – Einstellungen vor dem Kochen prüfen.",
+   "rule_warnings": []
+  },
+  {
+   "title": "Tomato soup",
+   "language": "en",
+   "servings": 4,
+   "prep_time_min": 20,
+   "total_time_min": 45,
+   "category": "Soup",
+   "ingredients": [
+    {
+     "amount": "1",
+     "unit": "",
+     "name": "onion",
+     "note": "",
+     "group": ""
+    },
+    {
+     "amount": "2",
+     "unit": "tbsp",
+     "name": "olive oil",
+     "note": "",
+     "group": ""
+    },
+    {
+     "amount": "800",
+     "unit": "g",
+     "name": "tomatoes",
+     "note": "",
+     "group": ""
+    },
+    {
+     "amount": "500",
+     "unit": "ml",
+     "name": "vegetable stock",
+     "note": "",
+     "group": ""
+    },
+    {
+     "amount": "",
+     "unit": "",
+     "name": "fresh basil",
+     "note": "",
+     "group": ""
+    }
+   ],
+   "steps": [
+    {
+     "text": "Place onion in the mixing bowl, chop {S} and scrape down with the spatula.",
+     "setting": {
+      "time_s": 5,
+      "temperature": null,
+      "speed": "5",
+      "reverse": false,
+      "mode": null,
+      "accessory": null,
+      "browning_power": null
+     },
+     "off_machine": false
+    },
+    {
+     "text": "Add olive oil and sauté {S}.",
+     "setting": {
+      "time_s": 180,
+      "temperature": 120,
+      "speed": "1",
+      "reverse": false,
+      "mode": null,
+      "accessory": null,
+      "browning_power": null
+     },
+     "off_machine": false
+    },
+    {
+     "text": "Add tomatoes and vegetable stock and bring to the boil {S}.",
+     "setting": {
+      "time_s": 360,
+      "temperature": 100,
+      "speed": "1",
+      "reverse": false,
+      "mode": null,
+      "accessory": null,
+      "browning_power": null
+     },
+     "off_machine": false
+    },
+    {
+     "text": "Cook {S}.",
+     "setting": {
+      "time_s": 1200,
+      "temperature": 98,
+      "speed": "1",
+      "reverse": false,
+      "mode": null,
+      "accessory": null,
+      "browning_power": null
+     },
+     "off_machine": false
+    },
+    {
+     "text": "Blend {S}, increasing gradually from speed 5 to 10.",
+     "setting": {
+      "time_s": 60,
+      "temperature": null,
+      "speed": "10",
+      "reverse": false,
+      "mode": null,
+      "accessory": null,
+      "browning_power": null
+     },
+     "off_machine": false
+    },
+    {
+     "text": "Season to taste.",
+     "setting": null,
+     "off_machine": false
+    },
+    {
+     "text": "To serve, sprinkle with fresh basil.",
+     "setting": null,
+     "off_machine": true
+    }
+   ],
+   "first_warning": "Converted automatically with rules (no AI) – check the settings before cooking.",
+   "rule_warnings": []
+  },
+  {
+   "title": "سلطة مشوية",
+   "language": "ar",
+   "servings": 4,
+   "prep_time_min": 20,
+   "total_time_min": 20,
+   "category": "Entrée",
+   "ingredients": [
+    {
+     "amount": "4",
+     "unit": "",
+     "name": "فلفل أخضر",
+     "note": "",
+     "group": ""
+    },
+    {
+     "amount": "3",
+     "unit": "",
+     "name": "طماطم",
+     "note": "",
+     "group": ""
+    },
+    {
+     "amount": "2",
+     "unit": "",
+     "name": "فصوص ثوم",
+     "note": "",
+     "group": ""
+    },
+    {
+     "amount": "",
+     "unit": "",
+     "name": "زيت زيتون",
+     "note": "",
+     "group": ""
+    }
+   ],
+   "steps": [
+    {
+     "text": "اشوي الفلفل والطماطم في الفرن.",
+     "setting": null,
+     "off_machine": true
+    },
+    {
+     "text": "قطع الثوم {S}",
+     "setting": {
+      "time_s": 5,
+      "temperature": null,
+      "speed": "5",
+      "reverse": false,
+      "mode": null,
+      "accessory": null,
+      "browning_power": null
+     },
+     "off_machine": false
+    },
+    {
+     "text": "اخلط الكل مع زيت الزيتون {S}",
+     "setting": {
+      "time_s": 20,
+      "temperature": null,
+      "speed": "3",
+      "reverse": false,
+      "mode": null,
+      "accessory": null,
+      "browning_power": null
+     },
+     "off_machine": false
+    }
+   ],
+   "first_warning": "Converti automatiquement par règles (sans IA) – vérifier les réglages avant de cuisiner.",
+   "rule_warnings": []
+  }
+ ],
+ "texts": [
+  {
+   "data": {
+    "title": "Linsensuppe",
+    "ingredients": [
+     "1 Zwiebel",
+     "2 Knoblauchzehen",
+     "2 EL Olivenöl",
+     "250 g rote Linsen",
+     "1 l Gemüsebrühe",
+     "1 TL Kreuzkümmel",
+     "½ Bund Petersilie"
+    ],
+    "instructions": [
+     "Zwiebel und Knoblauch fein hacken und im Olivenöl andünsten.",
+     "Linsen, Kreuzkümmel und Brühe dazugeben und 20 Minuten köcheln lassen.",
+     "Die Suppe fein pürieren.",
+     "Petersilie hacken und darüber streuen."
+    ],
+    "yields": "4",
+    "description": ""
+   },
+   "recipe": {
+    "title": "Linsensuppe",
+    "language": "de",
+    "servings": 4,
+    "prep_time_min": 20,
+    "total_time_min": 39,
+    "category": "Suppe",
+    "ingredients": [
+     {
+      "amount": "1",
+      "unit": "",
+      "name": "Zwiebel",
+      "note": "",
+      "group": ""
+     },
+     {
+      "amount": "2",
+      "unit": "",
+      "name": "Knoblauchzehen",
+      "note": "",
+      "group": ""
+     },
+     {
+      "amount": "2",
+      "unit": "EL",
+      "name": "Olivenöl",
+      "note": "",
+      "group": ""
+     },
+     {
+      "amount": "250",
+      "unit": "g",
+      "name": "rote Linsen",
+      "note": "",
+      "group": ""
+     },
+     {
+      "amount": "1000",
+      "unit": "ml",
+      "name": "Gemüsebrühe",
+      "note": "",
+      "group": ""
+     },
+     {
+      "amount": "1",
+      "unit": "TL",
+      "name": "Kreuzkümmel",
+      "note": "",
+      "group": ""
+     },
+     {
+      "amount": "½",
+      "unit": "Bund",
+      "name": "Petersilie",
+      "note": "",
+      "group": ""
+     }
+    ],
+    "steps": [
+     {
+      "text": "Petersilie in den trockenen Mixtopf geben, {S} zerkleinern und umfüllen.",
+      "setting": {
+       "time_s": 3,
+       "temperature": null,
+       "speed": "7",
+       "reverse": false,
+       "mode": null,
+       "accessory": null,
+       "browning_power": null
+      },
+      "off_machine": false
+     },
+     {
+      "text": "Zwiebel und Knoblauchzehen in den Mixtopf geben, {S} zerkleinern und mit dem Spatel nach unten schieben.",
+      "setting": {
+       "time_s": 5,
+       "temperature": null,
+       "speed": "5",
+       "reverse": false,
+       "mode": null,
+       "accessory": null,
+       "browning_power": null
+      },
+      "off_machine": false
+     },
+     {
+      "text": "Olivenöl zugeben und {S} dünsten.",
+      "setting": {
+       "time_s": 180,
+       "temperature": 120,
+       "speed": "1",
+       "reverse": false,
+       "mode": null,
+       "accessory": null,
+       "browning_power": null
+      },
+      "off_machine": false
+     },
+     {
+      "text": "Rote Linsen, Gemüsebrühe und Kreuzkümmel zugeben und {S} garen.",
+      "setting": {
+       "time_s": 1200,
+       "temperature": 100,
+       "speed": "soft",
+       "reverse": true,
+       "mode": null,
+       "accessory": null,
+       "browning_power": null
+      },
+      "off_machine": false
+     },
+     {
+      "text": "{S} pürieren, dabei die Stufe langsam von 5 auf 10 erhöhen.",
+      "setting": {
+       "time_s": 60,
+       "temperature": null,
+       "speed": "10",
+       "reverse": false,
+       "mode": null,
+       "accessory": null,
+       "browning_power": null
+      },
+      "off_machine": false
+     },
+     {
+      "text": "Zum Servieren mit Petersilie bestreuen.",
+      "setting": null,
+      "off_machine": true
+     }
+    ],
+    "first_warning": "Automatisch mit Regeln umgewandelt (ohne KI) – Einstellungen vor dem Kochen prüfen.",
+    "rule_warnings": []
+   }
+  },
+  {
+   "data": {
+    "title": "Banana Bread",
+    "ingredients": [
+     "3 ripe bananas",
+     "2 cups flour",
+     "1/2 cup sugar",
+     "1 egg"
+    ],
+    "instructions": [
+     "Mash the bananas and mix with sugar and egg.",
+     "Fold in the flour.",
+     "Bake for 60 minutes at 175 C."
+    ],
+    "yields": "8",
+    "description": ""
+   },
+   "recipe": {
+    "title": "Banana Bread",
+    "language": "en",
+    "servings": 8,
+    "prep_time_min": 20,
+    "total_time_min": 75,
+    "category": "Bread",
+    "ingredients": [
+     {
+      "amount": "3",
+      "unit": "",
+      "name": "ripe bananas",
+      "note": "",
+      "group": ""
+     },
+     {
+      "amount": "240",
+      "unit": "g",
+      "name": "flour",
+      "note": "",
+      "group": ""
+     },
+     {
+      "amount": "100",
+      "unit": "g",
+      "name": "sugar",
+      "note": "",
+      "group": ""
+     },
+     {
+      "amount": "1",
+      "unit": "",
+      "name": "egg",
+      "note": "",
+      "group": ""
+     }
+    ],
+    "steps": [
+     {
+      "text": "Place ripe bananas, sugar and egg in the mixing bowl and mash {S}.",
+      "setting": {
+       "time_s": 10,
+       "temperature": null,
+       "speed": "4",
+       "reverse": false,
+       "mode": null,
+       "accessory": null,
+       "browning_power": null
+      },
+      "off_machine": false
+     },
+     {
+      "text": "Add flour and fold in {S}.",
+      "setting": {
+       "time_s": 15,
+       "temperature": null,
+       "speed": "2",
+       "reverse": true,
+       "mode": null,
+       "accessory": null,
+       "browning_power": null
+      },
+      "off_machine": false
+     },
+     {
+      "text": "Bake for 60 minutes at 175 C.",
+      "setting": null,
+      "off_machine": true
+     }
+    ],
+    "first_warning": "Converted automatically with rules (no AI) – check the settings before cooking.",
+    "rule_warnings": []
+   }
+  },
+  {
+   "data": {
+    "title": "Lablabi tunisien",
+    "ingredients": [
+     "250 g de pois chiches trempés",
+     "5 gousses d'ail",
+     "1 c. à café de cumin",
+     "1,2 l d'eau",
+     "1 c. à soupe de harissa"
+    ],
+    "instructions": [
+     "Écraser l'ail.",
+     "Ajouter les pois chiches et l'eau et cuire 60 minutes.",
+     "Ajouter la harissa et servir sur du pain rassis."
+    ],
+    "yields": "4",
+    "description": ""
+   },
+   "recipe": {
+    "title": "Lablabi tunisien",
+    "language": "fr",
+    "servings": 4,
+    "prep_time_min": 20,
+    "total_time_min": 75,
+    "category": "Soupe",
+    "ingredients": [
+     {
+      "amount": "250",
+      "unit": "g",
+      "name": "pois chiches trempés",
+      "note": "",
+      "group": ""
+     },
+     {
+      "amount": "5",
+      "unit": "gousse(s)",
+      "name": "ail",
+      "note": "",
+      "group": ""
+     },
+     {
+      "amount": "1",
+      "unit": "c. à c.",
+      "name": "cumin",
+      "note": "",
+      "group": ""
+     },
+     {
+      "amount": "1200",
+      "unit": "ml",
+      "name": "eau",
+      "note": "",
+      "group": ""
+     },
+     {
+      "amount": "1",
+      "unit": "c. à s.",
+      "name": "harissa",
+      "note": "",
+      "group": ""
+     }
+    ],
+    "steps": [
+     {
+      "text": "Mettre ail dans le bol et écraser {S}.",
+      "setting": {
+       "time_s": 10,
+       "temperature": null,
+       "speed": "4",
+       "reverse": false,
+       "mode": null,
+       "accessory": null,
+       "browning_power": null
+      },
+      "off_machine": false
+     },
+     {
+      "text": "Ajouter pois chiches trempés et eau et cuire {S}.",
+      "setting": {
+       "time_s": 3600,
+       "temperature": 100,
+       "speed": "soft",
+       "reverse": true,
+       "mode": null,
+       "accessory": null,
+       "browning_power": null
+      },
+      "off_machine": false
+     },
+     {
+      "text": "Ajouter la harissa et servir sur du pain rassis.",
+      "setting": null,
+      "off_machine": true
+     }
+    ],
+    "first_warning": "Converti automatiquement par règles (sans IA) – vérifier les réglages avant de cuisiner.",
+    "rule_warnings": []
+   }
+  },
+  {
+   "data": {
+    "title": "Hummus",
+    "ingredients": [
+     "400 g Kichererbsen",
+     "3 EL Tahin",
+     "1 Knoblauchzehe",
+     "Saft einer Zitrone"
+    ],
+    "instructions": [
+     "Alles zusammen fein pürieren und mit Salz abschmecken. Mit Olivenöl servieren."
+    ],
+    "yields": "",
+    "description": ""
+   },
+   "recipe": {
+    "title": "Hummus",
+    "language": "de",
+    "servings": 4,
+    "prep_time_min": 20,
+    "total_time_min": 20,
+    "category": "Hauptgericht",
+    "ingredients": [
+     {
+      "amount": "400",
+      "unit": "g",
+      "name": "Kichererbsen",
+      "note": "",
+      "group": ""
+     },
+     {
+      "amount": "3",
+      "unit": "EL",
+      "name": "Tahin",
+      "note": "",
+      "group": ""
+     },
+     {
+      "amount": "1",
+      "unit": "",
+      "name": "Knoblauchzehe",
+      "note": "",
+      "group": ""
+     },
+     {
+      "amount": "",
+      "unit": "",
+      "name": "Saft einer Zitrone",
+      "note": "",
+      "group": ""
+     }
+    ],
+    "steps": [
+     {
+      "text": "{S} pürieren, dabei die Stufe langsam von 5 auf 10 erhöhen.",
+      "setting": {
+       "time_s": 60,
+       "temperature": null,
+       "speed": "10",
+       "reverse": false,
+       "mode": null,
+       "accessory": null,
+       "browning_power": null
+      },
+      "off_machine": false
+     },
+     {
+      "text": "Abschmecken.",
+      "setting": null,
+      "off_machine": false
+     },
+     {
+      "text": "Mit Olivenöl servieren.",
+      "setting": null,
+      "off_machine": true
+     }
+    ],
+    "first_warning": "Automatisch mit Regeln umgewandelt (ohne KI) – Einstellungen vor dem Kochen prüfen.",
+    "rule_warnings": []
+   }
+  }
+ ]
+}

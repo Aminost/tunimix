@@ -76,15 +76,16 @@ UNIT_ALIASES = {
     "tranche": ("slice", 1), "tranches": ("slice", 1),
     "handvoll": ("handful", 1), "handful": ("handful", 1), "poignee": ("handful", 1),
     "stuck": ("piece", 1), "stk": ("piece", 1), "piece": ("piece", 1), "pieces": ("piece", 1),
+    "wurfel": ("cube", 1), "cube": ("cube", 1), "cubes": ("cube", 1),
 }
 UNIT_NAMES = {
     "de": {"g": "g", "ml": "ml", "tbsp": "EL", "tsp": "TL", "pinch": "Prise", "knifetip": "Msp.", "bunch": "Bund",
-           "clove": "Zehe(n)", "can": "Dose", "pack": "Pck.", "slice": "Scheibe(n)", "handful": "Handvoll", "piece": "Stück"},
+           "clove": "Zehe(n)", "can": "Dose", "pack": "Pck.", "slice": "Scheibe(n)", "handful": "Handvoll", "piece": "Stück", "cube": "Würfel"},
     "fr": {"g": "g", "ml": "ml", "tbsp": "c. à s.", "tsp": "c. à c.", "pinch": "pincée", "knifetip": "pointe de couteau",
            "bunch": "botte", "clove": "gousse(s)", "can": "boîte", "pack": "sachet", "slice": "tranche(s)",
-           "handful": "poignée", "piece": "pièce(s)"},
+           "handful": "poignée", "piece": "pièce(s)", "cube": "cube"},
     "en": {"g": "g", "ml": "ml", "tbsp": "tbsp", "tsp": "tsp", "pinch": "pinch", "knifetip": "knife tip", "bunch": "bunch",
-           "clove": "clove(s)", "can": "can", "pack": "packet", "slice": "slice(s)", "handful": "handful", "piece": "piece(s)"},
+           "clove": "clove(s)", "can": "can", "pack": "packet", "slice": "slice(s)", "handful": "handful", "piece": "piece(s)", "cube": "cube"},
 }
 UNIT_NAMES["ar"] = UNIT_NAMES["fr"]
 # grams per cup for dry goods (Thermomix weighs) - folded keyword -> g/cup

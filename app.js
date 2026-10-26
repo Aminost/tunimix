@@ -1,6 +1,8 @@
 import { cookidooPayload, freePrompt, ingredientLine, lx, parseAiJson, servingsLabel, slugify,
   stepText, toCopyPaste, toMarkdown, validateAndFix } from "./core.js";
 import { PROVIDERS, convert, isReady, listModels, testConfig } from "./ai.js";
+import { convertStructured, findRecipeNode, fromHtml, fromJsonLd, structureText } from "./rules.js";
+import { readFile } from "./docs.js";
 import { COUNTRIES, UI } from "./i18n.js";
 
 // ---------- storage (everything stays in this browser) ----------
@@ -168,6 +170,64 @@ $("#btnConvert").addEventListener("click", async () => {
   finally { btn.disabled = false; btn.innerHTML = `<span>${esc(t("convert"))}</span>`; $("#status").textContent = ""; }
 });
 
+// ---------- conversion WITHOUT AI (rules.js + docs.js) ----------
+async function thumb(src, max = 900) {
+  if (!src || !src.startsWith("data:")) return src || "";
+  return new Promise((ok) => {
+    const img = new Image();
+    img.onload = () => {
+      const k = Math.min(1, max / Math.max(img.width, img.height));
+      const c = document.createElement("canvas"); c.width = Math.round(img.width * k); c.height = Math.round(img.height * k);
+      c.getContext("2d").drawImage(img, 0, 0, c.width, c.height);
+      ok(c.toDataURL("image/jpeg", 0.8));
+    };
+    img.onerror = () => ok("");
+    img.src = src;
+  });
+}
+async function rulesData(value, status) {
+  if (files.length) {
+    status(t("reading_file"));
+    let text = "", title = "", image = "";
+    for (const f of files) {
+      const r = await readFile(f, { uiLang: lang, onStatus: (k, p) => status(t(k, p)) });
+      text += r.text + "\n"; title ||= r.title || ""; image ||= r.images?.[0] || "";
+    }
+    return { ...structureText(text, title), image: await thumb(image) };
+  }
+  if (lastCapture && value.startsWith(`SOURCE: ${lastCapture.url}`)) {
+    if (lastCapture.data) return { ...lastCapture.data, image: lastCapture.data.image || lastCapture.image };
+    return { ...structureText(value.split("\n").slice(1).join("\n")), url: lastCapture.url, image: lastCapture.image };
+  }
+  const kind = classify(value);
+  if (kind.url) {
+    if (aiStore().useReader === false) throw new Error(t("err_rules_link"));
+    status(t("reading"));
+    const res = await fetch("https://r.jina.ai/" + kind.url, { headers: { "X-Return-Format": "html" } }).catch(() => null);
+    if (!res || !res.ok) throw new Error(t("err_link_unreadable"));
+    return fromHtml(await res.text(), kind.url);
+  }
+  if (kind.dish) throw new Error(t("err_rules_dish"));
+  return structureText(value);
+}
+$("#btnRules").addEventListener("click", async () => {
+  const value = $("#src").value.trim();
+  if (!value && !files.length) return showErr(t("need_input"));
+  showErr("");
+  const btn = $("#btnRules"); btn.disabled = true;
+  const status = (m) => { $("#status").textContent = m; };
+  btn.innerHTML = `<span class="spin"></span> ${esc(t("converting"))}`;
+  try {
+    const data = await rulesData(value, status);
+    if (!data.ingredients?.length || !data.instructions?.length) throw new Error(t("err_rules_empty"));
+    const o = opts();
+    const r = convertStructured(data, { machine: o.machine, servings: o.servings });  // no translation without AI: keeps the source language
+    r.image_url = data.image || "";
+    saveMine(r); openRecipe(r, "mine");
+  } catch (err) { showErr(err.message); }
+  finally { btn.disabled = false; btn.innerHTML = `<span>${esc(t("convert_rules"))}</span>`; status(""); }
+});
+
 $("#btnCopyPrompt").addEventListener("click", async () => {
   const value = $("#src").value.trim();
   if (!value && !files.length) return showErr(t("need_input"));
@@ -206,7 +266,13 @@ window.addEventListener("message", (ev) => {
   capture._got = d.url;
   capture(d);
 });
+let lastCapture = null;   // {url, data} from the TuniMix button (schema.org data or page text)
 function capture(d) {
+  lastCapture = { url: d.url, image: d.image || "" };
+  try {
+    const node = d.jsonld ? findRecipeNode(JSON.parse(d.jsonld)) : null;
+    lastCapture.data = node ? fromJsonLd(node, d.url) : null;
+  } catch { lastCapture.data = null; }
   let text = "";
   if (d.jsonld) { try { text = jsonldToText(JSON.parse(d.jsonld)); } catch { text = d.jsonld; } }
   else text = [d.title, d.description, String(d.text || "").slice(0, 30000)].filter(Boolean).join("\n\n");
@@ -229,7 +295,12 @@ function mine() { return store.get("mine", []); }
 function saveMine(r) {
   r.id = r.id || `${slugify(r.title)}-${Date.now().toString(36)}`;
   const list = mine().filter((x) => x.id !== r.id);
-  list.unshift(r); store.set("mine", list);
+  list.unshift(r);
+  try { localStorage.setItem("tunimix.mine", JSON.stringify(list)); }
+  catch {  // storage full: keep photos only for the newest recipes
+    list.forEach((x, i) => { if (i > 5 && String(x.image_url).startsWith("data:")) x.image_url = ""; });
+    store.set("mine", list);
+  }
 }
 
 // ---------- recipe view ----------
@@ -258,6 +329,7 @@ function renderRecipe() {
   ing += "</ul>";
   const isMine = currentSource === "mine";
   $("#recipeView").innerHTML = `
+    ${/^(https:|data:image\/)/.test(r.image_url || "") ? `<img src="${esc(r.image_url)}" alt="" style="width:100%;max-height:320px;object-fit:cover;border-radius:12px;margin-bottom:12px" referrerpolicy="no-referrer" onerror="this.remove()">` : ""}
     ${r.category ? `<div class="eyebrow">${esc(r.category)}</div>` : ""}
     <h2>${esc(r.title)}</h2>
     ${r.original_title ? `<div class="muted">${esc(r.original_title)}</div>` : ""}

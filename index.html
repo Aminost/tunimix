@@ -143,7 +143,7 @@ code{font:13px ui-monospace,SFMono-Regular,Menlo,monospace;background:var(--pape
           <textarea id="src" data-iph="input_ph"></textarea>
         </div>
         <div class="btns">
-          <span class="btn filebtn"><span data-i="files"></span><input id="files" type="file" accept="image/*,.pdf" multiple aria-label="files"></span>
+          <span class="btn filebtn"><span data-i="files"></span><input id="files" type="file" accept="image/*,.pdf,.docx,.txt,.md" multiple aria-label="files"></span>
           <span id="filesN" class="muted small" style="align-self:center"></span>
         </div>
         <details>
@@ -156,9 +156,16 @@ code{font:13px ui-monospace,SFMono-Regular,Menlo,monospace;background:var(--pape
           <div style="margin-top:10px"><label class="l" for="optWish" data-i="wishes"></label><input id="optWish" data-iph="wishes_ph"></div>
         </details>
         <div id="convertErr" class="err" hidden></div>
+        <div class="btns">
+          <button class="btn p" id="btnRules"><span data-i="convert_rules"></span></button>
+          <span id="status" class="muted small" style="align-self:center" role="status"></span>
+        </div>
+        <p class="muted small" data-i="rules_note" style="margin:0"></p>
+        <details id="aiWays">
+          <summary data-i="ai_ways"></summary>
+          <div class="stack" style="margin-top:12px">
         <div id="withKey" class="btns" hidden>
-          <button class="btn p" id="btnConvert"><span data-i="convert"></span></button>
-          <span id="status" class="muted small" style="align-self:center"></span>
+          <button class="btn" id="btnConvert"><span data-i="convert"></span></button>
           <span id="viaNote" class="muted small" style="flex-basis:100%"></span>
         </div>
         <div id="noKey" class="stack" hidden>
@@ -181,6 +188,8 @@ code{font:13px ui-monospace,SFMono-Regular,Menlo,monospace;background:var(--pape
           <div class="divider" data-i="or"></div>
           <button class="btn" id="btnGoKey" data-i="key_cta"></button>
         </div>
+          </div>
+        </details>
       </div>
       <ol class="how" aria-label="How it works">
         <li><span><b data-i="how1t"></b><span class="muted small" data-i="how1"></span></span></li>

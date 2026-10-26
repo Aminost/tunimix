@@ -85,6 +85,8 @@ TIME_RE = re.compile(
     r"(\d+(?:[.,]\d+)?|½|¼|¾)\s*(?:(?:-|–|bis|à|a|to|ou|or|oder)\s*(\d+(?:[.,]\d+)?))?\s*"
     r"(stunden?|std\.?|h\b|hours?|hrs?|heures?|ساعة|ساعات|minuten|min\.?|minutes?|mins?|mn|دقيقة|دقائق|sek\.?|sekunden|secondes?|seconds?|sec\.?|s\b)",
     re.I)
+TEMP_RE = re.compile(r"\b(3[7-9]|[4-9]\d|1[01]\d|120)\s*(?:°\s*c?\b|grad\b|degrees?\b|degres?\b|°)", re.I)
+REST_RX = re.compile(r"ruhen|reposer|repos|\brest\b|let rest|marinier|mariner|marinate|abkuhl|refroidir|cool")
 OVEN_TEMP = re.compile(r"\b(1[3-9]\d|2[0-5]\d)\s*°?\s*c\b|\bgas mark|\bthermostat|\bth\.?\s*\d", re.I)
 
 T = {
@@ -175,6 +177,21 @@ def _split_actions(text: str) -> list[str]:
     text = re.sub(r"\s+", " ", text).strip()
     parts = re.split(r"(?<=[.!?;])\s+|\s*;\s*|,?\s+(?:then|dann|danach|anschließend|anschliessend|puis|ensuite|ثم)\s+", text)
     parts = [p.strip(" ,.") for p in parts if p and len(p.strip(" ,.")) > 2]
+    split: list[str] = []
+    for p in parts:
+        clauses = [c.strip() for c in p.split(",")]
+        if len(clauses) > 1 and any(REST_RX.search(fold(c)) for c in clauses[1:]):
+            cur: list[str] = []
+            for c in clauses:
+                if REST_RX.search(fold(c)) and cur:
+                    split.append(", ".join(cur))
+                    cur = [c]
+                else:
+                    cur.append(c)
+            split.append(", ".join(cur))
+        else:
+            split.append(p)
+    parts = [p for p in split if len(p) > 2]
     merged: list[str] = []
     for p in parts:
         acts = _actions(p)
@@ -237,6 +254,11 @@ def _mentioned(part: str, ingredients: list[Ingredient]) -> list[Ingredient]:
                     and not exact for m in hits)
         if not covered and not rival:
             out.append(ingredients[n])
+    # "l'eau" matches both "eau" and "eau tiède": keep the one whose words are all in the text
+    full = {id(i) for i in out if all(any(token_match(t, w) for t in tokens) for w in ingredient_words(i)[:2])}
+    if full:
+        out = [i for i in out if id(i) in full or not any(
+            j is not i and id(j) in full and hits[ingredients.index(j)] & hits[ingredients.index(i)] for j in out)]
     return out
 
 
@@ -276,7 +298,7 @@ def _setting(action: str, objs: set[str], secs: int | None, soft: bool) -> tuple
         temp = 90 if "eggs_added" in objs or ("eggs" in objs and not ({"meat", "pieces"} & objs)) else (98 if soft else 100)
         return TMSetting(time_s=t, temperature=temp, speed="soft" if pieces else "1", reverse=pieces), est
     if action == "boil":
-        return TMSetting(time_s=secs or 360, temperature=100, speed="1", reverse=pieces), est
+        return TMSetting(time_s=secs or 360, temperature=100, speed="1", reverse=pieces), False
     if action == "reduce":
         return TMSetting(time_s=secs or 600, temperature="varoma", speed="soft" if pieces else "1", reverse=pieces), est
     if action == "blend":
@@ -342,7 +364,7 @@ def convert_step(part: str, ingredients: list[Ingredient], lang: str, used_fat: 
     secs = _seconds(part)
     notes: list[str] = []
     if "off" in acts or OVEN_TEMP.search(part):
-        return [(Step(text=part.rstrip(".") + ".", off_machine=True), False)], notes
+        return [(Step(text=_cap(part.rstrip(".")) + ".", off_machine=True), False)], notes
     main = next((a for a in MAIN_PRIORITY if a in acts), None)
     steps: list[Step] = []
     dry_flags: list[bool] = []
@@ -374,14 +396,14 @@ def convert_step(part: str, ingredients: list[Ingredient], lang: str, used_fat: 
         if season_ings or "season" in acts:
             finish()
             return list(zip(steps, dry_flags)), notes
-        if "add" in acts and ings:
-            steps.append(Step(text=_template("add", lang, ings) if use_template else part))
+        if "add" in acts and (ings or mentioned):
+            steps.append(Step(text=_template("add", lang, ings or mentioned) if use_template else part))
             dry_flags.append(False)
             finish()
         elif "sprinkle" in acts:
             pass
         elif not steps:
-            steps.append(Step(text=part.rstrip(".") + "."))
+            steps.append(Step(text=_cap(part.rstrip(".")) + "."))
             dry_flags.append(False)
             notes.append("none")
         return list(zip(steps, dry_flags)), notes
@@ -393,9 +415,15 @@ def convert_step(part: str, ingredients: list[Ingredient], lang: str, used_fat: 
             objs = objs | {"eggs_added"}   # eggs go in now -> let them set gently at 90 °C
         objs = objs | (bowl_objs & {"pieces", "meat"})
     st, estimated = _setting(main, objs, secs, bool(SOFT.search(fold(part))))
+    tm = TEMP_RE.search(part)
+    if tm and main in ("heat", "melt", "simmer") and st.temperature not in (None, "varoma"):
+        st.temperature = int(tm.group(1))
+        if st.temperature < 60:
+            st.reverse, st.speed = False, "2"
     if main == "saute" and not used_fat[0]:
-        fats = [i for i in ingredients if is_fat(i) and i not in ings]
-        ings = fats[:1] + ings
+        if not any(is_fat(i) for i in ings):
+            fats = [i for i in ingredients if is_fat(i) and i not in ings]
+            ings = fats[:1] + ings
         used_fat[0] = True
     key = main
     if main == "saute" and "meat" in objs:
@@ -409,6 +437,10 @@ def convert_step(part: str, ingredients: list[Ingredient], lang: str, used_fat: 
         notes.append("time")
     finish()
     return list(zip(steps, dry_flags)), notes
+
+
+def _cap(text: str) -> str:
+    return text[:1].upper() + text[1:]
 
 
 def _yield(text: str) -> int | None:
