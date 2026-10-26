@@ -24,8 +24,14 @@ _load_dotenv(ROOT / ".env")
 
 @dataclass
 class Settings:
-    anthropic_api_key: str = field(default_factory=lambda: os.getenv("ANTHROPIC_API_KEY", ""))
-    model: str = field(default_factory=lambda: os.getenv("TUNIMIX_MODEL", "claude-sonnet-5-5"))
+    # anthropic | openai | gemini | openrouter | groq | mistral | deepseek | ollama | lmstudio | custom
+    provider: str = field(default_factory=lambda: os.getenv("TUNIMIX_PROVIDER", "anthropic").lower())
+    base_url: str = field(default_factory=lambda: os.getenv("TUNIMIX_BASE_URL", ""))
+    api_key: str = field(default_factory=lambda: os.getenv("TUNIMIX_API_KEY", ""))
+    anthropic_api_key: str = field(default_factory=lambda: os.getenv("ANTHROPIC_API_KEY", "") or (
+        os.getenv("TUNIMIX_API_KEY", "") if os.getenv("TUNIMIX_PROVIDER", "anthropic").lower() == "anthropic" else ""))
+    model: str = field(default_factory=lambda: os.getenv("TUNIMIX_MODEL", "") or (
+        "claude-sonnet-5-5" if os.getenv("TUNIMIX_PROVIDER", "anthropic").lower() == "anthropic" else ""))
     recipe_language: str = field(default_factory=lambda: os.getenv("TUNIMIX_LANGUAGE", "de"))
     machine: str = field(default_factory=lambda: os.getenv("TUNIMIX_MACHINE", "TM6"))
     library_dir: Path = field(default_factory=lambda: Path(os.getenv("TUNIMIX_LIBRARY", ROOT / "library")))
@@ -44,6 +50,15 @@ class Settings:
     def require_anthropic(self) -> None:
         if not self.anthropic_api_key:
             raise RuntimeError("ANTHROPIC_API_KEY is not set (see .env.example).")
+
+    def require_llm(self) -> None:
+        if self.provider == "anthropic":
+            return self.require_anthropic()
+        from .convert.providers import resolve
+        resolve(self.provider, self.base_url, self.api_key)
+        if not self.model:
+            raise RuntimeError(f"TUNIMIX_MODEL is not set for provider '{self.provider}' "
+                               f"(list models with: tunimix models).")
 
     def require_cookidoo(self) -> None:
         if not (self.cookidoo_email and self.cookidoo_password):

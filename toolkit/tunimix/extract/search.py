@@ -54,7 +54,47 @@ def search_candidates(dish: str) -> dict:
     return _parse_json(text)
 
 
+def ddg_search(query: str, limit: int = 6) -> list[str]:
+    """Key-free web search (DuckDuckGo HTML) - used when the model can't search itself."""
+    import requests
+    from urllib.parse import parse_qs, unquote, urlparse
+    from bs4 import BeautifulSoup
+    from .web import HEADERS
+    r = requests.post("https://html.duckduckgo.com/html/", data={"q": query}, headers=HEADERS, timeout=20)
+    r.raise_for_status()
+    urls = []
+    for a in BeautifulSoup(r.text, "html.parser").select("a.result__a"):
+        href = a.get("href", "")
+        if "uddg=" in href:
+            href = unquote(parse_qs(urlparse(href).query).get("uddg", [""])[0])
+        if href.startswith("http") and "duckduckgo.com" not in href and href not in urls:
+            urls.append(href)
+        if len(urls) >= limit:
+            break
+    return urls
+
+
+def find_recipe_any_model(dish: str) -> RawSource:
+    from .web import extract_url
+    for query in (f"{dish} recette tunisienne", f"{dish} recipe", f"{dish} Rezept"):
+        try:
+            urls = ddg_search(query)
+        except Exception:
+            urls = []
+        for url in urls:
+            try:
+                raw = extract_url(url)
+            except Exception:
+                continue
+            if raw.structured.get("ingredients"):
+                raw.kind = "search"
+                return raw
+    return from_knowledge(dish)
+
+
 def find_recipe(dish: str) -> RawSource:
+    if settings.provider != "anthropic":
+        return find_recipe_any_model(dish)
     found = search_candidates(dish)
     urls = [found.get("url", "")] + list(found.get("alternatives", []))
     from .web import extract_url

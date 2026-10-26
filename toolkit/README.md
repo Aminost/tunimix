@@ -41,11 +41,21 @@ python -m tunimix check
 python -m tunimix seeds                             # loads the 9 Tunisian recipes
 ```
 
+**Any AI provider:** set `TUNIMIX_PROVIDER` to `anthropic`, `openai`, `gemini`, `openrouter`,
+`groq`, `mistral`, `deepseek`, `ollama`, `lmstudio` or `custom` (with `TUNIMIX_BASE_URL`), plus
+`TUNIMIX_MODEL` and `TUNIMIX_API_KEY`. `python -m tunimix models` lists available models. Example,
+fully local and free:
+```bash
+ollama pull qwen3:8b
+TUNIMIX_PROVIDER=ollama TUNIMIX_MODEL=qwen3:8b python -m tunimix add "https://some-blog.tn/lablabi"
+```
+Without Claude, dish names are searched with DuckDuckGo (no key) and PDFs are read with pypdf.
+
 `.env` needs:
 
 | Key | What for | Where to get it |
 |---|---|---|
-| `ANTHROPIC_API_KEY` | converting new recipes | console.anthropic.com → API Keys (not needed for the Claude Desktop route) |
+| `TUNIMIX_PROVIDER` / `TUNIMIX_MODEL` / `TUNIMIX_API_KEY` | converting new recipes | any provider above; no key for Ollama/LM Studio (not needed for the Claude Desktop route) |
 | `COOKIDOO_EMAIL` / `COOKIDOO_PASSWORD` | uploading to Cookidoo | your Cookidoo login (active subscription) |
 | `COOKIDOO_COUNTRY` / `COOKIDOO_LANGUAGE` | your Cookidoo site | `de` / `de-DE` for cookidoo.de |
 | `TELEGRAM_BOT_TOKEN` | the bot (optional) | @BotFather on Telegram |
@@ -158,7 +168,7 @@ Recipe files are plain JSON in `library/`. Edit them by hand or in the web app. 
 
 ## 5. Tests
 ```bash
-pip install pytest && python -m pytest -q     # 20 offline tests (no keys, no network)
+pip install pytest && python -m pytest -q     # 26 offline tests (no keys, no network)
 ```
 
 ## Project layout

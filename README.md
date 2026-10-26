@@ -7,8 +7,10 @@ TuniMix button on any recipe page. TuniMix turns it into a **Thermomix guided-co
 ("5 Min./100°C/Linkslauf/Stufe 1"). One more click saves it to **your Cookidoo "Created recipes"**,
 and it appears on your TM5 / TM6 / TM7.
 
-- **Free.** Convert through any AI chat (Claude, ChatGPT, Gemini) at no cost, or use your own
-  Claude API key for one-click conversion (about 1–3 cents per recipe).
+- **Any AI.** One-click conversion with Claude, OpenAI/ChatGPT, Google Gemini, OpenRouter (300+
+  models, some free), Groq, Mistral, DeepSeek, any OpenAI-compatible endpoint, or **free and local
+  with Ollama or LM Studio**. Without any key, the free route copies the instruction into any AI
+  chat and pastes the answer back.
 - **Nothing to install.** It's a web page, and it can be installed as an app on your phone.
 - **No server, no account, no password sharing.** Everything runs in your browser. Cookidoo is
   reached through your own logged-in session.
@@ -38,6 +40,38 @@ and it appears on your TM5 / TM6 / TM7.
 Setting up the button takes one minute: open the **Cookidoo button** tab and drag it to your
 bookmarks bar.
 
+## AI providers
+
+Settings → *AI for converting* → choose a provider, enter the key (not needed locally), press
+**Load models**, then **Test**.
+
+| Provider | Key | Opens links itself | Notes |
+|---|---|---|---|
+| Anthropic Claude | yes | ✓ (web fetch + search) | best results; also reads PDFs natively |
+| OpenAI, Gemini, OpenRouter, Groq, Mistral, DeepSeek | yes | via reader* | OpenAI-compatible API, JSON mode with automatic fallback |
+| **Ollama** (local) | no | via reader* | free, private; schema-constrained output; vision models read photos |
+| LM Studio (local) | no | via reader* | enable CORS in LM Studio |
+| Other OpenAI-compatible (vLLM, LocalAI, LiteLLM …) | optional | via reader* | set the base URL |
+
+\* Links are read through the `r.jina.ai` reader (can be switched off), or you can skip it with the
+TuniMix button, which sends the page content directly. Dish names without Claude are written from
+the model's culinary knowledge and flagged as such. PDFs are read in the browser (text PDFs; for
+scans use a photo).
+
+### Ollama in 3 steps
+
+1. Install Ollama and pull a model: `ollama pull qwen3:8b` (vision: `gemma3:12b` or `qwen2.5vl`).
+2. Allow the website to talk to Ollama, then restart Ollama:
+   - Windows: `setx OLLAMA_ORIGINS "https://aminost.github.io"`
+   - macOS: `launchctl setenv OLLAMA_ORIGINS "https://aminost.github.io"`
+   - Linux: `OLLAMA_ORIGINS="https://aminost.github.io" ollama serve`
+3. In TuniMix Settings, choose **Ollama**, press **Load models**, pick one, press **Test**. If Chrome
+   asks to allow access to your local network, allow it.
+
+Small models (≤3B) often produce broken recipes. 7–14B models work well, and TuniMix validates and
+retries automatically. Ollama on another machine (NAS, PC) works by changing the base URL, e.g.
+`http://192.168.178.20:11434`; some browsers block non-local `http` addresses from an `https` page.
+
 ## Is this new? What already exists
 
 | | Converts any recipe | Saves to Cookidoo | Cost | How you log in to Cookidoo |
@@ -62,8 +96,9 @@ Please only share **your own or family recipes**, not text or photos copied from
 
 ## Privacy & safety
 
-- No server, no tracking. Your recipes, your API key (if you add one) and the Cookidoo queue live
-  in your browser's local storage. The key is sent only to `api.anthropic.com`.
+- No server, no tracking. Your recipes, your API keys (if you add any) and the Cookidoo queue live
+  in your browser's local storage. A key is sent only to the provider you chose. With Ollama or
+  LM Studio nothing leaves your computer except the link-reader call, which you can switch off.
 - On Cookidoo, the button uses the same requests the Cookidoo website makes when you create a
   recipe yourself, with your own session. TuniMix never sees your login.
 - Converted settings are checked automatically (temperature/speed limits, 99-minute timers,
@@ -87,12 +122,12 @@ follow the address the site is served from.
 |---|---|
 | `index.html`, `app.js`, `i18n.js` | the web app |
 | `core.js` | recipe model, Thermomix rules, setting strings, Cookidoo payload (shared with tests & Action) |
-| `ai.js` | Claude API from the browser (your key), with web fetch/search for links and dish names |
+| `ai.js` | AI providers from the browser: Claude (with web fetch/search), any OpenAI-compatible API, native Ollama |
 | `bookmarklet.js` | the TuniMix button (capture on recipe pages, save on Cookidoo) |
 | `bridge.html` | hands queued recipes to the button on Cookidoo |
 | `recipes/` | community cookbook (one JSON per recipe + `index.json`) |
 | `.github/` | recipe submission form, publish Action, tests |
-| `toolkit/` | Python toolkit: CLI, local web app, Telegram bot, Claude Desktop (MCP) server, PDF cookbook |
+| `toolkit/` | Python toolkit: CLI, local web app, Telegram bot, Claude Desktop (MCP) server, PDF cookbook – same providers incl. Ollama (`TUNIMIX_PROVIDER`) |
 
 ## Disclaimer
 

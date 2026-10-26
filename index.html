@@ -109,6 +109,7 @@ footer{color:var(--muted);font-size:13px;padding-block:36px 28px;border-top:1px 
 @keyframes sp{to{transform:rotate(360deg)}}
 @media (prefers-reduced-motion:reduce){.spin{animation:none}}
 [dir="rtl"] .chip{direction:ltr}
+code{font:13px ui-monospace,SFMono-Regular,Menlo,monospace;background:var(--paper);border:1px solid var(--line);padding:1px 5px;border-radius:5px;overflow-wrap:anywhere;direction:ltr;unicode-bidi:isolate}
 </style>
 </head>
 <body>
@@ -158,6 +159,7 @@ footer{color:var(--muted);font-size:13px;padding-block:36px 28px;border-top:1px 
         <div id="withKey" class="btns" hidden>
           <button class="btn p" id="btnConvert"><span data-i="convert"></span></button>
           <span id="status" class="muted small" style="align-self:center"></span>
+          <span id="viaNote" class="muted small" style="flex-basis:100%"></span>
         </div>
         <div id="noKey" class="stack" hidden>
           <div class="free stack">
@@ -219,13 +221,20 @@ footer{color:var(--muted);font-size:13px;padding-block:36px 28px;border-top:1px 
     <!-- SETTINGS -->
     <section id="v-settings" class="stack" hidden>
       <div class="card stack">
-        <div><label class="l" for="apiKey" data-i="set_key"></label>
-          <input id="apiKey" type="password" autocomplete="off" placeholder="sk-ant-…">
-          <p class="muted small" data-i="set_key_help"></p>
-          <div class="btns"><button class="btn p" id="btnTestKey" data-i="set_test"></button><button class="btn d" id="btnClearKey" data-i="clear_key"></button><span id="keyStatus" class="small" style="align-self:center"></span></div>
-        </div>
+        <strong data-i="set_ai"></strong>
+        <p class="muted small" data-i="set_ai_help"></p>
+        <div><label class="l" for="provider" data-i="set_provider"></label><select id="provider"></select></div>
+        <div id="baseRow"><label class="l" for="baseUrl" data-i="set_base"></label><input id="baseUrl" type="url" autocomplete="off" spellcheck="false"></div>
+        <div id="keyRow"><label class="l" for="apiKey" data-i="set_key"></label>
+          <input id="apiKey" type="password" autocomplete="off" spellcheck="false">
+          <p class="muted small"><span data-i="set_key_help"></span> <a id="keyLink" href="#" target="_blank" rel="noopener"></a></p></div>
         <div><label class="l" for="model" data-i="set_model"></label>
-          <select id="model"><option value="claude-sonnet-5-5">Claude Sonnet 5.5</option><option value="claude-haiku-5-5">Claude Haiku 5.5 (günstig/cheap)</option><option value="claude-opus-5-5">Claude Opus 5.5</option></select></div>
+          <div class="btns" style="flex-wrap:nowrap"><input id="model" list="modelList" autocomplete="off" spellcheck="false" style="flex:1;min-width:0"><button class="btn" id="btnModels" data-i="set_load_models" style="flex:none"></button></div>
+          <datalist id="modelList"></datalist></div>
+        <div id="localHelp" class="banner small" hidden></div>
+        <label class="small" style="display:flex;gap:8px;align-items:flex-start"><input id="useReader" type="checkbox" style="width:auto;margin-top:4px"> <span data-i="set_reader"></span></label>
+        <div class="btns"><button class="btn p" id="btnTestKey" data-i="set_test"></button><button class="btn d" id="btnClearKey" data-i="clear_key"></button></div>
+        <div id="keyStatus" class="small" role="status"></div>
       </div>
       <div class="card stack">
         <strong data-i="set_data"></strong>

@@ -113,6 +113,20 @@ def parse_jsonld(html: str) -> dict | None:
     return None
 
 
+def parse_json_object(text: str) -> dict:
+    """First JSON object in an LLM answer (handles ```json fences, prose, trailing commas)."""
+    m = re.search(r"```(?:json)?\s*([\s\S]*?)```", text)
+    raw = m.group(1) if m else text
+    a, b = raw.find("{"), raw.rfind("}")
+    if a < 0 or b < a:
+        raise ValueError("no JSON object in the answer")
+    raw = raw[a:b + 1]
+    try:
+        return json.loads(raw)
+    except json.JSONDecodeError:
+        return json.loads(re.sub(r",\s*([}\]])", r"\1", raw))
+
+
 def readable_text(html: str, limit: int = 30000) -> tuple[str, str]:
     soup = BeautifulSoup(html, "html.parser")
     title = (soup.title.get_text().strip() if soup.title else "")

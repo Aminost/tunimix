@@ -177,9 +177,22 @@ def cmd_watch(a):
         time.sleep(a.interval)
 
 
+def cmd_models(a):
+    from .convert.providers import list_models
+    for m in list_models(settings.provider, settings.base_url,
+                         settings.api_key or (settings.anthropic_api_key if settings.provider == "anthropic" else "")):
+        print(m)
+
+
 def cmd_check(a):
     ok = lambda b: "✓" if b else "✗"
-    print(f"{ok(settings.anthropic_api_key)} ANTHROPIC_API_KEY   (needed to convert new recipes)")
+    try:
+        settings.require_llm()
+        llm_ok = True
+    except Exception as exc:
+        llm_ok, llm_err = False, str(exc)
+    print(f"{ok(llm_ok)} AI provider: {settings.provider} · model: {settings.model or '-'}"
+          + ("" if llm_ok else f"  ({llm_err})"))
     print(f"{ok(settings.cookidoo_email and settings.cookidoo_password)} COOKIDOO_EMAIL / PASSWORD (needed to upload)")
     print(f"{ok(settings.telegram_token)} TELEGRAM_BOT_TOKEN  (only for the bot)")
     print(f"  model={settings.model} language={settings.recipe_language} machine={settings.machine}")
@@ -250,6 +263,7 @@ def main(argv=None):
 
     sub.add_parser("seeds", help="import bundled Tunisian recipes").set_defaults(fn=cmd_seeds)
     sub.add_parser("check", help="check configuration").set_defaults(fn=cmd_check)
+    sub.add_parser("models", help="list models of the configured AI provider").set_defaults(fn=cmd_models)
 
     s = sub.add_parser("web", help="start the web app")
     s.add_argument("--host", default="127.0.0.1")

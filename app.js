@@ -1,6 +1,6 @@
 import { cookidooPayload, freePrompt, ingredientLine, lx, parseAiJson, servingsLabel, slugify,
   stepText, toCopyPaste, toMarkdown, validateAndFix } from "./core.js";
-import { convertWithClaude, testKey } from "./ai.js";
+import { PROVIDERS, convert, isReady, listModels, testConfig } from "./ai.js";
 import { COUNTRIES, UI } from "./i18n.js";
 
 // ---------- storage (everything stays in this browser) ----------
@@ -72,23 +72,66 @@ function opts() {
   return {
     language: $("#optLang").value, machine: $("#optMachine").value,
     servings: parseInt($("#optServings").value, 10) || null, wishes: $("#optWish").value.trim(),
-    model: $("#model").value,
+    useReader: aiStore().useReader !== false,
   };
+}
+
+// ---------- AI provider config (per provider, kept in this browser) ----------
+function aiStore() {
+  const a = store.get("ai", null);
+  if (a) return a;
+  const legacy = store.get("key", "");  // migrate the old Claude-only key
+  return { provider: legacy ? "anthropic" : "ollama", useReader: true,
+    configs: legacy ? { anthropic: { key: legacy, model: "claude-sonnet-5-5" } } : {} };
+}
+function cfg() {
+  const a = aiStore(); const c = a.configs[a.provider] || {};
+  return { provider: a.provider, base: c.base || PROVIDERS[a.provider].base, key: c.key || "", model: c.model || "" };
+}
+function saveCfgFromForm() {
+  const a = aiStore(); const p = $("#provider").value;
+  a.provider = p;
+  a.configs[p] = { base: $("#baseUrl").value.trim(), key: $("#apiKey").value.trim(), model: $("#model").value.trim() };
+  a.useReader = $("#useReader").checked;
+  store.set("ai", a); refreshKeyUi();
+}
+function fillSettings() {
+  const a = aiStore(), P = PROVIDERS[a.provider], c = a.configs[a.provider] || {};
+  const sel = $("#provider");
+  if (!sel.options.length) Object.entries(PROVIDERS).forEach(([k, v]) => sel.add(new Option(v.label, k)));
+  sel.value = a.provider;
+  $("#baseUrl").value = c.base || P.base;
+  $("#baseUrl").placeholder = P.base || "https://…/v1";
+  $("#apiKey").value = c.key || "";
+  $("#keyRow").hidden = !P.key;
+  $("#keyLink").hidden = !P.keyUrl; $("#keyLink").href = P.keyUrl || "#"; $("#keyLink").textContent = P.keyUrl ? new URL(P.keyUrl).hostname + " ↗" : "";
+  $("#model").value = c.model || ""; $("#model").placeholder = P.hint || "";
+  $("#useReader").checked = a.useReader !== false;
+  const lh = $("#localHelp");
+  lh.hidden = !P.local;
+  if (P.local) lh.innerHTML = a.provider === "ollama" ? t("ollama_help", location.origin) : t("lmstudio_help");
+  $("#keyStatus").textContent = "";
 }
 function loadDefaults() {
   const d = store.get("defaults", {});
   $("#optMachine").value = d.machine || "TM6";
   $("#optLang").value = d.language || (["de", "fr", "en", "ar"].includes(lang) ? lang : "de");
-  $("#model").value = d.model || "claude-sonnet-5-5";
-  $("#apiKey").value = store.get("key", "");
+  fillSettings();
 }
-["#optMachine", "#optLang", "#model"].forEach((s) => $(s).addEventListener("change", () => {
-  store.set("defaults", { machine: $("#optMachine").value, language: $("#optLang").value, model: $("#model").value });
+["#optMachine", "#optLang"].forEach((s) => $(s).addEventListener("change", () => {
+  store.set("defaults", { machine: $("#optMachine").value, language: $("#optLang").value });
 }));
 
 function refreshKeyUi() {
-  const has = !!store.get("key", "");
-  $("#withKey").hidden = !has; $("#noKey").hidden = has;
+  const c = cfg(), ready = isReady(c);
+  $("#withKey").hidden = !ready; $("#noKey").hidden = ready;
+  $("#viaNote").textContent = ready ? `${PROVIDERS[c.provider].label.replace(/ \(.*\)$/, "")} · ${c.model}` : "";
+}
+function aiErrorText(err) {
+  const m = err.message;
+  const map = { CORS_BLOCKED: "err_cors", LOCAL_UNREACHABLE: "err_local", LINK_NEEDS_READER: "err_link_reader",
+    LINK_UNREADABLE: "err_link_unreadable", PDF_NO_TEXT: "err_pdf_no_text", NOT_CONFIGURED: "err_not_configured" };
+  return map[m] ? t(map[m], location.origin) : m;
 }
 
 // ---------- input ----------
@@ -119,9 +162,9 @@ $("#btnConvert").addEventListener("click", async () => {
   try {
     const input = { ...classify(value), files };
     if (input.text === "" && files.length) delete input.text;
-    const r = await convertWithClaude(store.get("key", ""), input, opts(), (s) => { $("#status").textContent = t(s); });
+    const r = await convert(cfg(), input, opts(), (s) => { $("#status").textContent = t(s); });
     saveMine(r); openRecipe(r, "mine");
-  } catch (err) { showErr(err.message); }
+  } catch (err) { showErr(aiErrorText(err)); }
   finally { btn.disabled = false; btn.innerHTML = `<span>${esc(t("convert"))}</span>`; $("#status").textContent = ""; }
 });
 
@@ -143,7 +186,7 @@ $("#btnUseAnswer").addEventListener("click", () => {
     saveMine(r); $("#aiAnswer").value = ""; openRecipe(r, "mine");
   } catch (err) { showErr(`${t("invalid")}: ${err.message}`); }
 });
-$("#btnGoKey").addEventListener("click", () => { show("settings"); $("#apiKey").focus(); });
+$("#btnGoKey").addEventListener("click", () => { show("settings"); $("#provider").focus(); });
 $("#howBm").addEventListener("click", (e) => { e.preventDefault(); show("button"); });
 
 // ---------- capture from the bookmarklet / share target ----------
@@ -385,14 +428,30 @@ $("#bmLink").addEventListener("click", (e) => { e.preventDefault(); toast(t("bm_
 $("#btnCopyBm").addEventListener("click", async () => { await renderBookmarklet(); copy(bmCode); });
 
 // ---------- settings ----------
-$("#apiKey").addEventListener("change", () => { store.set("key", $("#apiKey").value.trim()); refreshKeyUi(); });
-$("#btnTestKey").addEventListener("click", async () => {
-  const k = $("#apiKey").value.trim(); store.set("key", k); refreshKeyUi();
-  const s = $("#keyStatus"); s.className = "small"; s.textContent = "…";
-  try { await testKey(k); s.className = "small ok"; s.textContent = t("set_ok"); }
-  catch (err) { s.className = "small"; s.style.color = "var(--chili)"; s.textContent = err.message; }
+$("#provider").addEventListener("change", () => {
+  const a = aiStore(); a.provider = $("#provider").value; store.set("ai", a); fillSettings(); refreshKeyUi();
 });
-$("#btnClearKey").addEventListener("click", () => { store.del("key"); $("#apiKey").value = ""; refreshKeyUi(); $("#keyStatus").textContent = ""; });
+["#baseUrl", "#apiKey", "#model", "#useReader"].forEach((s) => $(s).addEventListener("change", saveCfgFromForm));
+function keyStatus(text, ok) { const s = $("#keyStatus"); s.textContent = text; s.style.color = ok == null ? "" : ok ? "var(--ok)" : "var(--chili)"; }
+$("#btnModels").addEventListener("click", async () => {
+  saveCfgFromForm(); keyStatus("…");
+  try {
+    const models = await listModels(cfg());
+    $("#modelList").innerHTML = models.map((m) => `<option value="${esc(m)}"></option>`).join("");
+    if (!$("#model").value && models.length) { $("#model").value = models[0]; saveCfgFromForm(); }
+    keyStatus(t("models_found", models.length), true);
+  } catch (err) { keyStatus(aiErrorText(err), false); }
+});
+$("#btnTestKey").addEventListener("click", async () => {
+  saveCfgFromForm();
+  if (!isReady(cfg())) return keyStatus(t("err_not_configured"), false);
+  keyStatus(t("testing"));
+  try { const title = await testConfig(cfg()); keyStatus(t("set_ok") + ` („${title}“)`, true); }
+  catch (err) { keyStatus(aiErrorText(err), false); }
+});
+$("#btnClearKey").addEventListener("click", () => {
+  const a = aiStore(); delete a.configs[a.provider]; store.set("ai", a); fillSettings(); refreshKeyUi();
+});
 $("#btnExport").addEventListener("click", () => download("tunimix-rezepte.json", JSON.stringify(mine(), null, 2), "application/json"));
 $("#importFile").addEventListener("change", async (e) => {
   const f = e.target.files[0]; if (!f) return;

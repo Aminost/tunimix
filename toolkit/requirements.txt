@@ -11,5 +11,6 @@ python-telegram-bot>=21
 mcp>=1.2
 youtube-transcript-api>=1.0
 pillow>=10
+pypdf>=4
 # optional: iPhone HEIC photos
 # pillow-heif
