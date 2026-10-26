@@ -1,6 +1,5 @@
 import { cookidooPayload, freePrompt, ingredientLine, lx, parseAiJson, servingsLabel, slugify,
   stepText, toCopyPaste, toMarkdown, validateAndFix } from "./core.js";
-import { PROVIDERS, convert, isReady, listModels, testConfig } from "./ai.js";
 import { convertStructured, findRecipeNode, fromHtml, fromJsonLd, structureText } from "./rules.js";
 import { readFile } from "./docs.js";
 import { COUNTRIES, UI } from "./i18n.js";
@@ -49,7 +48,6 @@ function show(view, push = true) {
   document.querySelectorAll("#tabs button").forEach((b) => b.setAttribute("aria-current", b.dataset.view === view ? "page" : "false"));
   if (view === "recipes") renderRecipes();
   if (view === "button") renderBookmarklet();
-  if (view === "new") refreshKeyUi();
   if (push && location.hash !== "#" + view && view !== "recipe") history.replaceState(null, "", "#" + view);
   window.scrollTo(0, 0);
 }
@@ -74,67 +72,21 @@ function opts() {
   return {
     language: $("#optLang").value, machine: $("#optMachine").value,
     servings: parseInt($("#optServings").value, 10) || null, wishes: $("#optWish").value.trim(),
-    useReader: aiStore().useReader !== false,
   };
 }
 
-// ---------- AI provider config (per provider, kept in this browser) ----------
-function aiStore() {
-  const a = store.get("ai", null);
-  if (a) return a;
-  const legacy = store.get("key", "");  // migrate the old Claude-only key
-  return { provider: legacy ? "anthropic" : "ollama", useReader: true,
-    configs: legacy ? { anthropic: { key: legacy, model: "claude-sonnet-5-5" } } : {} };
-}
-function cfg() {
-  const a = aiStore(); const c = a.configs[a.provider] || {};
-  return { provider: a.provider, base: c.base || PROVIDERS[a.provider].base, key: c.key || "", model: c.model || "" };
-}
-function saveCfgFromForm() {
-  const a = aiStore(); const p = $("#provider").value;
-  a.provider = p;
-  a.configs[p] = { base: $("#baseUrl").value.trim(), key: $("#apiKey").value.trim(), model: $("#model").value.trim() };
-  a.useReader = $("#useReader").checked;
-  store.set("ai", a); refreshKeyUi();
-}
-function fillSettings() {
-  const a = aiStore(), P = PROVIDERS[a.provider], c = a.configs[a.provider] || {};
-  const sel = $("#provider");
-  if (!sel.options.length) Object.entries(PROVIDERS).forEach(([k, v]) => sel.add(new Option(v.label, k)));
-  sel.value = a.provider;
-  $("#baseUrl").value = c.base || P.base;
-  $("#baseUrl").placeholder = P.base || "https://…/v1";
-  $("#apiKey").value = c.key || "";
-  $("#keyRow").hidden = !P.key;
-  $("#keyLink").hidden = !P.keyUrl; $("#keyLink").href = P.keyUrl || "#"; $("#keyLink").textContent = P.keyUrl ? new URL(P.keyUrl).hostname + " ↗" : "";
-  $("#model").value = c.model || ""; $("#model").placeholder = P.hint || "";
-  $("#useReader").checked = a.useReader !== false;
-  const lh = $("#localHelp");
-  lh.hidden = !P.local;
-  if (P.local) lh.innerHTML = a.provider === "ollama" ? t("ollama_help", location.origin) : t("lmstudio_help");
-  $("#keyStatus").textContent = "";
-}
 function loadDefaults() {
   const d = store.get("defaults", {});
   $("#optMachine").value = d.machine || "TM6";
   $("#optLang").value = d.language || (["de", "fr", "en", "ar"].includes(lang) ? lang : "de");
-  fillSettings();
+  $("#useReader").checked = useReader();
 }
+// link reader (r.jina.ai) for links typed into the box; the TuniMix button doesn't need it
+const useReader = () => store.get("reader", true) !== false;
+$("#useReader").addEventListener("change", () => store.set("reader", $("#useReader").checked));
 ["#optMachine", "#optLang"].forEach((s) => $(s).addEventListener("change", () => {
   store.set("defaults", { machine: $("#optMachine").value, language: $("#optLang").value });
 }));
-
-function refreshKeyUi() {
-  const c = cfg(), ready = isReady(c);
-  $("#withKey").hidden = !ready; $("#noKey").hidden = ready;
-  $("#viaNote").textContent = ready ? `${PROVIDERS[c.provider].label.replace(/ \(.*\)$/, "")} · ${c.model}` : "";
-}
-function aiErrorText(err) {
-  const m = err.message;
-  const map = { CORS_BLOCKED: "err_cors", LOCAL_UNREACHABLE: "err_local", LINK_NEEDS_READER: "err_link_reader",
-    LINK_UNREADABLE: "err_link_unreadable", PDF_NO_TEXT: "err_pdf_no_text", NOT_CONFIGURED: "err_not_configured" };
-  return map[m] ? t(map[m], location.origin) : m;
-}
 
 // ---------- input ----------
 $("#files").addEventListener("change", async (e) => {
@@ -154,21 +106,6 @@ function classify(value) {
 }
 
 function showErr(msg) { const e = $("#convertErr"); e.textContent = msg; e.hidden = !msg; }
-
-$("#btnConvert").addEventListener("click", async () => {
-  const value = $("#src").value.trim();
-  if (!value && !files.length) return showErr(t("need_input"));
-  showErr("");
-  const btn = $("#btnConvert"); btn.disabled = true;
-  btn.innerHTML = `<span class="spin"></span> ${esc(t("converting"))}`;
-  try {
-    const input = { ...classify(value), files };
-    if (input.text === "" && files.length) delete input.text;
-    const r = await convert(cfg(), input, opts(), (s) => { $("#status").textContent = t(s); });
-    saveMine(r); openRecipe(r, "mine");
-  } catch (err) { showErr(aiErrorText(err)); }
-  finally { btn.disabled = false; btn.innerHTML = `<span>${esc(t("convert"))}</span>`; $("#status").textContent = ""; }
-});
 
 // ---------- conversion WITHOUT AI (rules.js + docs.js) ----------
 async function thumb(src, max = 900) {
@@ -201,7 +138,7 @@ async function rulesData(value, status) {
   }
   const kind = classify(value);
   if (kind.url) {
-    if (aiStore().useReader === false) throw new Error(t("err_rules_link"));
+    if (!useReader()) throw new Error(t("err_rules_link"));
     status(t("reading"));
     const res = await fetch("https://r.jina.ai/" + kind.url, { headers: { "X-Return-Format": "html" } }).catch(() => null);
     if (!res || !res.ok) throw new Error(t("err_link_unreadable"));
@@ -246,7 +183,6 @@ $("#btnUseAnswer").addEventListener("click", () => {
     saveMine(r); $("#aiAnswer").value = ""; openRecipe(r, "mine");
   } catch (err) { showErr(`${t("invalid")}: ${err.message}`); }
 });
-$("#btnGoKey").addEventListener("click", () => { show("settings"); $("#provider").focus(); });
 $("#howBm").addEventListener("click", (e) => { e.preventDefault(); show("button"); });
 
 // ---------- capture from the bookmarklet / share target ----------
@@ -500,30 +436,6 @@ $("#bmLink").addEventListener("click", (e) => { e.preventDefault(); toast(t("bm_
 $("#btnCopyBm").addEventListener("click", async () => { await renderBookmarklet(); copy(bmCode); });
 
 // ---------- settings ----------
-$("#provider").addEventListener("change", () => {
-  const a = aiStore(); a.provider = $("#provider").value; store.set("ai", a); fillSettings(); refreshKeyUi();
-});
-["#baseUrl", "#apiKey", "#model", "#useReader"].forEach((s) => $(s).addEventListener("change", saveCfgFromForm));
-function keyStatus(text, ok) { const s = $("#keyStatus"); s.textContent = text; s.style.color = ok == null ? "" : ok ? "var(--ok)" : "var(--chili)"; }
-$("#btnModels").addEventListener("click", async () => {
-  saveCfgFromForm(); keyStatus("…");
-  try {
-    const models = await listModels(cfg());
-    $("#modelList").innerHTML = models.map((m) => `<option value="${esc(m)}"></option>`).join("");
-    if (!$("#model").value && models.length) { $("#model").value = models[0]; saveCfgFromForm(); }
-    keyStatus(t("models_found", models.length), true);
-  } catch (err) { keyStatus(aiErrorText(err), false); }
-});
-$("#btnTestKey").addEventListener("click", async () => {
-  saveCfgFromForm();
-  if (!isReady(cfg())) return keyStatus(t("err_not_configured"), false);
-  keyStatus(t("testing"));
-  try { const title = await testConfig(cfg()); keyStatus(t("set_ok") + ` („${title}“)`, true); }
-  catch (err) { keyStatus(aiErrorText(err), false); }
-});
-$("#btnClearKey").addEventListener("click", () => {
-  const a = aiStore(); delete a.configs[a.provider]; store.set("ai", a); fillSettings(); refreshKeyUi();
-});
 $("#btnExport").addEventListener("click", () => download("tunimix-rezepte.json", JSON.stringify(mine(), null, 2), "application/json"));
 $("#importFile").addEventListener("change", async (e) => {
   const f = e.target.files[0]; if (!f) return;

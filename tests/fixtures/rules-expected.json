@@ -737,7 +737,7 @@
    "language": "fr",
    "servings": 30,
    "prep_time_min": 20,
-   "total_time_min": 56,
+   "total_time_min": 66,
    "category": "Dessert",
    "ingredients": [
     {
@@ -846,13 +846,23 @@
      "off_machine": true
     },
     {
-     "text": "Tremper dans le sirop.",
-     "setting": null,
-     "off_machine": true
+     "text": "Mettre les ingrédients dans le bol et cuire {S}, sans le gobelet doseur.",
+     "setting": {
+      "time_s": 600,
+      "temperature": "varoma",
+      "speed": "1",
+      "reverse": false,
+      "mode": null,
+      "accessory": null,
+      "browning_power": null
+     },
+     "off_machine": false
     }
    ],
    "first_warning": "Converti automatiquement par règles (sans IA) – vérifier les réglages avant de cuisiner.",
-   "rule_warnings": []
+   "rule_warnings": [
+    "Étape 7 : temps de cuisson estimé (10 min)."
+   ]
   },
   {
    "title": "Schlagsahne mit Erdbeeren",
@@ -1694,6 +1704,469 @@
       "text": "Mit Olivenöl servieren.",
       "setting": null,
       "off_machine": true
+     }
+    ],
+    "first_warning": "Automatisch mit Regeln umgewandelt (ohne KI) – Einstellungen vor dem Kochen prüfen.",
+    "rule_warnings": []
+   }
+  },
+  {
+   "data": {
+    "title": "tunisian dish : besbes",
+    "ingredients": [
+     "Olive oil",
+     "4 green peppers (take sweet peppers, not too spicy)",
+     "2 onions",
+     "3 tomatoes",
+     "1 tablespoon tomato paste",
+     "1 head of garlic",
+     "3 dried red peppers",
+     "salt",
+     "black pepper",
+     "1 tsp tabel karwiya",
+     "1 tsp red pepper powder",
+     "2 bowls of semolina with couscous",
+     "leaves of 3 fennel"
+    ],
+    "instructions": [
+     "Wash the fennel leaves well and chop them finely.",
+     "Boil water in the couscous pot.",
+     "Put the couscous in a big bowl, add salt and a little water and mix with your hands, then steam it for 20 minutes.",
+     "Soak the dried peppers, then crush them with the garlic and the karwiya.",
+     "Fry the green peppers in olive oil, add the onions, the tomatoes, the tomato paste and the garlic mixture, salt and pepper, and add water little by little.",
+     "Add the red pepper powder and let simmer for 10 minutes.",
+     "Mix the couscous with the fennel and the sauce.",
+     "All you have to do is serve with good olives."
+    ],
+    "yields": "",
+    "description": ""
+   },
+   "recipe": {
+    "title": "tunisian dish : besbes",
+    "language": "en",
+    "servings": 4,
+    "prep_time_min": 20,
+    "total_time_min": 54,
+    "category": "Main dish",
+    "ingredients": [
+     {
+      "amount": "",
+      "unit": "",
+      "name": "Olive oil",
+      "note": "",
+      "group": ""
+     },
+     {
+      "amount": "4",
+      "unit": "",
+      "name": "green peppers",
+      "note": "take sweet peppers, not too spicy",
+      "group": ""
+     },
+     {
+      "amount": "2",
+      "unit": "",
+      "name": "onions",
+      "note": "",
+      "group": ""
+     },
+     {
+      "amount": "3",
+      "unit": "",
+      "name": "tomatoes",
+      "note": "",
+      "group": ""
+     },
+     {
+      "amount": "1",
+      "unit": "tbsp",
+      "name": "tomato paste",
+      "note": "",
+      "group": ""
+     },
+     {
+      "amount": "1",
+      "unit": "",
+      "name": "head of garlic",
+      "note": "",
+      "group": ""
+     },
+     {
+      "amount": "3",
+      "unit": "",
+      "name": "dried red peppers",
+      "note": "",
+      "group": ""
+     },
+     {
+      "amount": "",
+      "unit": "",
+      "name": "salt",
+      "note": "",
+      "group": ""
+     },
+     {
+      "amount": "",
+      "unit": "",
+      "name": "black pepper",
+      "note": "",
+      "group": ""
+     },
+     {
+      "amount": "1",
+      "unit": "tsp",
+      "name": "tabel karwiya",
+      "note": "",
+      "group": ""
+     },
+     {
+      "amount": "1",
+      "unit": "tsp",
+      "name": "red pepper powder",
+      "note": "",
+      "group": ""
+     },
+     {
+      "amount": "2",
+      "unit": "",
+      "name": "bowls of semolina with couscous",
+      "note": "",
+      "group": ""
+     },
+     {
+      "amount": "",
+      "unit": "",
+      "name": "leaves of 3 fennel",
+      "note": "",
+      "group": ""
+     }
+    ],
+    "steps": [
+     {
+      "text": "Place leaves of 3 fennel in the dry mixing bowl, chop {S} and set aside.",
+      "setting": {
+       "time_s": 3,
+       "temperature": null,
+       "speed": "7",
+       "reverse": false,
+       "mode": null,
+       "accessory": null,
+       "browning_power": null
+      },
+      "off_machine": false
+     },
+     {
+      "text": "Bring to the boil {S}.",
+      "setting": {
+       "time_s": 360,
+       "temperature": 100,
+       "speed": "1",
+       "reverse": false,
+       "mode": null,
+       "accessory": null,
+       "browning_power": null
+      },
+      "off_machine": false
+     },
+     {
+      "text": "Put the couscous in a big bowl, add salt and a little water and mix with your hands.",
+      "setting": null,
+      "off_machine": true
+     },
+     {
+      "text": "Put the Varoma in position and steam {S}.",
+      "setting": {
+       "time_s": 1200,
+       "temperature": "varoma",
+       "speed": "1",
+       "reverse": false,
+       "mode": null,
+       "accessory": null,
+       "browning_power": null
+      },
+      "off_machine": false
+     },
+     {
+      "text": "Soak the dried peppers.",
+      "setting": null,
+      "off_machine": true
+     },
+     {
+      "text": "Place head of garlic in the mixing bowl, chop {S} and scrape down with the spatula.",
+      "setting": {
+       "time_s": 5,
+       "temperature": null,
+       "speed": "5",
+       "reverse": false,
+       "mode": null,
+       "accessory": null,
+       "browning_power": null
+      },
+      "off_machine": false
+     },
+     {
+      "text": "Add Olive oil, green peppers, onions, tomatoes, tomato paste, dried red peppers and salt and sauté {S}.",
+      "setting": {
+       "time_s": 180,
+       "temperature": 120,
+       "speed": "1",
+       "reverse": false,
+       "mode": null,
+       "accessory": null,
+       "browning_power": null
+      },
+      "off_machine": false
+     },
+     {
+      "text": "Add red pepper powder and cook {S}.",
+      "setting": {
+       "time_s": 600,
+       "temperature": 100,
+       "speed": "1",
+       "reverse": false,
+       "mode": null,
+       "accessory": null,
+       "browning_power": null
+      },
+      "off_machine": false
+     },
+     {
+      "text": "Add bowls of semolina with couscous and leaves of 3 fennel and mix {S}.",
+      "setting": {
+       "time_s": 20,
+       "temperature": null,
+       "speed": "3",
+       "reverse": false,
+       "mode": null,
+       "accessory": null,
+       "browning_power": null
+      },
+      "off_machine": false
+     },
+     {
+      "text": "All you have to do is serve with good olives.",
+      "setting": null,
+      "off_machine": true
+     }
+    ],
+    "first_warning": "Converted automatically with rules (no AI) – check the settings before cooking.",
+    "rule_warnings": []
+   }
+  },
+  {
+   "data": {
+    "title": "Salade mechouia",
+    "ingredients": [
+     "4 poivrons",
+     "3 tomates",
+     "2 gousses d'ail",
+     "1 c. à café de carvi",
+     "4 c. à soupe d'huile d'olive",
+     "sel"
+    ],
+    "instructions": [
+     "Griller les poivrons et les tomates au four 25 minutes.",
+     "Hacher l'ail avec le carvi.",
+     "Ajouter les légumes grillés et mélanger avec l'huile d'olive.",
+     "Servir froid."
+    ],
+    "yields": "",
+    "description": ""
+   },
+   "recipe": {
+    "title": "Salade mechouia",
+    "language": "fr",
+    "servings": 4,
+    "prep_time_min": 20,
+    "total_time_min": 40,
+    "category": "Entrée",
+    "ingredients": [
+     {
+      "amount": "4",
+      "unit": "",
+      "name": "poivrons",
+      "note": "",
+      "group": ""
+     },
+     {
+      "amount": "3",
+      "unit": "",
+      "name": "tomates",
+      "note": "",
+      "group": ""
+     },
+     {
+      "amount": "2",
+      "unit": "gousse(s)",
+      "name": "ail",
+      "note": "",
+      "group": ""
+     },
+     {
+      "amount": "1",
+      "unit": "c. à c.",
+      "name": "carvi",
+      "note": "",
+      "group": ""
+     },
+     {
+      "amount": "4",
+      "unit": "c. à s.",
+      "name": "huile d'olive",
+      "note": "",
+      "group": ""
+     },
+     {
+      "amount": "",
+      "unit": "",
+      "name": "sel",
+      "note": "",
+      "group": ""
+     }
+    ],
+    "steps": [
+     {
+      "text": "Griller les poivrons et les tomates au four 25 minutes.",
+      "setting": null,
+      "off_machine": true
+     },
+     {
+      "text": "Mettre ail dans le bol, mixer {S} et racler les parois avec la spatule.",
+      "setting": {
+       "time_s": 5,
+       "temperature": null,
+       "speed": "5",
+       "reverse": false,
+       "mode": null,
+       "accessory": null,
+       "browning_power": null
+      },
+      "off_machine": false
+     },
+     {
+      "text": "Ajouter huile d'olive et mélanger {S}.",
+      "setting": {
+       "time_s": 20,
+       "temperature": null,
+       "speed": "3",
+       "reverse": false,
+       "mode": null,
+       "accessory": null,
+       "browning_power": null
+      },
+      "off_machine": false
+     },
+     {
+      "text": "Servir froid.",
+      "setting": null,
+      "off_machine": true
+     }
+    ],
+    "first_warning": "Converti automatiquement par règles (sans IA) – vérifier les réglages avant de cuisiner.",
+    "rule_warnings": []
+   }
+  },
+  {
+   "data": {
+    "title": "Kafteji",
+    "ingredients": [
+     "2 Paprika",
+     "300 g Kürbis",
+     "2 Kartoffeln",
+     "4 Eier",
+     "1 EL Harissa",
+     "1,5 l Öl zum Frittieren"
+    ],
+    "instructions": [
+     "Kartoffeln und Kürbis in Würfel schneiden und frittieren.",
+     "Paprika fein hacken.",
+     "Eier zugeben und 4 Minuten stocken lassen."
+    ],
+    "yields": "",
+    "description": ""
+   },
+   "recipe": {
+    "title": "Kafteji",
+    "language": "de",
+    "servings": 4,
+    "prep_time_min": 20,
+    "total_time_min": 20,
+    "category": "Hauptgericht",
+    "ingredients": [
+     {
+      "amount": "2",
+      "unit": "",
+      "name": "Paprika",
+      "note": "",
+      "group": ""
+     },
+     {
+      "amount": "300",
+      "unit": "g",
+      "name": "Kürbis",
+      "note": "",
+      "group": ""
+     },
+     {
+      "amount": "2",
+      "unit": "",
+      "name": "Kartoffeln",
+      "note": "",
+      "group": ""
+     },
+     {
+      "amount": "4",
+      "unit": "",
+      "name": "Eier",
+      "note": "",
+      "group": ""
+     },
+     {
+      "amount": "1",
+      "unit": "EL",
+      "name": "Harissa",
+      "note": "",
+      "group": ""
+     },
+     {
+      "amount": "1500",
+      "unit": "ml",
+      "name": "Öl zum Frittieren",
+      "note": "",
+      "group": ""
+     }
+    ],
+    "steps": [
+     {
+      "text": "Kartoffeln und Kürbis in Würfel schneiden und frittieren.",
+      "setting": null,
+      "off_machine": true
+     },
+     {
+      "text": "Paprika in den Mixtopf geben, {S} zerkleinern und mit dem Spatel nach unten schieben.",
+      "setting": {
+       "time_s": 4,
+       "temperature": null,
+       "speed": "4.5",
+       "reverse": false,
+       "mode": null,
+       "accessory": null,
+       "browning_power": null
+      },
+      "off_machine": false
+     },
+     {
+      "text": "Eier zugeben und {S} garen.",
+      "setting": {
+       "time_s": 240,
+       "temperature": 90,
+       "speed": "soft",
+       "reverse": true,
+       "mode": null,
+       "accessory": null,
+       "browning_power": null
+      },
+      "off_machine": false
      }
     ],
     "first_warning": "Automatisch mit Regeln umgewandelt (ohne KI) – Einstellungen vor dem Kochen prüfen.",

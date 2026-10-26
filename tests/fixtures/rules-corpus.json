@@ -1,55 +1,231 @@
 {
  "structured": [
-  {"title": "Ojja aux merguez", "yields": "4 personnes", "url": "https://example.tn/ojja",
-   "ingredients": ["300 g de merguez", "4 oeufs", "3 gousses d'ail", "2 c. à soupe de concentré de tomate", "1 c. à café de harissa",
-                   "4 c. à soupe d'huile d'olive", "2 poivrons verts", "400 g de tomates", "1 c. à café de carvi", "sel, poivre"],
-   "instructions": ["Hacher l'ail finement.", "Faire revenir l'ail dans l'huile d'olive, ajouter le concentré de tomate, la harissa et le carvi.",
-                    "Ajouter les poivrons et les tomates, puis laisser mijoter 15 minutes.", "Ajouter les merguez coupées en rondelles et cuire 10 min.",
-                    "Casser les oeufs dans la sauce et laisser cuire 4 minutes.", "Servir chaud avec du pain."]},
-  {"title": "Linsensuppe", "yields": "4 Portionen",
-   "ingredients": ["1 Zwiebel", "2 Knoblauchzehen", "2 EL Olivenöl", "250 g rote Linsen", "1 Karotte", "1 l Gemüsebrühe", "1 TL Kreuzkümmel", "½ Bund Petersilie", "Saft einer Zitrone"],
-   "instructions": ["Zwiebel und Knoblauch fein hacken und im Olivenöl andünsten.", "Karotte zugeben, Linsen, Kreuzkümmel und Brühe dazugeben und 20-25 Minuten köcheln lassen.",
-                    "Die Suppe fein pürieren und mit Zitronensaft abschmecken.", "Petersilie hacken und darüber streuen."]},
-  {"title": "Banana bread", "yields": "Serves 8",
-   "ingredients": ["3 ripe bananas", "2 cups flour", "1/2 cup sugar", "1/3 cup melted butter", "1 egg", "1 tsp baking soda", "1/2 cup walnuts"],
-   "instructions": ["Preheat the oven to 175°C.", "Chop the walnuts and set aside.", "Mash the bananas, add butter, sugar and egg and mix well.",
-                    "Fold in the flour and baking soda, then the walnuts.", "Pour into a loaf pan and bake for 60 minutes."]},
-  {"title": "Chorba Frik", "yields": "4",
-   "ingredients": ["300 g d'agneau en petits dés", "1 oignon", "2 gousses d'ail", "3 c. à soupe d'huile d'olive", "2 c. à soupe de concentré de tomate",
-                   "1 c. à café de harissa", "80 g de frik", "1,2 l d'eau", "1 bouquet de persil", "sel, poivre"],
-   "instructions": ["Hacher l'oignon et l'ail, puis les faire revenir dans l'huile d'olive.", "Ajouter l'agneau et faire dorer 5 minutes.",
-                    "Ajouter le concentré de tomate et la harissa, puis l'eau, et laisser mijoter 45 minutes.",
-                    "Ajouter le frik et cuire encore 25 minutes.", "Hacher le persil et parsemer au moment de servir."]},
-  {"title": "Couscous au poulet", "yields": "6 personnes",
-   "ingredients": ["## Pour la sauce", "800 g de poulet", "1 oignon", "3 c. à soupe d'huile d'olive", "2 c. à soupe de concentré de tomate", "1,5 l d'eau",
-                   "## Pour le couscous", "500 g de couscous moyen", "30 g de beurre", "2 carottes", "2 courgettes"],
-   "instructions": ["Émincer l'oignon et le faire revenir dans l'huile.", "Ajouter le poulet et le concentré de tomate, puis l'eau et laisser mijoter 40 minutes.",
-                    "Cuire les carottes et les courgettes à la vapeur 25 minutes.", "Faire cuire le couscous à la vapeur 15 minutes, puis ajouter le beurre."]},
-  {"title": "Makroudh", "yields": "30 pièces",
-   "ingredients": ["500 g de semoule moyenne", "125 ml d'huile", "150 ml d'eau tiède", "300 g de pâte de dattes", "300 g de sucre", "150 ml d'eau", "1 c. à soupe de jus de citron"],
-   "instructions": ["Préparer le sirop: faire bouillir le sucre, l'eau et le jus de citron 10 minutes.", "Mélanger la semoule et l'huile, laisser reposer 30 minutes.",
-                    "Ajouter l'eau tiède et pétrir 1 minute.", "Façonner des boudins, farcir de pâte de dattes et couper en losanges.",
-                    "Frire dans l'huile chaude jusqu'à ce qu'ils soient dorés.", "Tremper dans le sirop."]},
-  {"title": "Schlagsahne mit Erdbeeren", "yields": "4",
-   "ingredients": ["400 g Sahne", "1 Pck. Vanillezucker", "500 g Erdbeeren", "50 g Zartbitterschokolade"],
-   "instructions": ["Sahne mit Vanillezucker steif schlagen.", "Schokolade schmelzen.", "Erdbeeren waschen und halbieren."]},
-  {"title": "Pizzateig", "yields": "2 Pizzen",
-   "ingredients": ["300 g Mehl", "200 ml Wasser", "1 TL Salz", "2 EL Olivenöl", "1/2 Würfel Hefe"],
-   "instructions": ["Wasser und Hefe 2 Minuten bei 37 Grad erwärmen.", "Mehl, Salz und Olivenöl zugeben und 2 Minuten kneten.", "Teig 1 Stunde ruhen lassen."]},
-  {"title": "Mloukhia", "yields": "4",
-   "ingredients": ["400 g Rindfleisch", "2,5 l Wasser", "50 g Mloukhia-Pulver", "120 g Olivenöl"],
-   "instructions": ["Rindfleisch und Wasser zugeben und 3 Stunden köcheln lassen."]},
-  {"title": "Tomato soup", "yields": "4",
-   "ingredients": ["1 onion", "2 tbsp olive oil", "800 g tomatoes", "500 ml vegetable stock", "fresh basil"],
-   "instructions": ["Chop the onion and sauté in olive oil for 3 minutes.", "Add tomatoes and stock and bring to a boil, then simmer gently for 20 minutes.", "Blend until smooth and season with salt and pepper.", "Garnish with basil."]},
-  {"title": "سلطة مشوية", "yields": "4",
-   "ingredients": ["4 فلفل أخضر", "3 طماطم", "2 فصوص ثوم", "زيت زيتون"],
-   "instructions": ["اشوي الفلفل والطماطم في الفرن.", "قطع الثوم.", "اخلط الكل مع زيت الزيتون."]}
+  {
+   "title": "Ojja aux merguez",
+   "yields": "4 personnes",
+   "url": "https://example.tn/ojja",
+   "ingredients": [
+    "300 g de merguez",
+    "4 oeufs",
+    "3 gousses d'ail",
+    "2 c. à soupe de concentré de tomate",
+    "1 c. à café de harissa",
+    "4 c. à soupe d'huile d'olive",
+    "2 poivrons verts",
+    "400 g de tomates",
+    "1 c. à café de carvi",
+    "sel, poivre"
+   ],
+   "instructions": [
+    "Hacher l'ail finement.",
+    "Faire revenir l'ail dans l'huile d'olive, ajouter le concentré de tomate, la harissa et le carvi.",
+    "Ajouter les poivrons et les tomates, puis laisser mijoter 15 minutes.",
+    "Ajouter les merguez coupées en rondelles et cuire 10 min.",
+    "Casser les oeufs dans la sauce et laisser cuire 4 minutes.",
+    "Servir chaud avec du pain."
+   ]
+  },
+  {
+   "title": "Linsensuppe",
+   "yields": "4 Portionen",
+   "ingredients": [
+    "1 Zwiebel",
+    "2 Knoblauchzehen",
+    "2 EL Olivenöl",
+    "250 g rote Linsen",
+    "1 Karotte",
+    "1 l Gemüsebrühe",
+    "1 TL Kreuzkümmel",
+    "½ Bund Petersilie",
+    "Saft einer Zitrone"
+   ],
+   "instructions": [
+    "Zwiebel und Knoblauch fein hacken und im Olivenöl andünsten.",
+    "Karotte zugeben, Linsen, Kreuzkümmel und Brühe dazugeben und 20-25 Minuten köcheln lassen.",
+    "Die Suppe fein pürieren und mit Zitronensaft abschmecken.",
+    "Petersilie hacken und darüber streuen."
+   ]
+  },
+  {
+   "title": "Banana bread",
+   "yields": "Serves 8",
+   "ingredients": [
+    "3 ripe bananas",
+    "2 cups flour",
+    "1/2 cup sugar",
+    "1/3 cup melted butter",
+    "1 egg",
+    "1 tsp baking soda",
+    "1/2 cup walnuts"
+   ],
+   "instructions": [
+    "Preheat the oven to 175°C.",
+    "Chop the walnuts and set aside.",
+    "Mash the bananas, add butter, sugar and egg and mix well.",
+    "Fold in the flour and baking soda, then the walnuts.",
+    "Pour into a loaf pan and bake for 60 minutes."
+   ]
+  },
+  {
+   "title": "Chorba Frik",
+   "yields": "4",
+   "ingredients": [
+    "300 g d'agneau en petits dés",
+    "1 oignon",
+    "2 gousses d'ail",
+    "3 c. à soupe d'huile d'olive",
+    "2 c. à soupe de concentré de tomate",
+    "1 c. à café de harissa",
+    "80 g de frik",
+    "1,2 l d'eau",
+    "1 bouquet de persil",
+    "sel, poivre"
+   ],
+   "instructions": [
+    "Hacher l'oignon et l'ail, puis les faire revenir dans l'huile d'olive.",
+    "Ajouter l'agneau et faire dorer 5 minutes.",
+    "Ajouter le concentré de tomate et la harissa, puis l'eau, et laisser mijoter 45 minutes.",
+    "Ajouter le frik et cuire encore 25 minutes.",
+    "Hacher le persil et parsemer au moment de servir."
+   ]
+  },
+  {
+   "title": "Couscous au poulet",
+   "yields": "6 personnes",
+   "ingredients": [
+    "## Pour la sauce",
+    "800 g de poulet",
+    "1 oignon",
+    "3 c. à soupe d'huile d'olive",
+    "2 c. à soupe de concentré de tomate",
+    "1,5 l d'eau",
+    "## Pour le couscous",
+    "500 g de couscous moyen",
+    "30 g de beurre",
+    "2 carottes",
+    "2 courgettes"
+   ],
+   "instructions": [
+    "Émincer l'oignon et le faire revenir dans l'huile.",
+    "Ajouter le poulet et le concentré de tomate, puis l'eau et laisser mijoter 40 minutes.",
+    "Cuire les carottes et les courgettes à la vapeur 25 minutes.",
+    "Faire cuire le couscous à la vapeur 15 minutes, puis ajouter le beurre."
+   ]
+  },
+  {
+   "title": "Makroudh",
+   "yields": "30 pièces",
+   "ingredients": [
+    "500 g de semoule moyenne",
+    "125 ml d'huile",
+    "150 ml d'eau tiède",
+    "300 g de pâte de dattes",
+    "300 g de sucre",
+    "150 ml d'eau",
+    "1 c. à soupe de jus de citron"
+   ],
+   "instructions": [
+    "Préparer le sirop: faire bouillir le sucre, l'eau et le jus de citron 10 minutes.",
+    "Mélanger la semoule et l'huile, laisser reposer 30 minutes.",
+    "Ajouter l'eau tiède et pétrir 1 minute.",
+    "Façonner des boudins, farcir de pâte de dattes et couper en losanges.",
+    "Frire dans l'huile chaude jusqu'à ce qu'ils soient dorés.",
+    "Tremper dans le sirop."
+   ]
+  },
+  {
+   "title": "Schlagsahne mit Erdbeeren",
+   "yields": "4",
+   "ingredients": [
+    "400 g Sahne",
+    "1 Pck. Vanillezucker",
+    "500 g Erdbeeren",
+    "50 g Zartbitterschokolade"
+   ],
+   "instructions": [
+    "Sahne mit Vanillezucker steif schlagen.",
+    "Schokolade schmelzen.",
+    "Erdbeeren waschen und halbieren."
+   ]
+  },
+  {
+   "title": "Pizzateig",
+   "yields": "2 Pizzen",
+   "ingredients": [
+    "300 g Mehl",
+    "200 ml Wasser",
+    "1 TL Salz",
+    "2 EL Olivenöl",
+    "1/2 Würfel Hefe"
+   ],
+   "instructions": [
+    "Wasser und Hefe 2 Minuten bei 37 Grad erwärmen.",
+    "Mehl, Salz und Olivenöl zugeben und 2 Minuten kneten.",
+    "Teig 1 Stunde ruhen lassen."
+   ]
+  },
+  {
+   "title": "Mloukhia",
+   "yields": "4",
+   "ingredients": [
+    "400 g Rindfleisch",
+    "2,5 l Wasser",
+    "50 g Mloukhia-Pulver",
+    "120 g Olivenöl"
+   ],
+   "instructions": [
+    "Rindfleisch und Wasser zugeben und 3 Stunden köcheln lassen."
+   ]
+  },
+  {
+   "title": "Tomato soup",
+   "yields": "4",
+   "ingredients": [
+    "1 onion",
+    "2 tbsp olive oil",
+    "800 g tomatoes",
+    "500 ml vegetable stock",
+    "fresh basil"
+   ],
+   "instructions": [
+    "Chop the onion and sauté in olive oil for 3 minutes.",
+    "Add tomatoes and stock and bring to a boil, then simmer gently for 20 minutes.",
+    "Blend until smooth and season with salt and pepper.",
+    "Garnish with basil."
+   ]
+  },
+  {
+   "title": "سلطة مشوية",
+   "yields": "4",
+   "ingredients": [
+    "4 فلفل أخضر",
+    "3 طماطم",
+    "2 فصوص ثوم",
+    "زيت زيتون"
+   ],
+   "instructions": [
+    "اشوي الفلفل والطماطم في الفرن.",
+    "قطع الثوم.",
+    "اخلط الكل مع زيت الزيتون."
+   ]
+  }
  ],
  "texts": [
   "Linsensuppe\n\nFür 4 Personen\n\nZutaten\n1 Zwiebel\n2 Knoblauchzehen\n2 EL Olivenöl\n250 g rote Linsen\n1 l Gemüsebrühe\n1 TL Kreuzkümmel\n½ Bund Petersilie\n\nZubereitung\n1. Zwiebel und Knoblauch fein hacken und im Olivenöl\nandünsten.\n2. Linsen, Kreuzkümmel und Brühe dazugeben und 20 Minuten köcheln lassen.\n3. Die Suppe fein pürieren.\n4. Petersilie hacken und darüber streuen.\n",
   "Banana Bread\nServes 8\nIngredients\n3 ripe bananas\n2 cups flour\n1/2 cup sugar\n1 egg\nMethod\n1. Mash the bananas and mix with sugar and egg.\n2. Fold in the flour.\n3. Bake for 60 minutes at 175 C.\n",
   "# Lablabi tunisien\n\nPour 4 personnes\n\n## Ingrédients\n\n* 250 g de pois chiches trempés\n* 5 gousses d'ail\n* 1 c. à café de cumin\n* 1,2 l d'eau\n* 1 c. à soupe de harissa\n\n## Préparation\n\n1. Écraser l'ail.\n2. Ajouter les pois chiches et l'eau et cuire 60 minutes.\n3. Ajouter la harissa et servir sur du pain rassis.\n",
-  "Hummus\nZutaten: \n400 g Kichererbsen\n3 EL Tahin\n1 Knoblauchzehe\nSaft einer Zitrone\nAlles zusammen fein pürieren und mit Salz abschmecken. Mit Olivenöl servieren.\n"
+  "Hummus\nZutaten: \n400 g Kichererbsen\n3 EL Tahin\n1 Knoblauchzehe\nSaft einer Zitrone\nAlles zusammen fein pürieren und mit Salz abschmecken. Mit Olivenöl servieren.\n",
+  {
+   "title": "tunisian dish : besbes — Steemit",
+   "text": "Steemit\nSign in\nSign up\ntunisian dish : besbes\nfaresellouz (55) in #po\nToday I share with you a traditional dish from my grandmother, very popular in the north of Tunisia during the winter season when fennel is everywhere.\nTo achieve it, you need:\nOlive oil, 4 green peppers (take sweet peppers, not too spicy), 2 onions, 3 tomatoes, 1 tablespoon tomato paste, 1 head of garlic, 3 dried red peppers, salt, black pepper, 1 tsp tabel karwiya, 1 tsp red pepper powder\n2 bowls of semolina with couscous, leaves of 3 fennel\n• Wash the fennel leaves well and chop them finely.\n• Boil water in the couscous pot.\n• Put the couscous in a big bowl, add salt and a little water and mix with your hands, then steam it for 20 minutes.\n• Soak the dried peppers, then crush them with the garlic and the karwiya.\n• Fry the green peppers in olive oil, add the onions, the tomatoes, the tomato paste and the garlic mixture, salt and pepper, and add water little by little.\n• Add the red pepper powder and let simmer for 10 minutes.\n• Mix the couscous with the fennel and the sauce.\n• All you have to do is serve with good olives.\n#food #health #photography\n3 years ago in #po by faresellouz (55)\n$0.00\nReply\nLooks delicious, I will try it this weekend with my family!\n"
+  },
+  {
+   "title": "Salade mechouia | Cuisine de Leila",
+   "text": "Salade mechouia\nUne entrée de chez nous.\nIl vous faut : 4 poivrons, 3 tomates, 2 gousses d'ail, 1 c. à café de carvi, 4 c. à soupe d'huile d'olive, sel\n- Griller les poivrons et les tomates au four 25 minutes.\n- Hacher l'ail avec le carvi.\n- Ajouter les légumes grillés et mélanger avec l'huile d'olive.\n- Servir froid.\nCommentaires\nTrès bonne recette merci !\n"
+  },
+  {
+   "title": "",
+   "text": "Kafteji\nIhr braucht:\n2 Paprika, 300 g Kürbis, 2 Kartoffeln, 4 Eier, 1 EL Harissa, 1,5 l Öl zum Frittieren\nKartoffeln und Kürbis in Würfel schneiden und frittieren.\nPaprika fein hacken.\nEier zugeben und 4 Minuten stocken lassen.\n"
+  }
  ]
 }

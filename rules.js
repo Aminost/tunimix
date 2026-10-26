@@ -174,12 +174,13 @@ const isFat = (ing) => OIL_RE.test(fold(ing.name));
 
 // ======================= rulebased.py =======================
 const A = {
-  off: "backofen|ofen\\b|im ofen|backen|\\bbake\\b|\\bbaking\\b(?! soda| powder)|oven|four\\b|enfourn|au four|grill|barbecue|frittier|deep.?fr|" +
+  off: "backofen|ofen\\b|im ofen|backen|\\bbake\\b|\\bbaking\\b(?! soda| powder)|oven|four\\b|enfourn|au four|\\bgrill(?:en|er|ez)?\\b|barbecue|frittier|deep.?fr|" +
     "friture|bain d.huile|huile chaude|hot oil|heissem ol|" +
     "ruhen|rest(?:ing)?\\b|repos|marinier|marinate|mariner|kuhlschrank|refrigerat|frigo|refriger|over ?night|uber nacht|" +
-    "forme?n\\b|shape|faconn|ausroll|roll out|etaler|abaiss|einweich|soak|tremper|schal|peel|eplucher|wasch|wash|laver|" +
+    "forme?n\\b|shape|faconn|ausroll|roll out|etaler|abaiss|with your hands|by hand|a la main|avec les mains|mit den handen|von hand|" +
     "in eine schussel|in a bowl|dans un saladier|pfanne mit deckel|abkuhlen|cool down|laisser refroidir|refroidir|" +
     "\\bfr(y|ies)\\b.*(?:until crisp|in batches)|portionsweise|en plusieurs fois|فرن|يقدم|قدم",
+  prep: "einweich|soak|tremper|schal|peel|eplucher|wasch|wash|laver",
   serve: "servier|\\bserve|servir|garnier|garnish|decor|anricht|dresser|يقدم|قدم",
   blend: "purier|purée|puree|mixen|fein mixen|blend|mixer|mouliner|reduire en puree|veloute|smooth|glatt|اخلط جيدا",
   knead: "knet|knead|petri|pétri|عجن|اعجن",
@@ -187,15 +188,15 @@ const A = {
   steam: "dampf|dämpf|steam|vapeur|couscoussier|varoma|بخار|كسكاس",
   syrup: "sirup|syrup|sirop|karamell|caramel",
   reduce: "einkoch|reduzier|\\breduce|reduire(?! en puree)|réduire(?! en purée)|eindick|thicken|epaissir",
-  boil: "aufkoch|zum kochen bringen|bring to (a )?boil|porter a ebullition|porter à ébullition|ebullition",
-  simmer: "koch|kochen|koechel|kochel|garen|gar ziehen|schmor|simmer|cook|stew|braise|cuire|cuisson|mijot|bouill|laisser cuire|طيب|اطبخ|يطيب|اتركه يطيب",
+  boil: "aufkoch|zum kochen bringen|bring to (a )?boil|\\bboil\\b|porter a ebullition|porter à ébullition|ebullition",
+  simmer: "koch|kochen|koechel|kochel|garen|gar ziehen|stocken|laisser prendre|schmor|simmer|cook|stew|braise|cuire|cuisson|mijot|bouill|laisser cuire|طيب|اطبخ|يطيب|اتركه يطيب",
   saute: "anbrat|anbraten|andunst|dunst|anschwitz|braten|brown|saute|sauté|\\bfry\\b|\\bfried\\b|sear|faire revenir|revenir|rissol|dorer|faire suer|suer|اقلي|قلي|حمر",
   toast: "anrost|ohne fett rost|toast|torrefi|griller a sec|roast the spices|faire griller",
   melt: "schmelz|melt|fondre|ذوب",
   heat: "erhitz|erwarm|heat|warm up|chauff|rechauff|سخن",
   grind: "mahl|mahlen|grind|moudre|mixer finement en poudre|pulveris|puderzucker|طحن|اطحن",
   grate: "reib|raspel|grate|raper|râper|بشر",
-  chop: "hack|zerklein|zerhack|chop|mince|hacher|emincer|émincer|ciseler|fein schneid|finely|قطع|افرم|فرم",
+  chop: "hack|zerklein|zerhack|chop|mince|hacher|emincer|émincer|ciseler|fein schneid|finely|crush|zerstoss|piler|قطع|افرم|فرم",
   mash: "zerdruck|zerdrück|mash|ecraser|écraser|هرس",
   season: "abschmeck|wurzen|würzen|season|taste and adjust|adjust the seasoning|assaisonn|rectifier|ملح حسب",
   sprinkle: "bestreu|daruber streu|darüber streu|streuen|sprinkle|garnish with|parsemer|saupoudrer|رش",
@@ -207,7 +208,7 @@ const ACTIONS = Object.entries(A).map(([k, v]) => [k, rx(v)]);
 const MAIN_PRIORITY = ["blend", "knead", "whip", "steam", "syrup", "reduce", "boil", "simmer", "saute", "toast", "melt", "heat", "grind", "grate", "mash", "fold", "mix"];
 const OBJ = {
   onion: "zwiebel|knoblauch|schalott|chili|oignon|\\bail\\b|echalot|piment|onion|garlic|shallot|بصل|ثوم|فلفل حار",
-  herbs: "petersil|koriander|minze|dill|schnittlauch|basilik|persil|coriandre|menthe|basilic|parsley|cilantro|mint|basil|معدنوس|قصبر|نعناع",
+  herbs: "petersil|koriander|minze|dill|schnittlauch|basilik|persil|coriandre|menthe|basilic|parsley|cilantro|mint|basil|fenchel|fenouil|fennel|معدنوس|قصبر|نعناع|بسباس",
   nuts: "nuss|nusse|mandel|haselnu|walnu|pistazi|amande|noix|noisette|pistache|almond|\\bnuts?\\b|walnut|hazelnut|pistachio|لوز|بندق|فستق",
   bread: "brot|paniermehl|semmel|pain|bread|chapelure|crumb|خبز",
   cheese: "parmesan|kase|käse|gruyere|emmental|fromage|cheese|جبن",
@@ -314,6 +315,10 @@ const actionsOf = (part) => {
   const found = ACTIONS.filter(([, r]) => r.test(f)).map(([k]) => k);
   if (found.includes("off") && (found.includes("saute") || found.includes("simmer")) && rx("pfanne|pan\\b|poele|poêle|topf|casserole|marmite|cocotte").test(f)
     && !/frittier|deep|friture|huile chaude|hot oil|heissem ol|ofen|oven|four/.test(f)) found.splice(found.indexOf("off"), 1);
+  if (found.includes("prep")) {   // wash / peel / soak: outside unless the phrase also does a Thermomix action
+    found.splice(found.indexOf("prep"), 1);
+    if (!found.some((a) => [...MAIN_PRIORITY, "chop", "mash"].includes(a)) && !found.includes("off")) found.push("off");
+  }
   return found;
 };
 const subset = (a, b) => a.every((x) => b.includes(x));
@@ -376,8 +381,10 @@ function mentioned(part, ingredients) {
   const out = [];
   for (const [n, idx] of hits) {
     const nameLen = ingredientWords(ingredients[n]).length;
+    const own = ingredientWords(ingredients[n]);
     const covered = [...hits].some(([m, h]) => m !== n && h.size >= 2 && ingredientWords(ingredients[m]).length > nameLen
-      && isSub(idx, h) && Math.max(...h) - Math.min(...h) <= 3);
+      && isSub(idx, h) && Math.max(...h) - Math.min(...h) <= 3
+      && [...idx].every((i) => ingredientWords(ingredients[m]).includes(tokens[i]) || !own.includes(tokens[i])));
     const exact = [...idx].some((i) => ingredientWords(ingredients[n]).includes(tokens[i]));
     const rival = [...hits].some(([m, h]) => {
       if (m === n) return false;
@@ -601,13 +608,50 @@ export function convertStructured(data, { language = null, machine = "TM6", serv
 // ======================= documents.py: structure_text =======================
 const H_ING = rx("^\\W*(zutaten|ingredients?|ingrédients|ingredientes|المكونات|المقادير|مقادير)\\b.{0,40}$", "i");
 const H_STEPS = rx("^\\W*(zubereitung|anleitung|so geht'?s|instructions?|method|methode|directions|preparation|préparation|étapes|etapes|recette|طريقة التحضير|التحضير|الطريقة|طريقة)\\b.{0,30}$", "i");
+const H_LEADIN = rx("(you need|you will need|you'll need|what you need|ingredients needed|il vous faut|il faut|" +
+  "vous aurez besoin|pour realiser|pour réaliser|ihr braucht|du brauchst|man braucht|wir brauchen|" +
+  "benötigt|benotigt|تحتاج|ستحتاج)\\b[^:]{0,40}:\\s*(?<rest>.*)$", "i");
 const H_OTHER = rx("^\\W*(tipps?|tips?|notes?|astuces?|conseils?|nährwerte|nutrition|serving|à savoir|نصائح)\\b.{0,30}$", "i");
 const H_GROUP = rx("^(für (den|die|das)\\b.{2,40}|pour (la|le|les|l')\\b.{2,40}|for the\\b.{2,40}|.{2,40}:)$", "i");
 const NUMBERED = rx("^\\s*(?:\\d{1,2}|[a-z])\\s*[.)\\-:]\\s+|^\\s*(?:schritt|étape|step)\\s*\\d+\\s*[:.)-]?\\s*", "i");
-const YIELD = rx("(?:für|pour|serves|for|makes|ergibt|portionen?:?|personnes?:?|servings?:?)\\s*(\\d{1,2})\\s*(?:personen|portionen|personnes|people|persons|servings|portions|stück|pieces|parts)?", "i");
+const YIELD = rx("(?:für|pour|serves|for|makes|ergibt|portionen?:?|personnes?:?|servings?:?)\\s*(\\d{1,2})" +
+  "(?!\\d|[.,]\\d|\\s*(?:min|std|stunde|h\\b|hour|hrs?\\b|heure|sek|sec|s\\b|°|grad|degr|g\\b|kg|ml|cl|l\\b|cm|mm))\\s*(?:personen|portionen|personnes|people|persons|servings|portions|stück|pieces|parts)?", "i");
 const YIELD2 = rx("(\\d{1,2})\\s*(?:personen|portionen|personnes|people|servings|portions|أشخاص|اشخاص)", "i");
 const QTY_START = rx(`^\\s*[-•*·–]?\\s*(${AMOUNT})`, "i");
-const VERBISH = rx("\\b(geben|zugeben|kochen|garen|rühren|schneiden|hacken|mixen|backen|braten|add|cook|stir|mix|bake|chop|boil|simmer|ajouter|cuire|mélanger|melanger|couper|faire|laisser|mettre|verser)\\b", "i");
+const VERBISH = rx("\\b(geben|zugeben|kochen|garen|rühren|schneiden|hacken|mixen|backen|braten|waschen|lassen|add|cook|stir|mix|" +
+  "bake|chop|boil|simmer|wash|put|soak|fry|serve|heat|pour|let|place|ajouter|cuire|mélanger|melanger|" +
+  "couper|faire|laisser|mettre|verser|laver|servir)\\b", "i");
+const BULLET = /^\s*(?:[-•*·–▪◦]\s*)+/u;
+function splitCommas(line) {
+  const items = []; let depth = 0, cur = "";
+  [...line].forEach((ch, k, arr) => {
+    if (ch === "(") depth++;
+    if (ch === ")" && depth > 0) depth--;
+    const decimal = ch === "," && k > 0 && k < arr.length - 1 && isDigit(arr[k - 1]) && isDigit(arr[k + 1]);
+    if ((ch === "," || ch === ";") && depth === 0 && !decimal) { items.push(cur); cur = ""; } else cur += ch;
+  });
+  items.push(cur);
+  return items.filter((i) => strip(i, " .")).map((i) => strip(i, " ."));
+}
+function isIngredientPara(line) {
+  const n = splitCommas(line).length;
+  return n >= 3 && !VERBISH.test(line) && !NUMBERED.test(line) && !BULLET.test(line) && line.length / n < 60;
+}
+const bulleted = (ln) => BULLET.test(ln) || NUMBERED.test(ln);
+function cutTrailing(lines) {
+  if (lines.filter(bulleted).length < 2) return lines;
+  const start = lines.findIndex(bulleted);
+  const out = [];
+  for (const ln of lines.slice(start)) {
+    if (bulleted(ln) || (out.length && !/[.!?:]$/.test(out.at(-1)))) out.push(ln);
+    else break;
+  }
+  return out;
+}
+export function cleanTitle(title) {
+  const parts = String(title || "").split(/\s+[|—–]\s+|\s+-\s+(?=[^-]{2,30}$)/u);
+  return parts.length && strip(parts[0]) ? strip(parts[0]) : strip(String(title || ""));
+}
 
 function isIngredientLine(line) {
   if (line.length > 90 || (line.endsWith(".") && line.length > 40)) return false;
@@ -623,12 +667,19 @@ function joinWrapped(lines) {
     if (out.length && !NUMBERED.test(ln) && !/[.!?:]$/.test(out.at(-1)) && !isDigit(ln.slice(0, 1) || "x")) out[out.length - 1] = `${out.at(-1)} ${ln}`;
     else out.push(ln);
   }
-  return out.filter((x) => strip(x)).map((x) => strip(x.replace(NUMBERED, "")));
+  return out.filter((x) => strip(x)).map((x) => strip(x.replace(NUMBERED, "").replace(BULLET, "")));
 }
 export function structureText(text, title = "") {
   let lines = String(text).replaceAll("\r", "").split("\n").map((ln) => strip(ln.replace(/\s+/g, " ")));
   lines = lines.filter((ln) => ln && !/^[^\p{L}\p{N}]+$/u.test(ln));
-  const data = { title, ingredients: [], instructions: [], yields: "", description: "" };
+  const data = { title: cleanTitle(title), ingredients: [], instructions: [], yields: "", description: "" };
+  for (let i = 0; i < lines.length; i++) {
+    const lm = lines[i].match(H_LEADIN);
+    if (lm && lines[i].length - lm.groups.rest.length <= 90) {
+      lines.splice(i, 1, "Ingredients", ...(strip(lm.groups.rest) ? [lm.groups.rest] : []));
+      break;
+    }
+  }
   const m = text.match(YIELD) || text.match(YIELD2);
   if (m) data.yields = m[1];
   let iIng = lines.findIndex((ln) => H_ING.test(ln)); if (iIng < 0) iIng = null;
@@ -644,17 +695,21 @@ export function structureText(text, title = "") {
     block = lines.slice(iIng + 1, end);
     stepsBlock = iStp !== null ? lines.slice(iStp + 1) : [];
     if (iStp === null) {
-      let k = block.findIndex((ln) => !isIngredientLine(ln) && !H_GROUP.test(ln) && ln.length > 40);
+      let k = block.findIndex((ln) => !isIngredientLine(ln) && !isIngredientPara(ln) && !H_GROUP.test(ln)
+        && (ln.length > 40 || bulleted(ln) || VERBISH.test(ln)));
       if (k < 0) k = block.length;
       stepsBlock = block.slice(k); block = block.slice(0, k);
     }
   } else {
-    block = lines.filter(isIngredientLine);
-    stepsBlock = lines.filter((ln) => !isIngredientLine(ln) && ln !== data.title && (NUMBERED.test(ln) || ln.length > 35));
+    block = lines.filter((ln) => isIngredientLine(ln) || isIngredientPara(ln));
+    stepsBlock = lines.filter((ln) => !isIngredientLine(ln) && !isIngredientPara(ln) && ln !== data.title && (NUMBERED.test(ln) || ln.length > 35));
   }
   for (const ln of block) {
     if (H_OTHER.test(ln)) break;
+    const items = splitCommas(ln);
     if (H_GROUP.test(ln) && !QTY_START.test(ln)) data.ingredients.push("## " + ln.replace(/:+$/, ""));
+    else if (isIngredientPara(ln) || (items.length >= 3 && ln.length > 60)
+      || (items.length >= 2 && !VERBISH.test(ln) && items.slice(1).every((it) => /\d/.test(it)))) data.ingredients.push(...splitCommas(lstrip(ln, "-•*·– ")));
     else data.ingredients.push(strip(lstrip(ln, "-•*·– ")));
   }
   const steps = [];
@@ -662,7 +717,7 @@ export function structureText(text, title = "") {
     if (H_OTHER.test(ln)) break;
     if (!H_GROUP.test(ln) || ln.length > 40) steps.push(ln);
   }
-  data.instructions = joinWrapped(steps);
+  data.instructions = joinWrapped(cutTrailing(steps));
   return data;
 }
 
@@ -699,9 +754,34 @@ export function fromHtml(html, url = "") {
     try { const n = findRecipeNode(JSON.parse(s.textContent)); if (n) { const d = fromJsonLd(n, url); if (d.ingredients.length && d.instructions.length) return d; } } catch {}
   }
   const og = doc.querySelector('meta[property="og:image"]')?.content || "";
-  doc.querySelectorAll("script,style,nav,footer,header,aside,form,iframe,svg,noscript").forEach((e) => e.remove());
-  const main = doc.querySelector("article") || doc.querySelector("main") || doc.body;
-  const text = (main?.innerText || main?.textContent || "").replace(/\n{3,}/g, "\n\n");
-  const d = structureText(text, doc.title || "");
+  doc.querySelectorAll("script,style,nav,footer,header,aside,form,iframe,svg,noscript,button").forEach((e) => e.remove());
+  const CANDIDATES = [".wprm-recipe-container", ".tasty-recipes", ".mv-create-card", "[itemtype*=Recipe]", ".recipe-card",
+    ".PostFull__body", ".entry-content", ".post-content", ".article-content", ".post-body", "article", "main", "[role=main]"];
+  let main = null;
+  for (const sel of CANDIDATES) {
+    const el = doc.querySelector(sel);
+    if (el && el.textContent.trim().length > 300) { main = el; break; }
+  }
+  main = main || doc.body;
+  const d = structureText(htmlToText(main), doc.querySelector("h1")?.textContent?.trim() || doc.title || "");
   return { ...d, url, image: og };
+}
+
+// DOM -> text with real line breaks (DOMParser documents have no layout, so innerText can't be used)
+const BLOCK = new Set(["P", "DIV", "LI", "BR", "H1", "H2", "H3", "H4", "H5", "H6", "TR", "SECTION", "ARTICLE", "UL", "OL",
+  "BLOCKQUOTE", "PRE", "TABLE", "DD", "DT", "FIGCAPTION", "HEADER", "FOOTER"]);
+export function htmlToText(root) {
+  let out = "";
+  const walk = (node) => {
+    if (node.nodeType === 3) { out += node.nodeValue.replace(/\s+/g, " "); return; }
+    if (node.nodeType !== 1) return;
+    const tag = node.tagName;
+    if (BLOCK.has(tag)) out += "\n";
+    if (tag === "LI") out += "- ";
+    if (tag === "TD" || tag === "TH") out += " ";
+    node.childNodes.forEach(walk);
+    if (BLOCK.has(tag)) out += "\n";
+  };
+  walk(root);
+  return out.split("\n").map((l) => l.trim()).filter(Boolean).join("\n");
 }

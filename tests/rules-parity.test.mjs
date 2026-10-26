@@ -25,7 +25,8 @@ corpus.structured.forEach((d, i) => {
 
 corpus.texts.forEach((t, i) => {
   test(`text structuring parity #${i + 1}`, () => {
-    const data = structureText(t);
+    const [text, title] = typeof t === "string" ? [t, ""] : [t.text, t.title || ""];
+    const data = structureText(text, title);
     assert.deepStrictEqual(data, expected.texts[i].data);
     assert.deepStrictEqual(view(convertStructured(data)), expected.texts[i].recipe);
   });

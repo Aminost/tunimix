@@ -164,11 +164,7 @@ code{font:13px ui-monospace,SFMono-Regular,Menlo,monospace;background:var(--pape
         <details id="aiWays">
           <summary data-i="ai_ways"></summary>
           <div class="stack" style="margin-top:12px">
-        <div id="withKey" class="btns" hidden>
-          <button class="btn" id="btnConvert"><span data-i="convert"></span></button>
-          <span id="viaNote" class="muted small" style="flex-basis:100%"></span>
-        </div>
-        <div id="noKey" class="stack" hidden>
+        <div id="noKey" class="stack">
           <div class="free stack">
             <strong data-i="free_title"></strong>
             <ol>
@@ -185,8 +181,6 @@ code{font:13px ui-monospace,SFMono-Regular,Menlo,monospace;background:var(--pape
                 <button class="btn p" id="btnUseAnswer" style="margin-top:8px" data-i="free_go"></button></li>
             </ol>
           </div>
-          <div class="divider" data-i="or"></div>
-          <button class="btn" id="btnGoKey" data-i="key_cta"></button>
         </div>
           </div>
         </details>
@@ -230,20 +224,8 @@ code{font:13px ui-monospace,SFMono-Regular,Menlo,monospace;background:var(--pape
     <!-- SETTINGS -->
     <section id="v-settings" class="stack" hidden>
       <div class="card stack">
-        <strong data-i="set_ai"></strong>
-        <p class="muted small" data-i="set_ai_help"></p>
-        <div><label class="l" for="provider" data-i="set_provider"></label><select id="provider"></select></div>
-        <div id="baseRow"><label class="l" for="baseUrl" data-i="set_base"></label><input id="baseUrl" type="url" autocomplete="off" spellcheck="false"></div>
-        <div id="keyRow"><label class="l" for="apiKey" data-i="set_key"></label>
-          <input id="apiKey" type="password" autocomplete="off" spellcheck="false">
-          <p class="muted small"><span data-i="set_key_help"></span> <a id="keyLink" href="#" target="_blank" rel="noopener"></a></p></div>
-        <div><label class="l" for="model" data-i="set_model"></label>
-          <div class="btns" style="flex-wrap:nowrap"><input id="model" list="modelList" autocomplete="off" spellcheck="false" style="flex:1;min-width:0"><button class="btn" id="btnModels" data-i="set_load_models" style="flex:none"></button></div>
-          <datalist id="modelList"></datalist></div>
-        <div id="localHelp" class="banner small" hidden></div>
+        <strong data-i="set_links"></strong>
         <label class="small" style="display:flex;gap:8px;align-items:flex-start"><input id="useReader" type="checkbox" style="width:auto;margin-top:4px"> <span data-i="set_reader"></span></label>
-        <div class="btns"><button class="btn p" id="btnTestKey" data-i="set_test"></button><button class="btn d" id="btnClearKey" data-i="clear_key"></button></div>
-        <div id="keyStatus" class="small" role="status"></div>
       </div>
       <div class="card stack">
         <strong data-i="set_data"></strong>

@@ -24,6 +24,10 @@ def dump(r):
 
 corpus = json.loads((ROOT / "tests/fixtures/rules-corpus.json").read_text(encoding="utf-8"))
 res = {"structured": [dump(convert_structured(d)) for d in corpus["structured"]],
-       "texts": [{"data": structure_text(t), "recipe": dump(convert_structured(structure_text(t)))} for t in corpus["texts"]]}
+       "texts": []}
+for t in corpus["texts"]:
+    text, title = (t["text"], t.get("title", "")) if isinstance(t, dict) else (t, "")
+    data = structure_text(text, title)
+    res["texts"].append({"data": data, "recipe": dump(convert_structured(data))})
 (ROOT / "tests/fixtures/rules-expected.json").write_text(json.dumps(res, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
 print("rules-expected.json updated")

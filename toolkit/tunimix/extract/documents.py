@@ -22,16 +22,22 @@ from ..convert.ingredients import AMOUNT, UNIT_ALIASES, fold
 H_ING = re.compile(r"^\W*(zutaten|ingredients?|ingrédients|ingredientes|المكونات|المقادير|مقادير)\b.{0,40}$", re.I)
 H_STEPS = re.compile(r"^\W*(zubereitung|anleitung|so geht'?s|instructions?|method|methode|directions|preparation|"
                      r"préparation|étapes|etapes|recette|طريقة التحضير|التحضير|الطريقة|طريقة)\b.{0,30}$", re.I)
+H_LEADIN = re.compile(r"(you need|you will need|you'll need|what you need|ingredients needed|il vous faut|il faut|"
+                      r"vous aurez besoin|pour realiser|pour réaliser|ihr braucht|du brauchst|man braucht|wir brauchen|"
+                      r"benötigt|benotigt|تحتاج|ستحتاج)\b[^:]{0,40}:\s*(?P<rest>.*)$", re.I)
 H_OTHER = re.compile(r"^\W*(tipps?|tips?|notes?|astuces?|conseils?|nährwerte|nutrition|serving|à savoir|نصائح)\b.{0,30}$", re.I)
 H_GROUP = re.compile(r"^(für (den|die|das)\b.{2,40}|pour (la|le|les|l')\b.{2,40}|for the\b.{2,40}|.{2,40}:)$", re.I)
 NUMBERED = re.compile(r"^\s*(?:\d{1,2}|[a-z])\s*[.)\-:]\s+|^\s*(?:schritt|étape|step)\s*\d+\s*[:.)-]?\s*", re.I)
-YIELD = re.compile(r"(?:für|pour|serves|for|makes|ergibt|portionen?:?|personnes?:?|servings?:?)\s*(\d{1,2})\s*"
+YIELD = re.compile(r"(?:für|pour|serves|for|makes|ergibt|portionen?:?|personnes?:?|servings?:?)\s*(\d{1,2})"
+                   r"(?!\d|[.,]\d|\s*(?:min|std|stunde|h\b|hour|hrs?\b|heure|sek|sec|s\b|°|grad|degr|g\b|kg|ml|cl|l\b|cm|mm))\s*"
                    r"(?:personen|portionen|personnes|people|persons|servings|portions|stück|pieces|parts)?", re.I)
 YIELD2 = re.compile(r"(\d{1,2})\s*(?:personen|portionen|personnes|people|servings|portions|أشخاص|اشخاص)", re.I)
 UNIT_WORDS = sorted({a for a in UNIT_ALIASES if len(a) > 1}, key=len, reverse=True)
 QTY_START = re.compile(rf"^\s*[-•*·–]?\s*({AMOUNT})", re.I)
-VERBISH = re.compile(r"\b(geben|zugeben|kochen|garen|rühren|schneiden|hacken|mixen|backen|braten|add|cook|stir|mix|"
-                     r"bake|chop|boil|simmer|ajouter|cuire|mélanger|melanger|couper|faire|laisser|mettre|verser)\b", re.I)
+VERBISH = re.compile(r"\b(geben|zugeben|kochen|garen|rühren|schneiden|hacken|mixen|backen|braten|waschen|lassen|add|cook|stir|mix|"
+                     r"bake|chop|boil|simmer|wash|put|soak|fry|serve|heat|pour|let|place|ajouter|cuire|mélanger|melanger|"
+                     r"couper|faire|laisser|mettre|verser|laver|servir)\b", re.I)
+BULLET = re.compile(r"^\s*(?:[-•*·–▪◦]\s*)+")
 
 
 def _is_ingredient_line(line: str) -> bool:
@@ -47,6 +53,52 @@ def _is_ingredient_line(line: str) -> bool:
     return False
 
 
+def _split_commas(line: str) -> list[str]:
+    """'Olive oil, 4 peppers (sweet, mild), 2 onions' -> ['Olive oil', '4 peppers (sweet, mild)', '2 onions']"""
+    items, depth, cur = [], 0, ""
+    for k, ch in enumerate(line):
+        depth += ch == "("
+        depth -= ch == ")" and depth > 0
+        decimal = ch == "," and 0 < k < len(line) - 1 and line[k - 1].isdigit() and line[k + 1].isdigit()
+        if ch in ",;" and depth == 0 and not decimal:
+            items.append(cur)
+            cur = ""
+        else:
+            cur += ch
+    items.append(cur)
+    return [i.strip(" .") for i in items if i.strip(" .")]
+
+
+def _is_ingredient_para(line: str) -> bool:
+    """A comma-separated ingredient list written as one sentence."""
+    n = len(_split_commas(line))
+    return n >= 3 and not VERBISH.search(line) and not NUMBERED.match(line) and not BULLET.match(line) \
+        and len(line) / n < 60
+
+
+def _bulleted(ln: str) -> bool:
+    return bool(BULLET.match(ln) or NUMBERED.match(ln))
+
+
+def _cut_trailing(lines: list[str]) -> list[str]:
+    """With bullet/numbered steps, stop at the first ordinary paragraph after them (comments, footers)."""
+    if sum(_bulleted(ln) for ln in lines) < 2:
+        return lines
+    start = next(i for i, ln in enumerate(lines) if _bulleted(ln))
+    out = []
+    for ln in lines[start:]:
+        if _bulleted(ln) or (out and not re.search(r"[.!?:]$", out[-1])):
+            out.append(ln)
+        else:
+            break
+    return out
+
+
+def clean_title(title: str) -> str:
+    parts = re.split(r"\s+[|—–]\s+|\s+-\s+(?=[^-]{2,30}$)", title or "")
+    return parts[0].strip() if parts and parts[0].strip() else (title or "").strip()
+
+
 def _join_wrapped(lines: list[str]) -> list[str]:
     """OCR / PDF break steps across lines: re-join until a sentence or a numbered step ends."""
     out: list[str] = []
@@ -55,13 +107,19 @@ def _join_wrapped(lines: list[str]) -> list[str]:
             out[-1] = f"{out[-1]} {ln}"
         else:
             out.append(ln)
-    return [NUMBERED.sub("", x).strip() for x in out if x.strip()]
+    return [BULLET.sub("", NUMBERED.sub("", x)).strip() for x in out if x.strip()]
 
 
 def structure_text(text: str, title: str = "") -> dict:
     lines = [re.sub(r"\s+", " ", ln).strip() for ln in text.replace("\r", "").split("\n")]
     lines = [ln for ln in lines if ln and not re.fullmatch(r"[\W_]+", ln)]
-    data = {"title": title, "ingredients": [], "instructions": [], "yields": "", "description": ""}
+    data = {"title": clean_title(title), "ingredients": [], "instructions": [], "yields": "", "description": ""}
+    # "To achieve it, you need: oil, peppers, …" -> heading line + ingredient line
+    for i, ln in enumerate(lines):
+        m = H_LEADIN.search(ln)
+        if m and len(ln) - len(m.group("rest")) <= 90:
+            lines[i:i + 1] = ["Ingredients"] + ([m.group("rest")] if m.group("rest").strip() else [])
+            break
     m = YIELD.search(text) or YIELD2.search(text)
     if m:
         data["yields"] = m.group(1)
@@ -77,17 +135,22 @@ def structure_text(text: str, title: str = "") -> dict:
         block = lines[i_ing + 1:end]
         steps_block = lines[i_stp + 1:] if i_stp is not None else []
         if i_stp is None:  # no step heading: ingredients until the first sentence-like line
-            k = next((j for j, ln in enumerate(block) if not _is_ingredient_line(ln) and not H_GROUP.match(ln) and len(ln) > 40), len(block))
+            k = next((j for j, ln in enumerate(block) if not _is_ingredient_line(ln) and not _is_ingredient_para(ln)
+                      and not H_GROUP.match(ln) and (len(ln) > 40 or _bulleted(ln) or VERBISH.search(ln))), len(block))
             block, steps_block = block[:k], block[k:]
     else:
-        block = [ln for ln in lines if _is_ingredient_line(ln)]
-        steps_block = [ln for ln in lines if not _is_ingredient_line(ln) and ln != data["title"]
+        block = [ln for ln in lines if _is_ingredient_line(ln) or _is_ingredient_para(ln)]
+        steps_block = [ln for ln in lines if not _is_ingredient_line(ln) and not _is_ingredient_para(ln) and ln != data["title"]
                        and (NUMBERED.match(ln) or len(ln) > 35)]
     for ln in block:
         if H_OTHER.match(ln):
             break
         if H_GROUP.match(ln) and not QTY_START.match(ln):
             data["ingredients"].append("## " + ln.rstrip(":"))
+        elif _is_ingredient_para(ln) or (len(_split_commas(ln)) >= 3 and len(ln) > 60) or \
+                (len(_split_commas(ln)) >= 2 and not VERBISH.search(ln)
+                 and all(re.search(r"\d", it) for it in _split_commas(ln)[1:])):
+            data["ingredients"] += _split_commas(ln.lstrip("-•*·– "))
         else:
             data["ingredients"].append(ln.lstrip("-•*·– ").strip())
     steps = []
@@ -96,7 +159,7 @@ def structure_text(text: str, title: str = "") -> dict:
             break
         if not H_GROUP.match(ln) or len(ln) > 40:
             steps.append(ln)
-    data["instructions"] = _join_wrapped(steps)
+    data["instructions"] = _join_wrapped(_cut_trailing(steps))
     return data
 
 

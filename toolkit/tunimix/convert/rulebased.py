@@ -25,12 +25,13 @@ from .rules import validate_and_fix
 
 # ---------------- lexicon (folded = lowercase, no accents) ----------------
 A = {
-    "off": r"backofen|ofen\b|im ofen|backen|\bbake\b|\bbaking\b(?! soda| powder)|oven|four\b|enfourn|au four|grill|barbecue|frittier|deep.?fr|"
+    "off": r"backofen|ofen\b|im ofen|backen|\bbake\b|\bbaking\b(?! soda| powder)|oven|four\b|enfourn|au four|\bgrill(?:en|er|ez)?\b|barbecue|frittier|deep.?fr|"
            r"friture|bain d.huile|huile chaude|hot oil|heissem ol|"
            r"ruhen|rest(?:ing)?\b|repos|marinier|marinate|mariner|kuhlschrank|refrigerat|frigo|refriger|over ?night|uber nacht|"
-           r"forme?n\b|shape|faconn|ausroll|roll out|etaler|abaiss|einweich|soak|tremper|schal|peel|eplucher|wasch|wash|laver|"
+           r"forme?n\b|shape|faconn|ausroll|roll out|etaler|abaiss|with your hands|by hand|a la main|avec les mains|mit den handen|von hand|"
            r"in eine schussel|in a bowl|dans un saladier|pfanne mit deckel|abkuhlen|cool down|laisser refroidir|refroidir|"
            r"\bfr(y|ies)\b.*(?:until crisp|in batches)|portionsweise|en plusieurs fois|فرن|يقدم|قدم",
+    "prep": r"einweich|soak|tremper|schal|peel|eplucher|wasch|wash|laver",
     "serve": r"servier|\bserve|servir|garnier|garnish|decor|anricht|dresser|يقدم|قدم",
     "blend": r"purier|purée|puree|mixen|fein mixen|blend|mixer|mouliner|reduire en puree|veloute|smooth|glatt|اخلط جيدا",
     "knead": r"knet|knead|petri|pétri|عجن|اعجن",
@@ -38,8 +39,8 @@ A = {
     "steam": r"dampf|dämpf|steam|vapeur|couscoussier|varoma|بخار|كسكاس",
     "syrup": r"sirup|syrup|sirop|karamell|caramel",
     "reduce": r"einkoch|reduzier|\breduce|reduire(?! en puree)|réduire(?! en purée)|eindick|thicken|epaissir",
-    "boil": r"aufkoch|zum kochen bringen|bring to (a )?boil|porter a ebullition|porter à ébullition|ebullition",
-    "simmer": r"koch|kochen|koechel|kochel|garen|gar ziehen|schmor|simmer|cook|stew|braise|cuire|cuisson|mijot|bouill|"
+    "boil": r"aufkoch|zum kochen bringen|bring to (a )?boil|\bboil\b|porter a ebullition|porter à ébullition|ebullition",
+    "simmer": r"koch|kochen|koechel|kochel|garen|gar ziehen|stocken|laisser prendre|schmor|simmer|cook|stew|braise|cuire|cuisson|mijot|bouill|"
               r"laisser cuire|طيب|اطبخ|يطيب|اتركه يطيب",
     "saute": r"anbrat|anbraten|andunst|dunst|anschwitz|braten|brown|saute|sauté|\bfry\b|\bfried\b|sear|faire revenir|revenir|"
              r"rissol|dorer|faire suer|suer|اقلي|قلي|حمر",
@@ -48,7 +49,7 @@ A = {
     "heat": r"erhitz|erwarm|heat|warm up|chauff|rechauff|سخن",
     "grind": r"mahl|mahlen|grind|moudre|mixer finement en poudre|pulveris|puderzucker|طحن|اطحن",
     "grate": r"reib|raspel|grate|raper|râper|بشر",
-    "chop": r"hack|zerklein|zerhack|chop|mince|hacher|emincer|émincer|ciseler|fein schneid|finely|قطع|افرم|فرم",
+    "chop": r"hack|zerklein|zerhack|chop|mince|hacher|emincer|émincer|ciseler|fein schneid|finely|crush|zerstoss|piler|قطع|افرم|فرم",
     "mash": r"zerdruck|zerdrück|mash|ecraser|écraser|هرس",
     "season": r"abschmeck|wurzen|würzen|season|taste and adjust|adjust the seasoning|assaisonn|rectifier|ملح حسب",
     "sprinkle": r"bestreu|daruber streu|darüber streu|streuen|sprinkle|garnish with|parsemer|saupoudrer|رش",
@@ -62,7 +63,7 @@ MAIN_PRIORITY = ["blend", "knead", "whip", "steam", "syrup", "reduce", "boil", "
 
 OBJ = {
     "onion": r"zwiebel|knoblauch|schalott|chili|oignon|\bail\b|echalot|piment|onion|garlic|shallot|بصل|ثوم|فلفل حار",
-    "herbs": r"petersil|koriander|minze|dill|schnittlauch|basilik|persil|coriandre|menthe|basilic|parsley|cilantro|mint|basil|معدنوس|قصبر|نعناع",
+    "herbs": r"petersil|koriander|minze|dill|schnittlauch|basilik|persil|coriandre|menthe|basilic|parsley|cilantro|mint|basil|fenchel|fenouil|fennel|معدنوس|قصبر|نعناع|بسباس",
     "nuts": r"nuss|nusse|mandel|haselnu|walnu|pistazi|amande|noix|noisette|pistache|almond|\bnuts?\b|walnut|hazelnut|pistachio|لوز|بندق|فستق",
     "bread": r"brot|paniermehl|semmel|pain|bread|chapelure|crumb|خبز",
     "cheese": r"parmesan|kase|käse|gruyere|emmental|fromage|cheese|جبن",
@@ -226,6 +227,10 @@ def _actions(part: str) -> list[str]:
     if "off" in found and ("saute" in found or "simmer" in found) and re.search(r"pfanne|pan\b|poele|poêle|topf|casserole|marmite|cocotte", f) \
             and not re.search(r"frittier|deep|friture|huile chaude|hot oil|heissem ol|ofen|oven|four", f):
         found.remove("off")  # pan/pot cooking -> the Thermomix does it
+    if "prep" in found:   # wash / peel / soak: outside the Thermomix unless the phrase also does a Thermomix action
+        found.remove("prep")
+        if not any(a in found for a in MAIN_PRIORITY + ["chop", "mash"]) and "off" not in found:
+            found.append("off")
     return found
 
 
@@ -247,8 +252,11 @@ def _mentioned(part: str, ingredients: list[Ingredient]) -> list[Ingredient]:
     out = []
     for n, idx in hits.items():
         name_len = len(ingredient_words(ingredients[n]))
+        own = ingredient_words(ingredients[n])
         covered = any(m != n and len(hits[m]) >= 2 and len(ingredient_words(ingredients[m])) > name_len
-                      and idx <= hits[m] and max(hits[m]) - min(hits[m]) <= 3 for m in hits)
+                      and idx <= hits[m] and max(hits[m]) - min(hits[m]) <= 3
+                      and all(tokens[i] in ingredient_words(ingredients[m]) or tokens[i] not in own for i in idx)
+                      for m in hits)
         exact = any(tokens[i] in ingredient_words(ingredients[n]) for i in idx)
         rival = any(m != n and idx & hits[m] and any(tokens[i] in ingredient_words(ingredients[m]) for i in idx & hits[m])
                     and not exact for m in hits)
