@@ -130,6 +130,7 @@ class Recipe(BaseModel):
     source_url: str = ""
     source_type: str = ""
     image_url: str = ""
+    image_file: str = Field("", description="Local copy of the recipe picture (library/images/…)")
     cookidoo_id: str = ""
     cookidoo_url: str = ""
 

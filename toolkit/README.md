@@ -19,6 +19,47 @@ in **Cookidoo** (Meine Kreationen), so it shows up on the TM5/TM6/TM7 with tappa
 Comes with **9 Tunisian recipes already converted** (Ojja Merguez, Lablabi, Chorba Frik, Couscous
 mit Hähnchen, Harissa, Salata Mechouia, Makroudh, Mloukhia, Tabil).
 
+## No AI needed
+
+By default TuniMix uses **no AI at all**. Open-source tools read the recipe, and a Thermomix rules
+engine writes the guided-cooking version:
+
+| Input | Read with |
+|---|---|
+| recipe link | `recipe-scrapers` (500+ sites) → schema.org JSON-LD → readable page text, plus the **recipe photo** |
+| Word `.docx` | `python-docx`: paragraphs, lists, tables, embedded photo |
+| PDF | `pdfplumber`: text and embedded photo; scanned pages → `pypdfium2` + **Tesseract OCR** |
+| photo / scan (`.jpg .png .heic …`) | **Tesseract OCR** (`pytesseract`), German/French/English/Arabic |
+| text / HTML | built-in text structurer: title, servings, ingredients, steps |
+
+The rules engine (`tunimix/convert/rulebased.py`) works like this:
+
+- It parses ingredients in 4 languages, converting cups to grams and kg/l to g/ml.
+- It recognises each action: chop, sauté, simmer, blend, knead, whip, steam, mash, fold, melt,
+  grind, as well as oven, frying and serving steps.
+- It applies proven settings for each action and ingredient, for example 5 Sek./Stufe 5 for
+  onions, 3 Sek./Stufe 7 for herbs in a dry bowl, Linkslauf/Sanftrührstufe once meat is in the
+  bowl, and 90 °C to set eggs. It uses the times written in the recipe.
+- It writes Cookidoo-style steps and lists anything it is unsure about under "Bitte prüfen".
+
+```bash
+python -m tunimix add "https://some-blog.tn/lablabi" --upload    # link -> Thermomix -> Cookidoo
+python -m tunimix add mamas-rezept.docx rezept.pdf foto.jpg      # Word / PDF / photo
+python -m tunimix add rezept.jpg --engine ai                     # optional: let an AI do it
+```
+
+**Install OCR** (only needed for photos and scans):
+- Windows: install Tesseract from https://github.com/UB-Mannheim/tesseract/wiki and tick German,
+  French and Arabic.
+- macOS: `brew install tesseract tesseract-lang`
+- Linux: `sudo apt install tesseract-ocr tesseract-ocr-deu tesseract-ocr-fra tesseract-ocr-ara`
+
+**Limits without AI:** recipes stay in their original language (offline translation: `pip install
+argostranslate`). A dish name alone only works if a recipe page with schema.org data is found.
+Very free-form or handwritten text converts less reliably, so check the flagged steps. The
+**recipe photo** is saved and shown in the PDF/HTML cookbook. Cookidoo has no known API for
+images, so add the saved photo in the Cookidoo editor with one click.
+
 ---
 
 ## 1. Install (5 minutes)

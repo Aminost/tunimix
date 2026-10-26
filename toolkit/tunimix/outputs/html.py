@@ -9,6 +9,24 @@ from ..models import Recipe
 from .text import grouped_ingredients, labels, rendered_steps, servings_label, to_copy_paste
 
 
+def _thumb(path: str, size: int = 900) -> str:
+    """Small JPEG data-URI of the recipe photo so the single HTML file stays self-contained."""
+    if not path:
+        return ""
+    try:
+        import base64
+        import io
+        from PIL import Image
+        with Image.open(path) as im:
+            im = im.convert("RGB")
+            im.thumbnail((size, size))
+            buf = io.BytesIO()
+            im.save(buf, "JPEG", quality=78)
+        return "data:image/jpeg;base64," + base64.b64encode(buf.getvalue()).decode()
+    except Exception:
+        return ""
+
+
 def _recipe_dict(r: Recipe) -> dict:
     return {
         "slug": r.slug, "title": r.title, "original": r.original_title,
@@ -18,7 +36,7 @@ def _recipe_dict(r: Recipe) -> dict:
         "cookidoo": r.cookidoo_url, "lang": r.language,
         "groups": [{"name": g, "items": [i.line() for i in items]} for g, items in grouped_ingredients(r)],
         "steps": [{"text": t, "setting": s, "off": off} for t, s, off in rendered_steps(r)],
-        "hints": r.hints, "warnings": r.warnings, "copy": to_copy_paste(r),
+        "hints": r.hints, "warnings": r.warnings, "copy": to_copy_paste(r), "img": _thumb(r.image_file),
         "L": labels(r.language),
     }
 
@@ -95,13 +113,13 @@ F.onclick=e=>{const b=e.target.closest("button");if(!b)return;cat=b.dataset.c;F.
 document.getElementById("q").oninput=draw;
 function draw(){const q=document.getElementById("q").value.toLowerCase();
 const list=R.filter(r=>(cat==="Alle"||r.category===cat)&&(!q||(r.title+" "+r.original+" "+r.tags.join(" ")+" "+r.groups.map(g=>g.items.join(" ")).join(" ")).toLowerCase().includes(q)));
-document.getElementById("grid").innerHTML=list.length?list.map(r=>`<article class="card" data-s="${r.slug}" tabindex="0"><div class="cat">${esc(r.category)}</div><h3>${esc(r.title)}</h3>${r.original?`<div class="ar">${esc(r.original)}</div>`:""}<div class="meta">${esc(r.slabel)} · ${r.total} ${esc(r.L.min)} · ${esc(r.machine)}</div></article>`).join(""):`<div class="empty">Keine Rezepte gefunden.</div>`;}
+document.getElementById("grid").innerHTML=list.length?list.map(r=>`<article class="card" data-s="${r.slug}" tabindex="0">${r.img?`<img src="${r.img}" alt="" style="width:100%;height:150px;object-fit:cover;border-radius:10px;margin-bottom:10px">`:""}<div class="cat">${esc(r.category)}</div><h3>${esc(r.title)}</h3>${r.original?`<div class="ar">${esc(r.original)}</div>`:""}<div class="meta">${esc(r.slabel)} · ${r.total} ${esc(r.L.min)} · ${esc(r.machine)}</div></article>`).join(""):`<div class="empty">Keine Rezepte gefunden.</div>`;}
 document.getElementById("grid").addEventListener("click",e=>{const c=e.target.closest(".card");if(c)show(c.dataset.s)});
 document.getElementById("grid").addEventListener("keydown",e=>{if(e.key==="Enter"){const c=e.target.closest(".card");if(c)show(c.dataset.s)}});
 function stepHtml(s){let t=esc(s.text);if(s.setting){t=t.replace(esc(s.setting),`<span class="chip">${esc(s.setting)}</span>`)}return `<li>${t}${s.off?`<span class="off">· ${esc(R[0].L.off)}</span>`:""}</li>`}
 function show(slug){const r=R.find(x=>x.slug===slug);const L=r.L;
 document.getElementById("rv").innerHTML=`<button class="close" aria-label="Schließen" onclick="dlg.close()">×</button>
-<div class="cat">${esc(r.category)}</div><h2>${esc(r.title)}</h2>${r.original?`<div class="ar">${esc(r.original)}</div>`:""}
+${r.img?`<img src="${r.img}" alt="" style="width:100%;border-radius:12px;margin:8px 0 12px;max-height:340px;object-fit:cover">`:""}<div class="cat">${esc(r.category)}</div><h2>${esc(r.title)}</h2>${r.original?`<div class="ar">${esc(r.original)}</div>`:""}
 ${r.description?`<p>${esc(r.description)}</p>`:""}
 <div class="meta">${esc(r.slabel)} · ${esc(L.prep)} ${r.prep} ${esc(L.min)} · ${esc(L.total)} ${r.total} ${esc(L.min)} · ${esc(r.machine)}</div>
 <h4>${esc(L.ing)}</h4>${r.groups.map(g=>`${g.name?`<div class="g">${esc(g.name)}</div>`:""}<ul>${g.items.map(i=>`<li>${esc(i)}</li>`).join("")}</ul>`).join("")}

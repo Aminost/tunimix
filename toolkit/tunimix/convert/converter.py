@@ -12,7 +12,7 @@ from ..models import Recipe
 from .prompt import build_system_prompt
 from .rules import validate_and_fix
 
-INTERNAL_FIELDS = {"language", "machine", "source_url", "source_type", "image_url",
+INTERNAL_FIELDS = {"language", "machine", "source_url", "source_type", "image_url", "image_file",
                    "cookidoo_id", "cookidoo_url"}
 
 

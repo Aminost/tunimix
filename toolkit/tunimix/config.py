@@ -24,6 +24,8 @@ _load_dotenv(ROOT / ".env")
 
 @dataclass
 class Settings:
+    # rules = no AI (default, offline, free) | ai = use the provider below
+    engine: str = field(default_factory=lambda: os.getenv("TUNIMIX_ENGINE", "rules").lower())
     # anthropic | openai | gemini | openrouter | groq | mistral | deepseek | ollama | lmstudio | custom
     provider: str = field(default_factory=lambda: os.getenv("TUNIMIX_PROVIDER", "anthropic").lower())
     base_url: str = field(default_factory=lambda: os.getenv("TUNIMIX_BASE_URL", ""))

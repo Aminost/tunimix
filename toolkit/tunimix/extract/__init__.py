@@ -47,7 +47,8 @@ class RawSource:
 
 URL_RE = re.compile(r"^https?://\S+$", re.I)
 YT_RE = re.compile(r"(youtube\.com/(watch|shorts)|youtu\.be/)", re.I)
-FILE_EXT = {".jpg", ".jpeg", ".png", ".webp", ".gif", ".heic", ".pdf", ".txt", ".md"}
+FILE_EXT = {".jpg", ".jpeg", ".png", ".webp", ".gif", ".heic", ".pdf", ".txt", ".md", ".docx", ".doc", ".html",
+            ".htm", ".tif", ".tiff", ".bmp"}
 
 
 def detect_kind(value: str) -> str:

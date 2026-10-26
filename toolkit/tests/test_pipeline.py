@@ -52,7 +52,7 @@ def test_process_text_and_save(fake_claude, tmp_path):
     from tunimix.pipeline import Options, process
     fake_claude(GOOD)
     lib = Library(tmp_path)
-    r = process("Kafteji: Paprika, Kürbis, Eier …\nalles frittieren und hacken", Options(), lib)
+    r = process("Kafteji: Paprika, Kürbis, Eier …\nalles frittieren und hacken", Options(engine="ai"), lib)
     assert lib.get("kafteji").title == r.title
 
 

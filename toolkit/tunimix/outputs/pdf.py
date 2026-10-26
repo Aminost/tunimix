@@ -61,6 +61,21 @@ def _latin(text: str) -> str:
     return re.sub(r"\s*[·|]\s*$", "", t).strip()
 
 
+def _picture(path: str, max_w: float = 170 * mm, max_h: float = 85 * mm):
+    """Recipe photo, scaled to fit (None if missing or unreadable)."""
+    if not path or not Path(path).exists():
+        return None
+    try:
+        from PIL import Image as PILImage
+        from reportlab.platypus import Image
+        with PILImage.open(path) as im:
+            w, h = im.size
+        scale = min(max_w / w, max_h / h)
+        return Image(path, width=w * scale, height=h * scale)
+    except Exception:
+        return None
+
+
 class _Doc(SimpleDocTemplate):
     def afterFlowable(self, flowable):
         if getattr(flowable, "toc_entry", None):
@@ -119,6 +134,9 @@ def build_pdf(recipes: list[Recipe], path: Path, title: str = "Tunesisches Therm
             f"{L['total']} {r.total_time_min} {L['min']} · {r.machine}", st["meta"]))
         if r.description:
             block += [Spacer(1, 4), Paragraph(escape(r.description), st["body"])]
+        pic = _picture(r.image_file)
+        if pic is not None:
+            block += [Spacer(1, 6), pic]
         story.append(KeepTogether(block))
 
         story.append(Paragraph(L["ing"].upper(), st["h2"]))

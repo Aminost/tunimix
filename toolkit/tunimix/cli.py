@@ -28,7 +28,7 @@ from .library import Library
 
 def _opts(a):
     from .pipeline import Options
-    return Options(language=a.lang, machine=a.machine, servings=a.servings, wishes=a.wish or "",
+    return Options(engine=getattr(a, "engine", None), language=a.lang, machine=a.machine, servings=a.servings, wishes=a.wish or "",
                    kind=a.kind, upload=a.upload, ingredient_chips=a.chips, category=a.category or "")
 
 
@@ -37,6 +37,8 @@ def _print_recipe(r, prefix="✓"):
     print(f"{prefix} {r.title}  [{r.slug}]  {r.servings} Port., {r.total_time_min} Min., {len(r.steps)} Schritte{up}")
     for w in r.warnings:
         print(f"    ! {w}")
+    if r.image_file:
+        print(f"    🖼  picture: {r.image_file}" + ("  (add it in the Cookidoo editor – Cookidoo has no image API)" if r.cookidoo_url else ""))
 
 
 def cmd_add(a):
@@ -207,6 +209,7 @@ def main(argv=None):
 
     def conv_args(sp):
         sp.add_argument("--kind", choices=["url", "youtube", "search", "text", "file", "knowledge"])
+        sp.add_argument("--engine", choices=["rules", "ai"], help="rules = no AI (default), ai = use TUNIMIX_PROVIDER")
         sp.add_argument("--lang", help="de | en | fr (default from .env)")
         sp.add_argument("--machine", choices=["TM5", "TM6", "TM7"])
         sp.add_argument("--servings", type=int)

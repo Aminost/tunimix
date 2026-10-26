@@ -40,6 +40,20 @@ and it appears on your TM5 / TM6 / TM7.
 Setting up the button takes one minute: open the **Cookidoo button** tab and drag it to your
 bookmarks bar.
 
+## Python script (no AI needed)
+
+`toolkit/` contains a command-line script that does everything **without AI**, using open-source
+tools only. It reads links (with the recipe photo), Word, PDF and photos (Tesseract OCR), converts
+them with a Thermomix rules engine and uploads to Cookidoo:
+
+```bash
+cd toolkit && pip install -r requirements.txt
+python -m tunimix add "https://some-blog.tn/lablabi" --upload
+python -m tunimix add mamas-rezept.docx rezept.pdf foto.jpg --upload
+```
+
+See [toolkit/README.md](toolkit/README.md#no-ai-needed).
+
 ## AI providers
 
 Settings → *AI for converting* → choose a provider, enter the key (not needed locally), press
@@ -127,7 +141,7 @@ follow the address the site is served from.
 | `bridge.html` | hands queued recipes to the button on Cookidoo |
 | `recipes/` | community cookbook (one JSON per recipe + `index.json`) |
 | `.github/` | recipe submission form, publish Action, tests |
-| `toolkit/` | Python toolkit: CLI, local web app, Telegram bot, Claude Desktop (MCP) server, PDF cookbook – same providers incl. Ollama (`TUNIMIX_PROVIDER`) |
+| `toolkit/` | Python script: **rule-based conversion without AI** (links + photo, Word, PDF, OCR), Cookidoo upload, PDF cookbook, local web app, Telegram bot, MCP server; optional AI providers incl. Ollama |
 
 ## Disclaimer
 
