@@ -1,0 +1,27 @@
+name: "🍲 Rezept teilen / Share a recipe / Partager une recette"
+description: "Ein umgewandeltes Thermomix-Rezept für alle veröffentlichen. Publish a converted Thermomix recipe for everyone."
+title: "Rezept: "
+labels: ["rezept"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Am einfachsten: auf **TuniMix** ein Rezept umwandeln und dort **„Mit allen teilen“** klicken – dann ist dieses Formular schon ausgefüllt.
+        Easiest: convert a recipe on **TuniMix** and click **“Share with everyone”** – the form is filled in for you.
+  - type: textarea
+    id: recipe_json
+    attributes:
+      label: "Rezept (JSON) / Recipe (JSON)"
+      description: "Vom TuniMix-Knopf „Mit allen teilen“ oder „JSON herunterladen“."
+      render: json
+    validations:
+      required: true
+  - type: checkboxes
+    id: rights
+    attributes:
+      label: "Rechte / Rights"
+      options:
+        - label: "Das ist mein eigenes Rezept oder ein Familienrezept – kein kopierter Text oder Fotos von einer Webseite. / This is my own or a family recipe – no text or photos copied from a website."
+          required: true
+        - label: "Ich habe die Thermomix-Einstellungen geprüft oder nachgekocht. / I checked the Thermomix settings or cooked it."
+          required: false

@@ -1,0 +1,246 @@
+{
+  "title": "Chorba Frik",
+  "original_title": "Chorba Frik · شربة فريك",
+  "description": "Herzhafte Lammsuppe mit grünem Weizenschrot – die Suppe des Ramadan-Iftars.",
+  "language": "de",
+  "servings": 4,
+  "unit_text": "portion",
+  "prep_time_min": 20,
+  "total_time_min": 90,
+  "machine": "TM6",
+  "category": "Suppe",
+  "region": "Tunesien",
+  "tags": [
+    "Lamm",
+    "Ramadan",
+    "Frik"
+  ],
+  "ingredients": [
+    {
+      "amount": "½",
+      "unit": "Bund",
+      "name": "glatte Petersilie",
+      "note": "Blättchen und zarte Stiele",
+      "group": ""
+    },
+    {
+      "amount": "1",
+      "unit": "",
+      "name": "Zwiebel",
+      "note": "halbiert",
+      "group": ""
+    },
+    {
+      "amount": "2",
+      "unit": "",
+      "name": "Knoblauchzehen",
+      "note": "",
+      "group": ""
+    },
+    {
+      "amount": "40",
+      "unit": "g",
+      "name": "Olivenöl",
+      "note": "",
+      "group": ""
+    },
+    {
+      "amount": "300",
+      "unit": "g",
+      "name": "Lammfleisch (Schulter)",
+      "note": "in 1-cm-Würfeln",
+      "group": ""
+    },
+    {
+      "amount": "2",
+      "unit": "EL",
+      "name": "Tomatenmark",
+      "note": "",
+      "group": ""
+    },
+    {
+      "amount": "1",
+      "unit": "TL",
+      "name": "Harissa",
+      "note": "",
+      "group": ""
+    },
+    {
+      "amount": "1",
+      "unit": "TL",
+      "name": "Tabil (tunesische Gewürzmischung)",
+      "note": "",
+      "group": ""
+    },
+    {
+      "amount": "1",
+      "unit": "TL",
+      "name": "Paprikapulver edelsüß",
+      "note": "",
+      "group": ""
+    },
+    {
+      "amount": "½",
+      "unit": "TL",
+      "name": "Kurkuma",
+      "note": "",
+      "group": ""
+    },
+    {
+      "amount": "1200",
+      "unit": "g",
+      "name": "Wasser",
+      "note": "",
+      "group": ""
+    },
+    {
+      "amount": "100",
+      "unit": "g",
+      "name": "Kichererbsen aus der Dose",
+      "note": "abgetropft",
+      "group": ""
+    },
+    {
+      "amount": "80",
+      "unit": "g",
+      "name": "Frik (grüner geschroteter Weizen)",
+      "note": "gewaschen",
+      "group": ""
+    },
+    {
+      "amount": "1½",
+      "unit": "TL",
+      "name": "Salz",
+      "note": "",
+      "group": ""
+    },
+    {
+      "amount": "½",
+      "unit": "TL",
+      "name": "schwarzer Pfeffer",
+      "note": "",
+      "group": ""
+    },
+    {
+      "amount": "1",
+      "unit": "TL",
+      "name": "getrocknete Minze",
+      "note": "",
+      "group": "Zum Servieren"
+    },
+    {
+      "amount": "1",
+      "unit": "",
+      "name": "Zitrone",
+      "note": "in Spalten",
+      "group": "Zum Servieren"
+    }
+  ],
+  "steps": [
+    {
+      "text": "Petersilie in den trockenen Mixtopf geben, {S} hacken und umfüllen.",
+      "setting": {
+        "time_s": 3,
+        "temperature": null,
+        "speed": "7",
+        "reverse": false,
+        "mode": null,
+        "accessory": null,
+        "browning_power": null
+      },
+      "off_machine": false
+    },
+    {
+      "text": "Zwiebel und Knoblauch in den Mixtopf geben, {S} zerkleinern und nach unten schieben.",
+      "setting": {
+        "time_s": 5,
+        "temperature": null,
+        "speed": "5",
+        "reverse": false,
+        "mode": null,
+        "accessory": null,
+        "browning_power": null
+      },
+      "off_machine": false
+    },
+    {
+      "text": "Olivenöl zugeben und {S} dünsten.",
+      "setting": {
+        "time_s": 180,
+        "temperature": 120,
+        "speed": "1",
+        "reverse": false,
+        "mode": null,
+        "accessory": null,
+        "browning_power": null
+      },
+      "off_machine": false
+    },
+    {
+      "text": "Lammwürfel zugeben und {S} anbraten.",
+      "setting": {
+        "time_s": 300,
+        "temperature": 120,
+        "speed": "soft",
+        "reverse": true,
+        "mode": null,
+        "accessory": null,
+        "browning_power": null
+      },
+      "off_machine": false
+    },
+    {
+      "text": "Tomatenmark, Harissa, Tabil, Paprikapulver und Kurkuma zugeben und {S} anschwitzen.",
+      "setting": {
+        "time_s": 120,
+        "temperature": 120,
+        "speed": "1",
+        "reverse": true,
+        "mode": null,
+        "accessory": null,
+        "browning_power": null
+      },
+      "off_machine": false
+    },
+    {
+      "text": "Wasser, Kichererbsen, Salz und Pfeffer zugeben und {S} köcheln lassen. Garkörbchen als Spritzschutz auf den Deckel stellen.",
+      "setting": {
+        "time_s": 2700,
+        "temperature": 100,
+        "speed": "soft",
+        "reverse": true,
+        "mode": null,
+        "accessory": null,
+        "browning_power": null
+      },
+      "off_machine": false
+    },
+    {
+      "text": "Frik und die Hälfte der Petersilie zugeben und {S} garen, bis der Frik weich ist.",
+      "setting": {
+        "time_s": 1500,
+        "temperature": 100,
+        "speed": "soft",
+        "reverse": true,
+        "mode": null,
+        "accessory": null,
+        "browning_power": null
+      },
+      "off_machine": false
+    },
+    {
+      "text": "Chorba in Schalen füllen, mit restlicher Petersilie und getrockneter Minze bestreuen und mit Zitronenspalten und Brik servieren.",
+      "setting": null,
+      "off_machine": true
+    }
+  ],
+  "hints": [
+    "Ist die Suppe zu dick, 100–200 g heißes Wasser zugeben und 2 Min./100°C/Linkslauf/Sanftrührstufe erhitzen.",
+    "Statt Lamm geht auch Hähnchenbrust (Garzeit in Schritt 6 auf 20 Min. verkürzen).",
+    "Traditionell zu Brik à l'œuf serviert."
+  ],
+  "warnings": [],
+  "source_url": "",
+  "source_type": "seed",
+  "image_url": ""
+}

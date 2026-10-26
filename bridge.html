@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TuniMix → Cookidoo</title>
+<style>
+  body{margin:0;font:15px/1.5 system-ui,sans-serif;background:#f5f7fb;color:#14213a;display:grid;place-items:center;min-height:100vh;padding:16px;box-sizing:border-box;text-align:center}
+  b{color:#1b5fae}
+  @media (prefers-color-scheme:dark){body{background:#0d1320;color:#e7ecf5}b{color:#76aef0}}
+</style>
+</head>
+<body>
+<p id="msg"><b>TuniMix</b><br>Übergabe an Cookidoo … / Handing over to Cookidoo …</p>
+<script>
+  // Hands the queued recipes (saved by the TuniMix app on this origin) to the bookmarklet
+  // running on cookidoo.*, and removes them from the queue once saved.
+  const COOKIDOO = /^https:\/\/([a-z0-9-]+\.)*(cookidoo\.[a-z.]+|cookidoo\.thermomix\.com)$/;
+  const KEY = "tunimix.queue";
+  const msg = document.getElementById("msg");
+  const read = () => { try { return JSON.parse(localStorage.getItem(KEY) || "[]"); } catch { return []; } };
+  const write = (q) => { try { localStorage.setItem(KEY, JSON.stringify(q)); } catch {} };
+  if (!window.opener) msg.innerHTML = "<b>TuniMix</b><br>Diese Seite wird vom TuniMix-Lesezeichen auf cookidoo geöffnet.";
+  window.addEventListener("message", (ev) => {
+    if (!COOKIDOO.test(ev.origin) || !ev.data) return;
+    if (ev.data.type === "tunimix-hello") {
+      const items = read();
+      ev.source.postMessage({ type: "tunimix-queue", items }, ev.origin);
+      msg.innerHTML = `<b>TuniMix</b><br>${items.length} Rezept(e) übergeben – Fenster bleibt offen bis gespeichert.`;
+    } else if (ev.data.type === "tunimix-done") {
+      const ids = new Set(ev.data.ids || []);
+      write(read().filter((x) => !ids.has(x.id)));
+      msg.innerHTML = "<b>TuniMix</b><br>Gespeichert ✓";
+      setTimeout(() => window.close(), 1200);
+    }
+  });
+</script>
+</body>
+</html>

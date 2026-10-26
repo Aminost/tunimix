@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>TuniMix</title>
+<meta name="description" content="Jedes Rezept in deinen Thermomix: Link, Gericht, Text oder Foto → Guided-Cooking-Rezept → Cookidoo. Kostenlos, Open Source, ohne Server.">
+<meta property="og:title" content="TuniMix – jedes Rezept in deinen Thermomix">
+<meta property="og:description" content="Link, Gericht, Text oder Foto → Guided-Cooking-Rezept → Cookidoo. Kostenlos und Open Source.">
+<meta name="theme-color" content="#1b5fae">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Reem+Kufi:wght@500;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Sans+Arabic:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* layout: one column, tabbed views; recipe cards in a wrapping grid; actions as a wrapping button row */
+:root{
+  --bg:#f4f7fb;--paper:#ffffff;--ink:#132036;--muted:#56637b;--line:#dbe3ee;--soft:#eaf1fa;
+  --blue:#1b5fae;--blue-ink:#ffffff;--chili:#c8341f;--olive:#5b7a2b;--chip:#e6effa;--chip-ink:#164c8c;--warn:#fff2df;--warn-ink:#6b4400;--ok:#2d7a3a;
+  --display:"Reem Kufi",Georgia,serif;--body:"IBM Plex Sans","IBM Plex Sans Arabic",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --r:14px;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0c1220;--paper:#141c2c;--ink:#e6ecf6;--muted:#9ba7bd;--line:#26324a;--soft:#18243a;
+  --blue:#78b0f2;--blue-ink:#0c1220;--chili:#f27a64;--olive:#a7c56c;--chip:#1a2a45;--chip-ink:#acd0f8;--warn:#2c2413;--warn-ink:#f3d19a;--ok:#7fd08c;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0c1220;--paper:#141c2c;--ink:#e6ecf6;--muted:#9ba7bd;--line:#26324a;--soft:#18243a;
+  --blue:#78b0f2;--blue-ink:#0c1220;--chili:#f27a64;--olive:#a7c56c;--chip:#1a2a45;--chip-ink:#acd0f8;--warn:#2c2413;--warn-ink:#f3d19a;--ok:#7fd08c;color-scheme:dark}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 var(--body);
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+[hidden]{display:none!important}
+a{color:var(--blue)}
+.wrap{max-width:860px;margin:0 auto}
+header.top{display:flex;align-items:center;gap:12px;padding-block:18px 8px}
+.brand{display:flex;align-items:center;gap:10px;font:700 22px var(--display);color:var(--ink);text-decoration:none;margin-inline-end:auto}
+.brand svg{width:34px;height:34px;flex:none}
+select,input,textarea{font:inherit;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:10px 12px;width:100%}
+textarea{min-height:120px;resize:vertical}
+select:focus-visible,input:focus-visible,textarea:focus-visible,button:focus-visible,a:focus-visible{outline:3px solid color-mix(in srgb,var(--blue) 45%,transparent);outline-offset:2px}
+.lang{width:auto;padding:7px 10px;font-size:14px}
+nav.tabs{display:flex;gap:4px;overflow-x:auto;border-bottom:1px solid var(--line);margin-bottom:20px;scrollbar-width:none}
+nav.tabs button{flex:none;background:none;border:none;border-bottom:3px solid transparent;padding:10px 12px;font:600 15px var(--body);color:var(--muted);cursor:pointer}
+nav.tabs button[aria-current="page"]{color:var(--blue);border-bottom-color:var(--blue)}
+.hero{padding-block:6px 18px}
+.hero h1{font:700 clamp(28px,6.5vw,44px)/1.15 var(--display);margin:0 0 8px;text-wrap:balance}
+.hero p{margin:0;color:var(--muted);max-width:60ch}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:18px}
+.stack{display:grid;gap:14px}
+label.l{display:block;font-weight:600;margin-bottom:6px}
+.row{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px}
+.row>*{min-width:0}
+details summary{cursor:pointer;font-weight:600;color:var(--blue);padding-block:4px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:1px solid var(--blue);background:transparent;color:var(--blue);
+  padding:10px 16px;border-radius:11px;font:600 15px var(--body);cursor:pointer;text-decoration:none;min-height:44px}
+.btn.p{background:var(--blue);color:var(--blue-ink)}
+.btn.d{border-color:var(--chili);color:var(--chili)}
+.btn[disabled]{opacity:.6;cursor:wait}
+.btns{display:flex;flex-wrap:wrap;gap:8px}
+.filebtn{position:relative;overflow:hidden}
+.filebtn input{position:absolute;inset:0;opacity:0;cursor:pointer}
+.muted{color:var(--muted)}.small{font-size:14px}
+.banner{background:var(--soft);border-radius:10px;padding:10px 12px}
+.warn{background:var(--warn);color:var(--warn-ink);border-radius:10px;padding:10px 12px;font-size:14px}
+.err{background:color-mix(in srgb,var(--chili) 14%,var(--paper));color:var(--chili);border-radius:10px;padding:10px 12px}
+.ok{color:var(--ok);font-weight:600}
+.free ol{margin:0;padding-inline-start:20px;display:grid;gap:12px}
+.divider{display:flex;align-items:center;gap:10px;color:var(--muted);font-size:14px}
+.divider::before,.divider::after{content:"";flex:1;border-top:1px solid var(--line)}
+/* recipe view */
+.recipe h2{font:700 clamp(26px,5vw,34px)/1.2 var(--display);margin:2px 0;text-wrap:balance}
+.eyebrow{font:600 12px var(--body);letter-spacing:.08em;text-transform:uppercase;color:var(--chili)}
+.meta{color:var(--muted);font-size:14px;font-variant-numeric:tabular-nums;unicode-bidi:plaintext}
+.how{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin:0;padding:0;list-style:none;counter-reset:h}
+.how li{counter-increment:h;display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:start;font-size:15px}
+.how li::before{content:counter(h);width:28px;height:28px;border-radius:8px;background:var(--soft);color:var(--blue);font:700 15px/28px var(--body);text-align:center}
+.how b{display:block}
+.recipe h3{font:600 13px var(--body);letter-spacing:.08em;text-transform:uppercase;color:var(--olive);margin:22px 0 8px}
+.recipe ul{margin:0;padding-inline-start:20px}.recipe li{margin:3px 0}
+.grp{font-weight:600;margin:10px 0 2px}
+ol.steps{list-style:none;padding:0;margin:0;counter-reset:s}
+ol.steps li{counter-increment:s;position:relative;padding:10px 0;padding-inline-start:42px;border-top:1px solid var(--line)}
+ol.steps li::before{content:counter(s);position:absolute;inset-inline-start:0;top:10px;width:28px;height:28px;border-radius:50%;
+  background:var(--blue);color:var(--blue-ink);font:600 14px/28px var(--body);text-align:center}
+.chip{display:inline;background:var(--chip);color:var(--chip-ink);font-weight:600;padding:1px 7px;border-radius:6px;unicode-bidi:isolate;direction:ltr}
+.offm{font-size:12.5px;color:var(--chili);font-weight:600}
+/* recipe grid */
+.toolbar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:12px}
+.toolbar input{flex:1 1 200px;width:auto}
+.pill{border:1px solid var(--line);background:var(--paper);color:var(--ink);padding:7px 12px;border-radius:999px;font:500 14px var(--body);cursor:pointer}
+.pill[aria-pressed="true"]{background:var(--blue);border-color:var(--blue);color:var(--blue-ink)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px}
+.rc{display:flex;flex-direction:column;gap:4px;text-align:start;background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:16px;cursor:pointer;font:inherit;color:inherit}
+.rc:hover{border-color:var(--blue)}
+.rc .t{font:700 19px/1.25 var(--display)}
+.rc .o{color:var(--muted);font-size:14px}
+h2.sec{font:700 22px var(--display);margin:26px 0 12px}
+/* bookmarklet */
+.bm{display:inline-flex;align-items:center;gap:8px;background:var(--blue);color:var(--blue-ink);font:700 17px var(--body);padding:12px 20px;border-radius:12px;text-decoration:none;cursor:grab;border:2px dashed color-mix(in srgb,var(--blue-ink) 50%,transparent)}
+.steps-list{display:grid;gap:10px;margin:0;padding-inline-start:22px}
+dialog{border:none;border-radius:16px;padding:0;width:min(560px,calc(100% - 24px));background:var(--paper);color:var(--ink)}
+dialog::backdrop{background:rgba(8,12,20,.55)}
+dialog .in{padding:22px;display:grid;gap:12px}
+dialog h3{font:700 22px var(--display);margin:0}
+footer{color:var(--muted);font-size:13px;padding-block:36px 28px;border-top:1px solid var(--line);margin-top:40px;display:grid;gap:6px}
+.toast{position:fixed;inset-inline:0;bottom:calc(18px + env(safe-area-inset-bottom,0px));margin:auto;width:max-content;max-width:calc(100% - 32px);
+  background:var(--ink);color:var(--bg);padding:10px 16px;border-radius:10px;font-weight:600;z-index:50}
+.spin{width:16px;height:16px;border:2px solid currentColor;border-top-color:transparent;border-radius:50%;animation:sp .8s linear infinite}
+@keyframes sp{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){.spin{animation:none}}
+[dir="rtl"] .chip{direction:ltr}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a class="brand" href="./" aria-label="TuniMix">
+      <svg viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="var(--blue)"/>
+        <path d="M24 7l5 12 12 5-12 5-5 12-5-12-12-5 12-5z" fill="var(--paper)"/><circle cx="24" cy="24" r="4.5" fill="var(--chili)"/></svg>
+      TuniMix
+    </a>
+    <select id="uiLang" class="lang" aria-label="Sprache / Language">
+      <option value="de">Deutsch</option><option value="fr">Français</option><option value="en">English</option><option value="ar">العربية</option>
+    </select>
+  </header>
+  <nav class="tabs" id="tabs" aria-label="Main">
+    <button data-view="new" data-i="nav_new"></button>
+    <button data-view="recipes" data-i="nav_recipes"></button>
+    <button data-view="button" data-i="nav_button"></button>
+    <button data-view="settings" data-i="nav_settings"></button>
+  </nav>
+
+  <main id="app">
+    <!-- NEW -->
+    <section id="v-new" class="stack">
+      <div class="hero"><h1 data-i="tagline"></h1><p data-i="sub"></p></div>
+      <div id="queueNote" class="banner" hidden></div>
+      <div class="card stack">
+        <div id="capturedNote" class="banner" hidden></div>
+        <div>
+          <label class="l" for="src" data-i="input_label"></label>
+          <textarea id="src" data-iph="input_ph"></textarea>
+        </div>
+        <div class="btns">
+          <span class="btn filebtn"><span data-i="files"></span><input id="files" type="file" accept="image/*,.pdf" multiple aria-label="files"></span>
+          <span id="filesN" class="muted small" style="align-self:center"></span>
+        </div>
+        <details>
+          <summary data-i="options"></summary>
+          <div class="row" style="margin-top:10px">
+            <div><label class="l" for="optMachine" data-i="machine"></label><select id="optMachine"><option>TM6</option><option>TM7</option><option>TM5</option></select></div>
+            <div><label class="l" for="optServings" data-i="servings"></label><input id="optServings" type="number" min="1" max="30" data-iph="servings_ph"></div>
+            <div><label class="l" for="optLang" data-i="rlang"></label><select id="optLang"><option value="de">Deutsch</option><option value="fr">Français</option><option value="en">English</option><option value="ar">العربية</option></select></div>
+          </div>
+          <div style="margin-top:10px"><label class="l" for="optWish" data-i="wishes"></label><input id="optWish" data-iph="wishes_ph"></div>
+        </details>
+        <div id="convertErr" class="err" hidden></div>
+        <div id="withKey" class="btns" hidden>
+          <button class="btn p" id="btnConvert"><span data-i="convert"></span></button>
+          <span id="status" class="muted small" style="align-self:center"></span>
+        </div>
+        <div id="noKey" class="stack" hidden>
+          <div class="free stack">
+            <strong data-i="free_title"></strong>
+            <ol>
+              <li><button class="btn p" id="btnCopyPrompt" data-i="free_1"></button></li>
+              <li><span data-i="free_2"></span>
+                <div class="btns" style="margin-top:6px">
+                  <a class="btn" href="https://claude.ai/new" target="_blank" rel="noopener">Claude</a>
+                  <a class="btn" href="https://chatgpt.com/" target="_blank" rel="noopener">ChatGPT</a>
+                  <a class="btn" href="https://gemini.google.com/app" target="_blank" rel="noopener">Gemini</a>
+                </div>
+                <div class="muted small" data-i="free_photo" style="margin-top:4px"></div></li>
+              <li><label for="aiAnswer" data-i="free_3"></label>
+                <textarea id="aiAnswer" style="min-height:90px;margin-top:6px" aria-label="AI answer"></textarea>
+                <button class="btn p" id="btnUseAnswer" style="margin-top:8px" data-i="free_go"></button></li>
+            </ol>
+          </div>
+          <div class="divider" data-i="or"></div>
+          <button class="btn" id="btnGoKey" data-i="key_cta"></button>
+        </div>
+      </div>
+      <ol class="how" aria-label="How it works">
+        <li><span><b data-i="how1t"></b><span class="muted small" data-i="how1"></span></span></li>
+        <li><span><b data-i="how2t"></b><span class="muted small" data-i="how2"></span></span></li>
+        <li><span><b data-i="how3t"></b><span class="muted small" data-i="how3"></span> <a href="#button" id="howBm" class="small" data-i="how3a"></a></span></li>
+      </ol>
+    </section>
+
+    <!-- RECIPE -->
+    <section id="v-recipe" hidden>
+      <button class="btn" id="btnBack" data-i="back" style="margin-bottom:12px"></button>
+      <article class="card recipe" id="recipeView"></article>
+    </section>
+
+    <!-- RECIPES -->
+    <section id="v-recipes" hidden>
+      <div class="toolbar"><input id="q" type="search" data-iph="search_ph" aria-label="search"></div>
+      <h2 class="sec" data-i="mine"></h2>
+      <div class="grid" id="mineGrid"></div>
+      <h2 class="sec" data-i="community"></h2>
+      <div class="toolbar" id="cats"></div>
+      <div class="grid" id="commGrid"></div>
+    </section>
+
+    <!-- BUTTON -->
+    <section id="v-button" class="stack" hidden>
+      <div class="hero"><h1 data-i="bm_title"></h1><p data-i="bm_intro"></p></div>
+      <div class="card stack">
+        <ol class="steps-list"><li data-i="bm_a"></li><li data-i="bm_b"></li></ol>
+        <div><label class="l" for="country" data-i="country"></label><select id="country"></select></div>
+        <p data-i="bm_drag"></p>
+        <div><a class="bm" id="bmLink" href="#"><span data-i="bm_btn"></span></a></div>
+        <p class="muted small" data-i="bm_mobile"></p>
+        <div><button class="btn" id="btnCopyBm" data-i="bm_copy"></button></div>
+      </div>
+    </section>
+
+    <!-- SETTINGS -->
+    <section id="v-settings" class="stack" hidden>
+      <div class="card stack">
+        <div><label class="l" for="apiKey" data-i="set_key"></label>
+          <input id="apiKey" type="password" autocomplete="off" placeholder="sk-ant-…">
+          <p class="muted small" data-i="set_key_help"></p>
+          <div class="btns"><button class="btn p" id="btnTestKey" data-i="set_test"></button><button class="btn d" id="btnClearKey" data-i="clear_key"></button><span id="keyStatus" class="small" style="align-self:center"></span></div>
+        </div>
+        <div><label class="l" for="model" data-i="set_model"></label>
+          <select id="model"><option value="claude-sonnet-5-5">Claude Sonnet 5.5</option><option value="claude-haiku-5-5">Claude Haiku 5.5 (günstig/cheap)</option><option value="claude-opus-5-5">Claude Opus 5.5</option></select></div>
+      </div>
+      <div class="card stack">
+        <strong data-i="set_data"></strong>
+        <div class="btns"><button class="btn" id="btnExport" data-i="export"></button>
+          <span class="btn filebtn"><span data-i="import"></span><input id="importFile" type="file" accept=".json,application/json" aria-label="import"></span></div>
+        <p class="muted small" data-i="privacy"></p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span data-i="footer"></span>
+    <span><a id="repoLink" href="https://github.com/Aminost/tunimix" target="_blank" rel="noopener">GitHub · Open Source (MIT)</a></span>
+  </footer>
+</div>
+
+<dialog id="dlg"><div class="in" id="dlgIn"></div></dialog>
+<div id="toast" class="toast" hidden role="status"></div>
+<script type="module" src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,180 @@
+{
+  "title": "Mloukhia",
+  "original_title": "Mloukhia · ملوخية",
+  "description": "Tiefgrüner, fast schwarzer Rindfleisch-Eintopf aus Jute-Blätter-Pulver – langsam geschmort, festlich zu Ras el Am.",
+  "language": "de",
+  "servings": 4,
+  "unit_text": "portion",
+  "prep_time_min": 20,
+  "total_time_min": 210,
+  "machine": "TM6",
+  "category": "Hauptgericht",
+  "region": "Tunesien",
+  "tags": [
+    "Rind",
+    "Schmorgericht",
+    "Neujahr"
+  ],
+  "ingredients": [
+    {
+      "amount": "50",
+      "unit": "g",
+      "name": "Mloukhia-Pulver (gemahlene Jute-Blätter)",
+      "note": "",
+      "group": ""
+    },
+    {
+      "amount": "120",
+      "unit": "g",
+      "name": "Olivenöl",
+      "note": "",
+      "group": ""
+    },
+    {
+      "amount": "1300",
+      "unit": "g",
+      "name": "Wasser",
+      "note": "",
+      "group": ""
+    },
+    {
+      "amount": "400",
+      "unit": "g",
+      "name": "Rindfleisch (Wade oder Schulter)",
+      "note": "in großen Stücken",
+      "group": ""
+    },
+    {
+      "amount": "2",
+      "unit": "",
+      "name": "Lorbeerblätter",
+      "note": "",
+      "group": ""
+    },
+    {
+      "amount": "4",
+      "unit": "",
+      "name": "Knoblauchzehen",
+      "note": "",
+      "group": ""
+    },
+    {
+      "amount": "1",
+      "unit": "TL",
+      "name": "Tabil (tunesische Gewürzmischung)",
+      "note": "",
+      "group": ""
+    },
+    {
+      "amount": "1",
+      "unit": "TL",
+      "name": "Karouia (gemahlener Kümmel)",
+      "note": "",
+      "group": ""
+    },
+    {
+      "amount": "1",
+      "unit": "TL",
+      "name": "Koriander, gemahlen",
+      "note": "",
+      "group": ""
+    },
+    {
+      "amount": "1",
+      "unit": "TL",
+      "name": "Salz",
+      "note": "",
+      "group": ""
+    },
+    {
+      "amount": "½",
+      "unit": "TL",
+      "name": "schwarzer Pfeffer",
+      "note": "",
+      "group": ""
+    }
+  ],
+  "steps": [
+    {
+      "text": "Mloukhia-Pulver und Olivenöl in den Mixtopf geben und {S} zu einer glatten Paste verrühren.",
+      "setting": {
+        "time_s": 30,
+        "temperature": null,
+        "speed": "3",
+        "reverse": false,
+        "mode": null,
+        "accessory": null,
+        "browning_power": null
+      },
+      "off_machine": false
+    },
+    {
+      "text": "Wasser nach und nach durch die Deckelöffnung zugeben und {S} klümpchenfrei verrühren.",
+      "setting": {
+        "time_s": 30,
+        "temperature": null,
+        "speed": "4",
+        "reverse": false,
+        "mode": null,
+        "accessory": null,
+        "browning_power": null
+      },
+      "off_machine": false
+    },
+    {
+      "text": "Rindfleisch und Lorbeerblätter zugeben und {S} sanft köcheln lassen, ohne Messbecher, Garkörbchen als Spritzschutz auf den Deckel stellen.",
+      "setting": {
+        "time_s": 5940,
+        "temperature": 98,
+        "speed": "soft",
+        "reverse": true,
+        "mode": null,
+        "accessory": null,
+        "browning_power": null
+      },
+      "off_machine": false
+    },
+    {
+      "text": "Weitergaren {S}.",
+      "setting": {
+        "time_s": 4860,
+        "temperature": 98,
+        "speed": "soft",
+        "reverse": true,
+        "mode": null,
+        "accessory": null,
+        "browning_power": null
+      },
+      "off_machine": false
+    },
+    {
+      "text": "Knoblauch mit Tabil, Kümmel, Koriander, Salz und Pfeffer in einem Mörser zerstoßen, in den Mixtopf geben und {S} weitergaren, bis sich das Öl an der Oberfläche absetzt.",
+      "setting": {
+        "time_s": 1200,
+        "temperature": 98,
+        "speed": "soft",
+        "reverse": true,
+        "mode": null,
+        "accessory": null,
+        "browning_power": null
+      },
+      "off_machine": false
+    },
+    {
+      "text": "Mloukhia mit frischem Brot servieren. Das Öl an der Oberfläche ist gewollt – es zeigt, dass sie fertig ist.",
+      "setting": null,
+      "off_machine": true
+    }
+  ],
+  "hints": [
+    "Je länger, desto besser: traditionell köchelt Mloukhia 4–6 Stunden. Bei Bedarf Schritt 3 wiederholen und etwas heißes Wasser nachgießen.",
+    "Am nächsten Tag aufgewärmt schmeckt sie am besten.",
+    "Statt Rind auch mit Lammfleisch."
+  ],
+  "warnings": [
+    "Langer Garvorgang wurde in Schritte ≤ 99 Min. aufgeteilt."
+  ],
+  "source_url": "",
+  "source_type": "seed",
+  "image_url": ""
+}

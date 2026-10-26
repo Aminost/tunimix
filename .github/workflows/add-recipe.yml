@@ -1,0 +1,46 @@
+# A maintainer adds the label "approved" to a recipe issue -> the recipe is validated,
+# committed to recipes/, the index is rebuilt and the issue is closed with a link.
+name: Add community recipe
+on:
+  issues:
+    types: [labeled]
+permissions:
+  contents: write
+  issues: write
+concurrency: add-recipe
+jobs:
+  add:
+    if: github.event.label.name == 'approved' && contains(github.event.issue.labels.*.name, 'rezept')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - id: add
+        run: node scripts/add-from-issue.mjs
+        env:
+          ISSUE_BODY: ${{ github.event.issue.body }}
+          ISSUE_AUTHOR: ${{ github.event.issue.user.login }}
+      - if: steps.add.outputs.ok == 'true'
+        run: |
+          node scripts/build-index.mjs
+          git config user.name "tunimix-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add recipes
+          git commit -m "Add recipe: ${{ steps.add.outputs.slug }} (#${{ github.event.issue.number }})"
+          git push
+      - uses: actions/github-script@v7
+        env:
+          OK: ${{ steps.add.outputs.ok }}
+          SLUG: ${{ steps.add.outputs.slug }}
+          WARN: ${{ steps.add.outputs.warnings }}
+          ERR: ${{ steps.add.outputs.error }}
+        with:
+          script: |
+            const { OK, SLUG, WARN, ERR } = process.env;
+            const site = `https://${context.repo.owner.toLowerCase()}.github.io/${context.repo.repo}/`;
+            const body = OK === 'true'
+              ? `✅ Danke! Das Rezept ist online / The recipe is live: ${site}#c-${SLUG}` + (WARN ? `\n\nHinweise / Notes:\n${WARN}` : '')
+              : `⚠️ Das Rezept konnte nicht gelesen werden / Could not read the recipe: ${ERR}\n\nBitte JSON prüfen und Label "approved" neu setzen.`;
+            await github.rest.issues.createComment({ ...context.repo, issue_number: context.issue.number, body });
+            if (OK === 'true') await github.rest.issues.update({ ...context.repo, issue_number: context.issue.number, state: 'closed' });

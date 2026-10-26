@@ -1,0 +1,190 @@
+{
+  "title": "Salata Mechouia",
+  "original_title": "Slata Mechouia · سلطة مشوية",
+  "description": "Gegrillter Paprika-Tomaten-Salat mit Knoblauch und Kümmel, garniert mit Thunfisch, Ei und Oliven.",
+  "language": "de",
+  "servings": 4,
+  "unit_text": "portion",
+  "prep_time_min": 25,
+  "total_time_min": 55,
+  "machine": "TM6",
+  "category": "Vorspeise",
+  "region": "Tunesien",
+  "tags": [
+    "Salat",
+    "gegrillt",
+    "Sommer"
+  ],
+  "ingredients": [
+    {
+      "amount": "4",
+      "unit": "",
+      "name": "grüne Paprikaschoten (spitz)",
+      "note": "",
+      "group": ""
+    },
+    {
+      "amount": "3",
+      "unit": "",
+      "name": "Tomaten",
+      "note": "",
+      "group": ""
+    },
+    {
+      "amount": "1",
+      "unit": "",
+      "name": "Zwiebel",
+      "note": "ungeschält",
+      "group": ""
+    },
+    {
+      "amount": "2",
+      "unit": "",
+      "name": "scharfe grüne Chilischoten",
+      "note": "",
+      "group": ""
+    },
+    {
+      "amount": "2",
+      "unit": "",
+      "name": "Knoblauchzehen",
+      "note": "",
+      "group": ""
+    },
+    {
+      "amount": "1",
+      "unit": "TL",
+      "name": "Kümmelsamen (Karouia)",
+      "note": "",
+      "group": ""
+    },
+    {
+      "amount": "½",
+      "unit": "TL",
+      "name": "Koriandersamen",
+      "note": "",
+      "group": ""
+    },
+    {
+      "amount": "1",
+      "unit": "TL",
+      "name": "Salz",
+      "note": "",
+      "group": ""
+    },
+    {
+      "amount": "40",
+      "unit": "g",
+      "name": "Olivenöl",
+      "note": "",
+      "group": ""
+    },
+    {
+      "amount": "1",
+      "unit": "EL",
+      "name": "Zitronensaft",
+      "note": "",
+      "group": ""
+    },
+    {
+      "amount": "1",
+      "unit": "Dose",
+      "name": "Thunfisch in Öl",
+      "note": "",
+      "group": "Zum Garnieren"
+    },
+    {
+      "amount": "2",
+      "unit": "",
+      "name": "hart gekochte Eier",
+      "note": "geviertelt",
+      "group": "Zum Garnieren"
+    },
+    {
+      "amount": "10",
+      "unit": "",
+      "name": "schwarze Oliven",
+      "note": "",
+      "group": "Zum Garnieren"
+    },
+    {
+      "amount": "1",
+      "unit": "EL",
+      "name": "Kapern",
+      "note": "",
+      "group": "Zum Garnieren"
+    }
+  ],
+  "steps": [
+    {
+      "text": "Paprika, Tomaten, Zwiebel und Chilis im Backofen (Grillfunktion, 250 °C) oder auf dem Grill rundum schwarz rösten (ca. 25 Min.). In eine Schüssel geben, abdecken, 10 Min. schwitzen lassen, dann häuten und entkernen.",
+      "setting": null,
+      "off_machine": true
+    },
+    {
+      "text": "Kümmel- und Koriandersamen in den Mixtopf geben und {S} mahlen.",
+      "setting": {
+        "time_s": 20,
+        "temperature": null,
+        "speed": "10",
+        "reverse": false,
+        "mode": null,
+        "accessory": null,
+        "browning_power": null
+      },
+      "off_machine": false
+    },
+    {
+      "text": "Knoblauch und Salz zugeben und {S} zerkleinern.",
+      "setting": {
+        "time_s": 4,
+        "temperature": null,
+        "speed": "5",
+        "reverse": false,
+        "mode": null,
+        "accessory": null,
+        "browning_power": null
+      },
+      "off_machine": false
+    },
+    {
+      "text": "Geröstetes Gemüse zugeben und {S} grob zerkleinern – es soll stückig bleiben.",
+      "setting": {
+        "time_s": 4,
+        "temperature": null,
+        "speed": "4",
+        "reverse": false,
+        "mode": null,
+        "accessory": null,
+        "browning_power": null
+      },
+      "off_machine": false
+    },
+    {
+      "text": "Olivenöl und Zitronensaft zugeben und {S} vermengen.",
+      "setting": {
+        "time_s": 10,
+        "temperature": null,
+        "speed": "2",
+        "reverse": true,
+        "mode": null,
+        "accessory": null,
+        "browning_power": null
+      },
+      "off_machine": false
+    },
+    {
+      "text": "Auf einem flachen Teller verteilen und mit Thunfisch, Eiern, Oliven und Kapern garnieren. Mit Olivenöl beträufeln.",
+      "setting": null,
+      "off_machine": true
+    }
+  ],
+  "hints": [
+    "Die Eier können nebenbei im Varoma garen: 250 g Wasser in den Mixtopf, Eier in den Varoma, 14 Min./Varoma/Stufe 1.",
+    "Schmeckt am nächsten Tag noch besser."
+  ],
+  "warnings": [],
+  "source_url": "",
+  "source_type": "seed",
+  "image_url": ""
+}

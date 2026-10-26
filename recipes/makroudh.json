@@ -1,0 +1,220 @@
+{
+  "title": "Makroudh",
+  "original_title": "Makroudh · مقروض",
+  "description": "Grießgebäck aus Kairouan mit Dattelfüllung, frittiert und in Sirup getränkt.",
+  "language": "de",
+  "servings": 30,
+  "unit_text": "Stück",
+  "prep_time_min": 60,
+  "total_time_min": 120,
+  "machine": "TM6",
+  "category": "Dessert",
+  "region": "Tunesien",
+  "tags": [
+    "Gebäck",
+    "Datteln",
+    "Eid",
+    "Kairouan"
+  ],
+  "ingredients": [
+    {
+      "amount": "300",
+      "unit": "g",
+      "name": "Zucker",
+      "note": "",
+      "group": "Für den Sirup"
+    },
+    {
+      "amount": "150",
+      "unit": "g",
+      "name": "Wasser",
+      "note": "",
+      "group": "Für den Sirup"
+    },
+    {
+      "amount": "1",
+      "unit": "EL",
+      "name": "Zitronensaft",
+      "note": "",
+      "group": "Für den Sirup"
+    },
+    {
+      "amount": "1",
+      "unit": "EL",
+      "name": "Orangenblütenwasser (Mazhar)",
+      "note": "",
+      "group": "Für den Sirup"
+    },
+    {
+      "amount": "300",
+      "unit": "g",
+      "name": "Dattelpaste",
+      "note": "",
+      "group": "Für die Füllung"
+    },
+    {
+      "amount": "1",
+      "unit": "EL",
+      "name": "Olivenöl",
+      "note": "",
+      "group": "Für die Füllung"
+    },
+    {
+      "amount": "½",
+      "unit": "TL",
+      "name": "Zimt",
+      "note": "",
+      "group": "Für die Füllung"
+    },
+    {
+      "amount": "1",
+      "unit": "Prise",
+      "name": "gemahlene Nelken",
+      "note": "",
+      "group": "Für die Füllung"
+    },
+    {
+      "amount": "1",
+      "unit": "EL",
+      "name": "Orangenblütenwasser (Mazhar)",
+      "note": "",
+      "group": "Für die Füllung"
+    },
+    {
+      "amount": "500",
+      "unit": "g",
+      "name": "mittelfeiner Hartweizengrieß",
+      "note": "",
+      "group": "Für den Teig"
+    },
+    {
+      "amount": "125",
+      "unit": "g",
+      "name": "Olivenöl",
+      "note": "",
+      "group": "Für den Teig"
+    },
+    {
+      "amount": "1",
+      "unit": "Prise",
+      "name": "Salz",
+      "note": "",
+      "group": "Für den Teig"
+    },
+    {
+      "amount": "150",
+      "unit": "g",
+      "name": "lauwarmes Wasser",
+      "note": "",
+      "group": "Für den Teig"
+    },
+    {
+      "amount": "1",
+      "unit": "EL",
+      "name": "Orangenblütenwasser (Mazhar)",
+      "note": "",
+      "group": "Für den Teig"
+    },
+    {
+      "amount": "1",
+      "unit": "l",
+      "name": "Öl zum Frittieren",
+      "note": "",
+      "group": "Außerdem"
+    },
+    {
+      "amount": "2",
+      "unit": "EL",
+      "name": "Sesam",
+      "note": "optional",
+      "group": "Außerdem"
+    }
+  ],
+  "steps": [
+    {
+      "text": "Zucker, Wasser und Zitronensaft in den Mixtopf geben und {S} kochen, ohne Messbecher, Garkörbchen als Spritzschutz auf den Deckel stellen.",
+      "setting": {
+        "time_s": 600,
+        "temperature": "varoma",
+        "speed": "1",
+        "reverse": false,
+        "mode": null,
+        "accessory": null,
+        "browning_power": null
+      },
+      "off_machine": false
+    },
+    {
+      "text": "Sirup in eine Schüssel umfüllen, Orangenblütenwasser einrühren und abkühlen lassen. Mixtopf spülen und gut abtrocknen.",
+      "setting": null,
+      "off_machine": true
+    },
+    {
+      "text": "Dattelpaste, Olivenöl, Zimt, Nelken und Orangenblütenwasser in den Mixtopf geben und {S} zu einer glatten Masse verarbeiten. Umfüllen.",
+      "setting": {
+        "time_s": 30,
+        "temperature": null,
+        "speed": "5",
+        "reverse": false,
+        "mode": null,
+        "accessory": null,
+        "browning_power": null
+      },
+      "off_machine": false
+    },
+    {
+      "text": "Grieß, Olivenöl und Salz in den Mixtopf geben und {S} vermengen, bis der Grieß sandig ist.",
+      "setting": {
+        "time_s": 30,
+        "temperature": null,
+        "speed": "3",
+        "reverse": true,
+        "mode": null,
+        "accessory": null,
+        "browning_power": null
+      },
+      "off_machine": false
+    },
+    {
+      "text": "Grieß 30 Min. im Mixtopf ruhen lassen, damit er das Öl aufnimmt.",
+      "setting": null,
+      "off_machine": true
+    },
+    {
+      "text": "Wasser und Orangenblütenwasser zugeben und {S} zu einem weichen Teig verarbeiten – nicht zu lange kneten.",
+      "setting": {
+        "time_s": 60,
+        "temperature": null,
+        "speed": null,
+        "reverse": false,
+        "mode": "dough",
+        "accessory": null,
+        "browning_power": null
+      },
+      "off_machine": false
+    },
+    {
+      "text": "Teig in 3 Portionen teilen, jede zu einer Rolle formen, längs eine Rinne drücken, Dattelmasse als dünne Rolle hineinlegen und den Teig darüber schließen. Leicht flach drücken und schräg in Rauten schneiden.",
+      "setting": null,
+      "off_machine": true
+    },
+    {
+      "text": "Öl auf 170 °C erhitzen und die Makroudh portionsweise goldbraun frittieren.",
+      "setting": null,
+      "off_machine": true
+    },
+    {
+      "text": "Noch heiß 1–2 Min. in den kalten Sirup legen, abtropfen lassen und nach Wunsch mit Sesam bestreuen.",
+      "setting": null,
+      "off_machine": true
+    }
+  ],
+  "hints": [
+    "Ofen-Variante (Makroudh fil koucha): bei 180 °C Umluft 20–25 Min. backen, dann in Sirup tränken.",
+    "In einer Dose 1–2 Wochen haltbar.",
+    "Statt Zuckersirup traditionell auch mit Honig."
+  ],
+  "warnings": [],
+  "source_url": "",
+  "author": "TuniMix"
+}

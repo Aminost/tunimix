@@ -1,0 +1,186 @@
+{
+  "title": "Lablabi",
+  "original_title": "Lablabi · لبلابي",
+  "description": "Kichererbsensuppe mit Knoblauch und Kreuzkümmel, über altbackenem Brot serviert – das tunesische Winterfrühstück.",
+  "language": "de",
+  "servings": 4,
+  "unit_text": "portion",
+  "prep_time_min": 15,
+  "total_time_min": 110,
+  "machine": "TM6",
+  "category": "Suppe",
+  "region": "Tunesien",
+  "tags": [
+    "Kichererbsen",
+    "vegetarisch",
+    "Streetfood",
+    "Winter"
+  ],
+  "ingredients": [
+    {
+      "amount": "250",
+      "unit": "g",
+      "name": "getrocknete Kichererbsen",
+      "note": "über Nacht eingeweicht, abgetropft (oder 2 Dosen à 400 g, abgetropft)",
+      "group": ""
+    },
+    {
+      "amount": "5",
+      "unit": "",
+      "name": "Knoblauchzehen",
+      "note": "",
+      "group": ""
+    },
+    {
+      "amount": "30",
+      "unit": "g",
+      "name": "Olivenöl",
+      "note": "",
+      "group": ""
+    },
+    {
+      "amount": "2",
+      "unit": "TL",
+      "name": "Kreuzkümmel (Kammoun), gemahlen",
+      "note": "",
+      "group": ""
+    },
+    {
+      "amount": "1200",
+      "unit": "g",
+      "name": "Wasser",
+      "note": "",
+      "group": ""
+    },
+    {
+      "amount": "1",
+      "unit": "",
+      "name": "Lorbeerblatt",
+      "note": "",
+      "group": ""
+    },
+    {
+      "amount": "1½",
+      "unit": "TL",
+      "name": "Salz",
+      "note": "",
+      "group": ""
+    },
+    {
+      "amount": "1",
+      "unit": "EL",
+      "name": "Harissa",
+      "note": "",
+      "group": ""
+    },
+    {
+      "amount": "200",
+      "unit": "g",
+      "name": "altbackenes Weißbrot",
+      "note": "in Stücke gezupft",
+      "group": "Zum Servieren"
+    },
+    {
+      "amount": "4",
+      "unit": "",
+      "name": "Eier",
+      "note": "weich gekocht oder roh (siehe Tipp)",
+      "group": "Zum Servieren"
+    },
+    {
+      "amount": "1",
+      "unit": "EL",
+      "name": "Kapern",
+      "note": "",
+      "group": "Zum Servieren"
+    },
+    {
+      "amount": "1",
+      "unit": "Dose",
+      "name": "Thunfisch in Öl",
+      "note": "optional",
+      "group": "Zum Servieren"
+    },
+    {
+      "amount": "1",
+      "unit": "",
+      "name": "Zitrone",
+      "note": "in Spalten",
+      "group": "Zum Servieren"
+    },
+    {
+      "amount": "",
+      "unit": "",
+      "name": "Olivenöl, Kreuzkümmel und Harissa zum Beträufeln",
+      "note": "",
+      "group": "Zum Servieren"
+    }
+  ],
+  "steps": [
+    {
+      "text": "Knoblauch in den Mixtopf geben, {S} zerkleinern und mit dem Spatel nach unten schieben.",
+      "setting": {
+        "time_s": 3,
+        "temperature": null,
+        "speed": "5",
+        "reverse": false,
+        "mode": null,
+        "accessory": null,
+        "browning_power": null
+      },
+      "off_machine": false
+    },
+    {
+      "text": "Olivenöl und Kreuzkümmel zugeben und {S} dünsten.",
+      "setting": {
+        "time_s": 120,
+        "temperature": 120,
+        "speed": "1",
+        "reverse": false,
+        "mode": null,
+        "accessory": null,
+        "browning_power": null
+      },
+      "off_machine": false
+    },
+    {
+      "text": "Kichererbsen, Wasser und Lorbeerblatt zugeben und {S} garen, bis die Kichererbsen weich sind. Garkörbchen als Spritzschutz auf den Deckel stellen. (Mit Dosen-Kichererbsen: nur 15 Min.)",
+      "setting": {
+        "time_s": 5400,
+        "temperature": 100,
+        "speed": "soft",
+        "reverse": true,
+        "mode": null,
+        "accessory": null,
+        "browning_power": null
+      },
+      "off_machine": false
+    },
+    {
+      "text": "Salz und Harissa zugeben und {S} unterrühren. Abschmecken.",
+      "setting": {
+        "time_s": 60,
+        "temperature": 100,
+        "speed": "soft",
+        "reverse": true,
+        "mode": null,
+        "accessory": null,
+        "browning_power": null
+      },
+      "off_machine": false
+    },
+    {
+      "text": "Brot in tiefe Schalen geben, Kichererbsen mit reichlich heißer Brühe darüber schöpfen. Mit Ei, Kapern, Thunfisch, Kreuzkümmel, Harissa und Olivenöl toppen und mit Zitrone servieren.",
+      "setting": null,
+      "off_machine": true
+    }
+  ],
+  "hints": [
+    "Wie in Tunis: ein rohes Ei direkt in die kochend heiße Suppe in der Schale geben und umrühren – es gart in der Brühe.",
+    "Weich gekochte Eier gelingen nebenbei: in den letzten 12 Min. von Schritt 3 die Eier im Varoma garen (Temperatur dann auf Varoma stellen).",
+    "Die Suppe lässt sich 3 Tage im Kühlschrank aufbewahren; Brot erst beim Servieren zugeben."
+  ],
+  "warnings": [],
+  "source_url": "",
+  "author": "TuniMix"
+}

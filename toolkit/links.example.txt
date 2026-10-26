@@ -1,0 +1,14 @@
+# One input per line: recipe links, YouTube links or dish names.
+# Run:  tunimix batch links.txt          (add --upload to push to Cookidoo)
+# Lines starting with # are ignored.
+
+kafteji
+brik à l'oeuf
+kammounia
+marka jelbana
+tajine malsouka
+bambalouni
+assida zgougou
+fricassé tunisien
+mhamsa au poulet
+salade tunisienne

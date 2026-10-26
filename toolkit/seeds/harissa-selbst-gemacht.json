@@ -1,0 +1,117 @@
+{
+  "title": "Harissa selbst gemacht",
+  "original_title": "Harissa · هريسة",
+  "description": "Die tunesische Chilipaste – aus getrockneten Chilis, Knoblauch und Gewürzen. Grundlage fast jeden Gerichts.",
+  "language": "de",
+  "servings": 1,
+  "unit_text": "Glas (ca. 250 g)",
+  "prep_time_min": 15,
+  "total_time_min": 50,
+  "machine": "TM6",
+  "category": "Grundrezept",
+  "region": "Tunesien",
+  "tags": [
+    "Würzpaste",
+    "scharf",
+    "Vorrat"
+  ],
+  "ingredients": [
+    {
+      "amount": "1",
+      "unit": "TL",
+      "name": "Koriandersamen",
+      "note": "",
+      "group": ""
+    },
+    {
+      "amount": "1",
+      "unit": "TL",
+      "name": "Kümmelsamen (Karouia)",
+      "note": "",
+      "group": ""
+    },
+    {
+      "amount": "80",
+      "unit": "g",
+      "name": "getrocknete rote Chilischoten (z. B. Baklouti oder Guajillo)",
+      "note": "30 Min. in warmem Wasser eingeweicht, entkernt, ausgedrückt",
+      "group": ""
+    },
+    {
+      "amount": "6",
+      "unit": "",
+      "name": "Knoblauchzehen",
+      "note": "",
+      "group": ""
+    },
+    {
+      "amount": "1",
+      "unit": "TL",
+      "name": "Salz",
+      "note": "",
+      "group": ""
+    },
+    {
+      "amount": "70",
+      "unit": "g",
+      "name": "Olivenöl",
+      "note": "plus etwas zum Bedecken",
+      "group": ""
+    }
+  ],
+  "steps": [
+    {
+      "text": "Koriander- und Kümmelsamen in den trockenen Mixtopf geben und {S} mahlen.",
+      "setting": {
+        "time_s": 30,
+        "temperature": null,
+        "speed": "10",
+        "reverse": false,
+        "mode": null,
+        "accessory": null,
+        "browning_power": null
+      },
+      "off_machine": false
+    },
+    {
+      "text": "Eingeweichte Chilis, Knoblauch, Salz und 40 g Olivenöl zugeben und {S} zerkleinern. Mit dem Spatel nach unten schieben.",
+      "setting": {
+        "time_s": 15,
+        "temperature": null,
+        "speed": "8",
+        "reverse": false,
+        "mode": null,
+        "accessory": null,
+        "browning_power": null
+      },
+      "off_machine": false
+    },
+    {
+      "text": "Restliches Olivenöl zugeben und {S} zu einer Paste verarbeiten.",
+      "setting": {
+        "time_s": 20,
+        "temperature": null,
+        "speed": "8",
+        "reverse": false,
+        "mode": null,
+        "accessory": null,
+        "browning_power": null
+      },
+      "off_machine": false
+    },
+    {
+      "text": "Harissa in ein sauberes Glas füllen, mit einer dünnen Schicht Olivenöl bedecken und im Kühlschrank aufbewahren.",
+      "setting": null,
+      "off_machine": true
+    }
+  ],
+  "hints": [
+    "Beim Entkernen Handschuhe tragen.",
+    "Hält mit Ölschicht ca. 1 Monat im Kühlschrank – nach jeder Entnahme wieder mit Öl bedecken.",
+    "Mildere Variante: die Hälfte der Chilis durch geröstete rote Paprika ersetzen."
+  ],
+  "warnings": [],
+  "source_url": "",
+  "source_type": "seed",
+  "image_url": ""
+}

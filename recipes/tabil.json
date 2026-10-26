@@ -1,0 +1,91 @@
+{
+  "title": "Tabil",
+  "original_title": "Tabil · تابل",
+  "description": "Die tunesische Hausgewürzmischung aus Koriander, Kümmel, Knoblauch und Chili.",
+  "language": "de",
+  "servings": 1,
+  "unit_text": "Glas (ca. 60 g)",
+  "prep_time_min": 10,
+  "total_time_min": 25,
+  "machine": "TM6",
+  "category": "Grundrezept",
+  "region": "Tunesien",
+  "tags": [
+    "Gewürz",
+    "Vorrat"
+  ],
+  "ingredients": [
+    {
+      "amount": "40",
+      "unit": "g",
+      "name": "Koriandersamen",
+      "note": "",
+      "group": ""
+    },
+    {
+      "amount": "10",
+      "unit": "g",
+      "name": "Kümmelsamen (Karouia)",
+      "note": "",
+      "group": ""
+    },
+    {
+      "amount": "1",
+      "unit": "EL",
+      "name": "getrocknetes Knoblauchgranulat",
+      "note": "",
+      "group": ""
+    },
+    {
+      "amount": "1",
+      "unit": "TL",
+      "name": "Chiliflocken",
+      "note": "",
+      "group": ""
+    }
+  ],
+  "steps": [
+    {
+      "text": "Koriander- und Kümmelsamen in den Mixtopf geben und {S} trocken anrösten, ohne Messbecher.",
+      "setting": {
+        "time_s": 300,
+        "temperature": "varoma",
+        "speed": "1",
+        "reverse": false,
+        "mode": null,
+        "accessory": null,
+        "browning_power": null
+      },
+      "off_machine": false
+    },
+    {
+      "text": "Samen auf einem Teller 10 Min. abkühlen lassen.",
+      "setting": null,
+      "off_machine": true
+    },
+    {
+      "text": "Samen zurück in den Mixtopf geben, Knoblauchgranulat und Chiliflocken zugeben und {S} fein mahlen.",
+      "setting": {
+        "time_s": 60,
+        "temperature": null,
+        "speed": "10",
+        "reverse": false,
+        "mode": null,
+        "accessory": null,
+        "browning_power": null
+      },
+      "off_machine": false
+    },
+    {
+      "text": "In ein trockenes, luftdichtes Glas füllen und dunkel aufbewahren.",
+      "setting": null,
+      "off_machine": true
+    }
+  ],
+  "hints": [
+    "Hält 3 Monate. Traditionell werden frischer Knoblauch und Chili in der Sonne getrocknet und mitgemahlen."
+  ],
+  "warnings": [],
+  "source_url": "",
+  "author": "TuniMix"
+}

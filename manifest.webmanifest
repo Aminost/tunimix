@@ -1,0 +1,20 @@
+{
+  "name": "TuniMix – Rezepte für den Thermomix",
+  "short_name": "TuniMix",
+  "description": "Any recipe → Thermomix guided cooking → Cookidoo.",
+  "start_url": "./#new",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f4f7fb",
+  "theme_color": "#1b5fae",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "share_target": {
+    "action": "./",
+    "method": "GET",
+    "params": { "title": "title", "text": "text", "url": "url" }
+  }
+}

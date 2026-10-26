@@ -1,0 +1,1706 @@
+{
+ "updated": "2026-10-26T15:04:30.614Z",
+ "count": 9,
+ "recipes": [
+  {
+   "title": "Chorba Frik",
+   "original_title": "Chorba Frik · شربة فريك",
+   "description": "Herzhafte Lammsuppe mit grünem Weizenschrot – die Suppe des Ramadan-Iftars.",
+   "language": "de",
+   "servings": 4,
+   "unit_text": "portion",
+   "prep_time_min": 20,
+   "total_time_min": 90,
+   "machine": "TM6",
+   "category": "Suppe",
+   "region": "Tunesien",
+   "tags": [
+    "Lamm",
+    "Ramadan",
+    "Frik"
+   ],
+   "ingredients": [
+    {
+     "amount": "½",
+     "unit": "Bund",
+     "name": "glatte Petersilie",
+     "note": "Blättchen und zarte Stiele",
+     "group": ""
+    },
+    {
+     "amount": "1",
+     "unit": "",
+     "name": "Zwiebel",
+     "note": "halbiert",
+     "group": ""
+    },
+    {
+     "amount": "2",
+     "unit": "",
+     "name": "Knoblauchzehen",
+     "note": "",
+     "group": ""
+    },
+    {
+     "amount": "40",
+     "unit": "g",
+     "name": "Olivenöl",
+     "note": "",
+     "group": ""
+    },
+    {
+     "amount": "300",
+     "unit": "g",
+     "name": "Lammfleisch (Schulter)",
+     "note": "in 1-cm-Würfeln",
+     "group": ""
+    },
+    {
+     "amount": "2",
+     "unit": "EL",
+     "name": "Tomatenmark",
+     "note": "",
+     "group": ""
+    },
+    {
+     "amount": "1",
+     "unit": "TL",
+     "name": "Harissa",
+     "note": "",
+     "group": ""
+    },
+    {
+     "amount": "1",
+     "unit": "TL",
+     "name": "Tabil (tunesische Gewürzmischung)",
+     "note": "",
+     "group": ""
+    },
+    {
+     "amount": "1",
+     "unit": "TL",
+     "name": "Paprikapulver edelsüß",
+     "note": "",
+     "group": ""
+    },
+    {
+     "amount": "½",
+     "unit": "TL",
+     "name": "Kurkuma",
+     "note": "",
+     "group": ""
+    },
+    {
+     "amount": "1200",
+     "unit": "g",
+     "name": "Wasser",
+     "note": "",
+     "group": ""
+    },
+    {
+     "amount": "100",
+     "unit": "g",
+     "name": "Kichererbsen aus der Dose",
+     "note": "abgetropft",
+     "group": ""
+    },
+    {
+     "amount": "80",
+     "unit": "g",
+     "name": "Frik (grüner geschroteter Weizen)",
+     "note": "gewaschen",
+     "group": ""
+    },
+    {
+     "amount": "1½",
+     "unit": "TL",
+     "name": "Salz",
+     "note": "",
+     "group": ""
+    },
+    {
+     "amount": "½",
+     "unit": "TL",
+     "name": "schwarzer Pfeffer",
+     "note": "",
+     "group": ""
+    },
+    {
+     "amount": "1",
+     "unit": "TL",
+     "name": "getrocknete Minze",
+     "note": "",
+     "group": "Zum Servieren"
+    },
+    {
+     "amount": "1",
+     "unit": "",
+     "name": "Zitrone",
+     "note": "in Spalten",
+     "group": "Zum Servieren"
+    }
+   ],
+   "steps": [
+    {
+     "text": "Petersilie in den trockenen Mixtopf geben, {S} hacken und umfüllen.",
+     "setting": {
+      "time_s": 3,
+      "temperature": null,
+      "speed": "7",
+      "reverse": false,
+      "mode": null,
+      "accessory": null,
+      "browning_power": null
+     },
+     "off_machine": false
+    },
+    {
+     "text": "Zwiebel und Knoblauch in den Mixtopf geben, {S} zerkleinern und nach unten schieben.",
+     "setting": {
+      "time_s": 5,
+      "temperature": null,
+      "speed": "5",
+      "reverse": false,
+      "mode": null,
+      "accessory": null,
+      "browning_power": null
+     },
+     "off_machine": false
+    },
+    {
+     "text": "Olivenöl zugeben und {S} dünsten.",
+     "setting": {
+      "time_s": 180,
+      "temperature": 120,
+      "speed": "1",
+      "reverse": false,
+      "mode": null,
+      "accessory": null,
+      "browning_power": null
+     },
+     "off_machine": false
+    },
+    {
+     "text": "Lammwürfel zugeben und {S} anbraten.",
+     "setting": {
+      "time_s": 300,
+      "temperature": 120,
+      "speed": "soft",
+      "reverse": true,
+      "mode": null,
+      "accessory": null,
+      "browning_power": null
+     },
+     "off_machine": false
+    },
+    {
+     "text": "Tomatenmark, Harissa, Tabil, Paprikapulver und Kurkuma zugeben und {S} anschwitzen.",
+     "setting": {
+      "time_s": 120,
+      "temperature": 120,
+      "speed": "1",
+      "reverse": true,
+      "mode": null,
+      "accessory": null,
+      "browning_power": null
+     },
+     "off_machine": false
+    },
+    {
+     "text": "Wasser, Kichererbsen, Salz und Pfeffer zugeben und {S} köcheln lassen. Garkörbchen als Spritzschutz auf den Deckel stellen.",
+     "setting": {
+      "time_s": 2700,
+      "temperature": 100,
+      "speed": "soft",
+      "reverse": true,
+      "mode": null,
+      "accessory": null,
+      "browning_power": null
+     },
+     "off_machine": false
+    },
+    {
+     "text": "Frik und die Hälfte der Petersilie zugeben und {S} garen, bis der Frik weich ist.",
+     "setting": {
+      "time_s": 1500,
+      "temperature": 100,
+      "speed": "soft",
+      "reverse": true,
+      "mode": null,
+      "accessory": null,
+      "browning_power": null
+     },
+     "off_machine": false
+    },
+    {
+     "text": "Chorba in Schalen füllen, mit restlicher Petersilie und getrockneter Minze bestreuen und mit Zitronenspalten und Brik servieren.",
+     "setting": null,
+     "off_machine": true
+    }
+   ],
+   "hints": [
+    "Ist die Suppe zu dick, 100–200 g heißes Wasser zugeben und 2 Min./100°C/Linkslauf/Sanftrührstufe erhitzen.",
+    "Statt Lamm geht auch Hähnchenbrust (Garzeit in Schritt 6 auf 20 Min. verkürzen).",
+    "Traditionell zu Brik à l'œuf serviert."
+   ],
+   "warnings": [],
+   "source_url": "",
+   "author": "TuniMix",
+   "slug": "chorba-frik"
+  },
+  {
+   "title": "Couscous mit Hähnchen und Gemüse",
+   "original_title": "Kousksi bel Djej · كسكسي بالدجاج",
+   "description": "Roter tunesischer Couscous: Hähnchen in würziger Tomatensoße, Gemüse und Couscous im Varoma gedämpft.",
+   "language": "de",
+   "servings": 4,
+   "unit_text": "portion",
+   "prep_time_min": 25,
+   "total_time_min": 75,
+   "machine": "TM6",
+   "category": "Hauptgericht",
+   "region": "Tunesien",
+   "tags": [
+    "Couscous",
+    "Hähnchen",
+    "Varoma",
+    "Familienessen"
+   ],
+   "ingredients": [
+    {
+     "amount": "1",
+     "unit": "",
+     "name": "Zwiebel",
+     "note": "halbiert",
+     "group": "Für die Soße (Marqa)"
+    },
+    {
+     "amount": "40",
+     "unit": "g",
+     "name": "Olivenöl",
+     "note": "",
+     "group": "Für die Soße (Marqa)"
+    },
+    {
+     "amount": "600",
+     "unit": "g",
+     "name": "Hähnchenschenkel ohne Knochen",
+     "note": "in großen Stücken",
+     "group": "Für die Soße (Marqa)"
+    },
+    {
+     "amount": "3",
+     "unit": "EL",
+     "name": "Tomatenmark",
+     "note": "",
+     "group": "Für die Soße (Marqa)"
+    },
+    {
+     "amount": "1",
+     "unit": "TL",
+     "name": "Harissa",
+     "note": "",
+     "group": "Für die Soße (Marqa)"
+    },
+    {
+     "amount": "1",
+     "unit": "TL",
+     "name": "Tabil (tunesische Gewürzmischung)",
+     "note": "",
+     "group": "Für die Soße (Marqa)"
+    },
+    {
+     "amount": "1",
+     "unit": "TL",
+     "name": "Paprikapulver edelsüß",
+     "note": "",
+     "group": "Für die Soße (Marqa)"
+    },
+    {
+     "amount": "½",
+     "unit": "TL",
+     "name": "Kurkuma",
+     "note": "",
+     "group": "Für die Soße (Marqa)"
+    },
+    {
+     "amount": "1½",
+     "unit": "TL",
+     "name": "Salz",
+     "note": "",
+     "group": "Für die Soße (Marqa)"
+    },
+    {
+     "amount": "½",
+     "unit": "TL",
+     "name": "schwarzer Pfeffer",
+     "note": "",
+     "group": "Für die Soße (Marqa)"
+    },
+    {
+     "amount": "900",
+     "unit": "g",
+     "name": "Wasser",
+     "note": "",
+     "group": "Für die Soße (Marqa)"
+    },
+    {
+     "amount": "100",
+     "unit": "g",
+     "name": "Kichererbsen aus der Dose",
+     "note": "abgetropft",
+     "group": "Für die Soße (Marqa)"
+    },
+    {
+     "amount": "2",
+     "unit": "",
+     "name": "Karotten",
+     "note": "längs geviertelt",
+     "group": "Gemüse für den Varoma"
+    },
+    {
+     "amount": "1",
+     "unit": "",
+     "name": "Zucchini",
+     "note": "in dicken Stücken",
+     "group": "Gemüse für den Varoma"
+    },
+    {
+     "amount": "300",
+     "unit": "g",
+     "name": "Kürbis",
+     "note": "in großen Stücken",
+     "group": "Gemüse für den Varoma"
+    },
+    {
+     "amount": "2",
+     "unit": "",
+     "name": "grüne Chilischoten",
+     "note": "ganz",
+     "group": "Gemüse für den Varoma"
+    },
+    {
+     "amount": "350",
+     "unit": "g",
+     "name": "mittelfeiner Couscous",
+     "note": "",
+     "group": "Für den Couscous"
+    },
+    {
+     "amount": "1",
+     "unit": "EL",
+     "name": "Olivenöl",
+     "note": "",
+     "group": "Für den Couscous"
+    },
+    {
+     "amount": "½",
+     "unit": "TL",
+     "name": "Salz",
+     "note": "",
+     "group": "Für den Couscous"
+    },
+    {
+     "amount": "30",
+     "unit": "g",
+     "name": "Butter",
+     "note": "",
+     "group": "Für den Couscous"
+    }
+   ],
+   "steps": [
+    {
+     "text": "Zwiebel in den Mixtopf geben, {S} zerkleinern und nach unten schieben.",
+     "setting": {
+      "time_s": 5,
+      "temperature": null,
+      "speed": "5",
+      "reverse": false,
+      "mode": null,
+      "accessory": null,
+      "browning_power": null
+     },
+     "off_machine": false
+    },
+    {
+     "text": "Olivenöl zugeben und {S} dünsten.",
+     "setting": {
+      "time_s": 180,
+      "temperature": 120,
+      "speed": "1",
+      "reverse": false,
+      "mode": null,
+      "accessory": null,
+      "browning_power": null
+     },
+     "off_machine": false
+    },
+    {
+     "text": "Hähnchen, Tomatenmark, Harissa, Tabil, Paprikapulver, Kurkuma, Salz und Pfeffer zugeben und {S} anschwitzen.",
+     "setting": {
+      "time_s": 180,
+      "temperature": 120,
+      "speed": "soft",
+      "reverse": true,
+      "mode": null,
+      "accessory": null,
+      "browning_power": null
+     },
+     "off_machine": false
+    },
+    {
+     "text": "Wasser und Kichererbsen zugeben. Gemüse in den Varoma-Behälter legen, Varoma aufsetzen und {S} garen.",
+     "setting": {
+      "time_s": 2100,
+      "temperature": "varoma",
+      "speed": "soft",
+      "reverse": true,
+      "mode": null,
+      "accessory": null,
+      "browning_power": null
+     },
+     "off_machine": false
+    },
+    {
+     "text": "Couscous in einer Schüssel mit Olivenöl und Salz vermengen. 300 g heiße Soße aus dem Mixtopf darübergießen, 10 Min. quellen lassen und mit einer Gabel auflockern.",
+     "setting": null,
+     "off_machine": true
+    },
+    {
+     "text": "Einlegeboden mit einem feuchten Tuch oder Varoma-Papier auslegen, Couscous darauf verteilen, Varoma mit Gemüse und Einlegeboden aufsetzen und {S} dämpfen.",
+     "setting": {
+      "time_s": 900,
+      "temperature": "varoma",
+      "speed": "soft",
+      "reverse": true,
+      "mode": null,
+      "accessory": null,
+      "browning_power": null
+     },
+     "off_machine": false
+    },
+    {
+     "text": "Couscous in eine große Schüssel geben, Butter mit der Gabel unterarbeiten. Hähnchen und Gemüse darauf anrichten und mit Soße übergießen.",
+     "setting": null,
+     "off_machine": true
+    }
+   ],
+   "hints": [
+    "Für Lamm (Kousksi bel Allouch): 600 g Lammschulter in Stücken, Garzeit in Schritt 4 auf 60 Min. verlängern.",
+    "Für Fisch-Couscous (Djerba-Stil): Fischstücke erst in den letzten 15 Min. in den Varoma legen.",
+    "Wer es authentischer mag: Couscous zweimal dämpfen und zwischendurch mit etwas Soße und Olivenöl einreiben."
+   ],
+   "warnings": [],
+   "source_url": "",
+   "author": "TuniMix",
+   "slug": "couscous-mit-hahnchen-und-gemuse"
+  },
+  {
+   "title": "Harissa selbst gemacht",
+   "original_title": "Harissa · هريسة",
+   "description": "Die tunesische Chilipaste – aus getrockneten Chilis, Knoblauch und Gewürzen. Grundlage fast jeden Gerichts.",
+   "language": "de",
+   "servings": 1,
+   "unit_text": "Glas (ca. 250 g)",
+   "prep_time_min": 15,
+   "total_time_min": 50,
+   "machine": "TM6",
+   "category": "Grundrezept",
+   "region": "Tunesien",
+   "tags": [
+    "Würzpaste",
+    "scharf",
+    "Vorrat"
+   ],
+   "ingredients": [
+    {
+     "amount": "1",
+     "unit": "TL",
+     "name": "Koriandersamen",
+     "note": "",
+     "group": ""
+    },
+    {
+     "amount": "1",
+     "unit": "TL",
+     "name": "Kümmelsamen (Karouia)",
+     "note": "",
+     "group": ""
+    },
+    {
+     "amount": "80",
+     "unit": "g",
+     "name": "getrocknete rote Chilischoten (z. B. Baklouti oder Guajillo)",
+     "note": "30 Min. in warmem Wasser eingeweicht, entkernt, ausgedrückt",
+     "group": ""
+    },
+    {
+     "amount": "6",
+     "unit": "",
+     "name": "Knoblauchzehen",
+     "note": "",
+     "group": ""
+    },
+    {
+     "amount": "1",
+     "unit": "TL",
+     "name": "Salz",
+     "note": "",
+     "group": ""
+    },
+    {
+     "amount": "70",
+     "unit": "g",
+     "name": "Olivenöl",
+     "note": "plus etwas zum Bedecken",
+     "group": ""
+    }
+   ],
+   "steps": [
+    {
+     "text": "Koriander- und Kümmelsamen in den trockenen Mixtopf geben und {S} mahlen.",
+     "setting": {
+      "time_s": 30,
+      "temperature": null,
+      "speed": "10",
+      "reverse": false,
+      "mode": null,
+      "accessory": null,
+      "browning_power": null
+     },
+     "off_machine": false
+    },
+    {
+     "text": "Eingeweichte Chilis, Knoblauch, Salz und 40 g Olivenöl zugeben und {S} zerkleinern. Mit dem Spatel nach unten schieben.",
+     "setting": {
+      "time_s": 15,
+      "temperature": null,
+      "speed": "8",
+      "reverse": false,
+      "mode": null,
+      "accessory": null,
+      "browning_power": null
+     },
+     "off_machine": false
+    },
+    {
+     "text": "Restliches Olivenöl zugeben und {S} zu einer Paste verarbeiten.",
+     "setting": {
+      "time_s": 20,
+      "temperature": null,
+      "speed": "8",
+      "reverse": false,
+      "mode": null,
+      "accessory": null,
+      "browning_power": null
+     },
+     "off_machine": false
+    },
+    {
+     "text": "Harissa in ein sauberes Glas füllen, mit einer dünnen Schicht Olivenöl bedecken und im Kühlschrank aufbewahren.",
+     "setting": null,
+     "off_machine": true
+    }
+   ],
+   "hints": [
+    "Beim Entkernen Handschuhe tragen.",
+    "Hält mit Ölschicht ca. 1 Monat im Kühlschrank – nach jeder Entnahme wieder mit Öl bedecken.",
+    "Mildere Variante: die Hälfte der Chilis durch geröstete rote Paprika ersetzen."
+   ],
+   "warnings": [],
+   "source_url": "",
+   "author": "TuniMix",
+   "slug": "harissa-selbst-gemacht"
+  },
+  {
+   "title": "Lablabi",
+   "original_title": "Lablabi · لبلابي",
+   "description": "Kichererbsensuppe mit Knoblauch und Kreuzkümmel, über altbackenem Brot serviert – das tunesische Winterfrühstück.",
+   "language": "de",
+   "servings": 4,
+   "unit_text": "portion",
+   "prep_time_min": 15,
+   "total_time_min": 110,
+   "machine": "TM6",
+   "category": "Suppe",
+   "region": "Tunesien",
+   "tags": [
+    "Kichererbsen",
+    "vegetarisch",
+    "Streetfood",
+    "Winter"
+   ],
+   "ingredients": [
+    {
+     "amount": "250",
+     "unit": "g",
+     "name": "getrocknete Kichererbsen",
+     "note": "über Nacht eingeweicht, abgetropft (oder 2 Dosen à 400 g, abgetropft)",
+     "group": ""
+    },
+    {
+     "amount": "5",
+     "unit": "",
+     "name": "Knoblauchzehen",
+     "note": "",
+     "group": ""
+    },
+    {
+     "amount": "30",
+     "unit": "g",
+     "name": "Olivenöl",
+     "note": "",
+     "group": ""
+    },
+    {
+     "amount": "2",
+     "unit": "TL",
+     "name": "Kreuzkümmel (Kammoun), gemahlen",
+     "note": "",
+     "group": ""
+    },
+    {
+     "amount": "1200",
+     "unit": "g",
+     "name": "Wasser",
+     "note": "",
+     "group": ""
+    },
+    {
+     "amount": "1",
+     "unit": "",
+     "name": "Lorbeerblatt",
+     "note": "",
+     "group": ""
+    },
+    {
+     "amount": "1½",
+     "unit": "TL",
+     "name": "Salz",
+     "note": "",
+     "group": ""
+    },
+    {
+     "amount": "1",
+     "unit": "EL",
+     "name": "Harissa",
+     "note": "",
+     "group": ""
+    },
+    {
+     "amount": "200",
+     "unit": "g",
+     "name": "altbackenes Weißbrot",
+     "note": "in Stücke gezupft",
+     "group": "Zum Servieren"
+    },
+    {
+     "amount": "4",
+     "unit": "",
+     "name": "Eier",
+     "note": "weich gekocht oder roh (siehe Tipp)",
+     "group": "Zum Servieren"
+    },
+    {
+     "amount": "1",
+     "unit": "EL",
+     "name": "Kapern",
+     "note": "",
+     "group": "Zum Servieren"
+    },
+    {
+     "amount": "1",
+     "unit": "Dose",
+     "name": "Thunfisch in Öl",
+     "note": "optional",
+     "group": "Zum Servieren"
+    },
+    {
+     "amount": "1",
+     "unit": "",
+     "name": "Zitrone",
+     "note": "in Spalten",
+     "group": "Zum Servieren"
+    },
+    {
+     "amount": "",
+     "unit": "",
+     "name": "Olivenöl, Kreuzkümmel und Harissa zum Beträufeln",
+     "note": "",
+     "group": "Zum Servieren"
+    }
+   ],
+   "steps": [
+    {
+     "text": "Knoblauch in den Mixtopf geben, {S} zerkleinern und mit dem Spatel nach unten schieben.",
+     "setting": {
+      "time_s": 3,
+      "temperature": null,
+      "speed": "5",
+      "reverse": false,
+      "mode": null,
+      "accessory": null,
+      "browning_power": null
+     },
+     "off_machine": false
+    },
+    {
+     "text": "Olivenöl und Kreuzkümmel zugeben und {S} dünsten.",
+     "setting": {
+      "time_s": 120,
+      "temperature": 120,
+      "speed": "1",
+      "reverse": false,
+      "mode": null,
+      "accessory": null,
+      "browning_power": null
+     },
+     "off_machine": false
+    },
+    {
+     "text": "Kichererbsen, Wasser und Lorbeerblatt zugeben und {S} garen, bis die Kichererbsen weich sind. Garkörbchen als Spritzschutz auf den Deckel stellen. (Mit Dosen-Kichererbsen: nur 15 Min.)",
+     "setting": {
+      "time_s": 5400,
+      "temperature": 100,
+      "speed": "soft",
+      "reverse": true,
+      "mode": null,
+      "accessory": null,
+      "browning_power": null
+     },
+     "off_machine": false
+    },
+    {
+     "text": "Salz und Harissa zugeben und {S} unterrühren. Abschmecken.",
+     "setting": {
+      "time_s": 60,
+      "temperature": 100,
+      "speed": "soft",
+      "reverse": true,
+      "mode": null,
+      "accessory": null,
+      "browning_power": null
+     },
+     "off_machine": false
+    },
+    {
+     "text": "Brot in tiefe Schalen geben, Kichererbsen mit reichlich heißer Brühe darüber schöpfen. Mit Ei, Kapern, Thunfisch, Kreuzkümmel, Harissa und Olivenöl toppen und mit Zitrone servieren.",
+     "setting": null,
+     "off_machine": true
+    }
+   ],
+   "hints": [
+    "Wie in Tunis: ein rohes Ei direkt in die kochend heiße Suppe in der Schale geben und umrühren – es gart in der Brühe.",
+    "Weich gekochte Eier gelingen nebenbei: in den letzten 12 Min. von Schritt 3 die Eier im Varoma garen (Temperatur dann auf Varoma stellen).",
+    "Die Suppe lässt sich 3 Tage im Kühlschrank aufbewahren; Brot erst beim Servieren zugeben."
+   ],
+   "warnings": [],
+   "source_url": "",
+   "author": "TuniMix",
+   "slug": "lablabi"
+  },
+  {
+   "title": "Makroudh",
+   "original_title": "Makroudh · مقروض",
+   "description": "Grießgebäck aus Kairouan mit Dattelfüllung, frittiert und in Sirup getränkt.",
+   "language": "de",
+   "servings": 30,
+   "unit_text": "Stück",
+   "prep_time_min": 60,
+   "total_time_min": 120,
+   "machine": "TM6",
+   "category": "Dessert",
+   "region": "Tunesien",
+   "tags": [
+    "Gebäck",
+    "Datteln",
+    "Eid",
+    "Kairouan"
+   ],
+   "ingredients": [
+    {
+     "amount": "300",
+     "unit": "g",
+     "name": "Zucker",
+     "note": "",
+     "group": "Für den Sirup"
+    },
+    {
+     "amount": "150",
+     "unit": "g",
+     "name": "Wasser",
+     "note": "",
+     "group": "Für den Sirup"
+    },
+    {
+     "amount": "1",
+     "unit": "EL",
+     "name": "Zitronensaft",
+     "note": "",
+     "group": "Für den Sirup"
+    },
+    {
+     "amount": "1",
+     "unit": "EL",
+     "name": "Orangenblütenwasser (Mazhar)",
+     "note": "",
+     "group": "Für den Sirup"
+    },
+    {
+     "amount": "300",
+     "unit": "g",
+     "name": "Dattelpaste",
+     "note": "",
+     "group": "Für die Füllung"
+    },
+    {
+     "amount": "1",
+     "unit": "EL",
+     "name": "Olivenöl",
+     "note": "",
+     "group": "Für die Füllung"
+    },
+    {
+     "amount": "½",
+     "unit": "TL",
+     "name": "Zimt",
+     "note": "",
+     "group": "Für die Füllung"
+    },
+    {
+     "amount": "1",
+     "unit": "Prise",
+     "name": "gemahlene Nelken",
+     "note": "",
+     "group": "Für die Füllung"
+    },
+    {
+     "amount": "1",
+     "unit": "EL",
+     "name": "Orangenblütenwasser (Mazhar)",
+     "note": "",
+     "group": "Für die Füllung"
+    },
+    {
+     "amount": "500",
+     "unit": "g",
+     "name": "mittelfeiner Hartweizengrieß",
+     "note": "",
+     "group": "Für den Teig"
+    },
+    {
+     "amount": "125",
+     "unit": "g",
+     "name": "Olivenöl",
+     "note": "",
+     "group": "Für den Teig"
+    },
+    {
+     "amount": "1",
+     "unit": "Prise",
+     "name": "Salz",
+     "note": "",
+     "group": "Für den Teig"
+    },
+    {
+     "amount": "150",
+     "unit": "g",
+     "name": "lauwarmes Wasser",
+     "note": "",
+     "group": "Für den Teig"
+    },
+    {
+     "amount": "1",
+     "unit": "EL",
+     "name": "Orangenblütenwasser (Mazhar)",
+     "note": "",
+     "group": "Für den Teig"
+    },
+    {
+     "amount": "1",
+     "unit": "l",
+     "name": "Öl zum Frittieren",
+     "note": "",
+     "group": "Außerdem"
+    },
+    {
+     "amount": "2",
+     "unit": "EL",
+     "name": "Sesam",
+     "note": "optional",
+     "group": "Außerdem"
+    }
+   ],
+   "steps": [
+    {
+     "text": "Zucker, Wasser und Zitronensaft in den Mixtopf geben und {S} kochen, ohne Messbecher, Garkörbchen als Spritzschutz auf den Deckel stellen.",
+     "setting": {
+      "time_s": 600,
+      "temperature": "varoma",
+      "speed": "1",
+      "reverse": false,
+      "mode": null,
+      "accessory": null,
+      "browning_power": null
+     },
+     "off_machine": false
+    },
+    {
+     "text": "Sirup in eine Schüssel umfüllen, Orangenblütenwasser einrühren und abkühlen lassen. Mixtopf spülen und gut abtrocknen.",
+     "setting": null,
+     "off_machine": true
+    },
+    {
+     "text": "Dattelpaste, Olivenöl, Zimt, Nelken und Orangenblütenwasser in den Mixtopf geben und {S} zu einer glatten Masse verarbeiten. Umfüllen.",
+     "setting": {
+      "time_s": 30,
+      "temperature": null,
+      "speed": "5",
+      "reverse": false,
+      "mode": null,
+      "accessory": null,
+      "browning_power": null
+     },
+     "off_machine": false
+    },
+    {
+     "text": "Grieß, Olivenöl und Salz in den Mixtopf geben und {S} vermengen, bis der Grieß sandig ist.",
+     "setting": {
+      "time_s": 30,
+      "temperature": null,
+      "speed": "3",
+      "reverse": true,
+      "mode": null,
+      "accessory": null,
+      "browning_power": null
+     },
+     "off_machine": false
+    },
+    {
+     "text": "Grieß 30 Min. im Mixtopf ruhen lassen, damit er das Öl aufnimmt.",
+     "setting": null,
+     "off_machine": true
+    },
+    {
+     "text": "Wasser und Orangenblütenwasser zugeben und {S} zu einem weichen Teig verarbeiten – nicht zu lange kneten.",
+     "setting": {
+      "time_s": 60,
+      "temperature": null,
+      "speed": null,
+      "reverse": false,
+      "mode": "dough",
+      "accessory": null,
+      "browning_power": null
+     },
+     "off_machine": false
+    },
+    {
+     "text": "Teig in 3 Portionen teilen, jede zu einer Rolle formen, längs eine Rinne drücken, Dattelmasse als dünne Rolle hineinlegen und den Teig darüber schließen. Leicht flach drücken und schräg in Rauten schneiden.",
+     "setting": null,
+     "off_machine": true
+    },
+    {
+     "text": "Öl auf 170 °C erhitzen und die Makroudh portionsweise goldbraun frittieren.",
+     "setting": null,
+     "off_machine": true
+    },
+    {
+     "text": "Noch heiß 1–2 Min. in den kalten Sirup legen, abtropfen lassen und nach Wunsch mit Sesam bestreuen.",
+     "setting": null,
+     "off_machine": true
+    }
+   ],
+   "hints": [
+    "Ofen-Variante (Makroudh fil koucha): bei 180 °C Umluft 20–25 Min. backen, dann in Sirup tränken.",
+    "In einer Dose 1–2 Wochen haltbar.",
+    "Statt Zuckersirup traditionell auch mit Honig."
+   ],
+   "warnings": [],
+   "source_url": "",
+   "author": "TuniMix",
+   "slug": "makroudh"
+  },
+  {
+   "title": "Mloukhia",
+   "original_title": "Mloukhia · ملوخية",
+   "description": "Tiefgrüner, fast schwarzer Rindfleisch-Eintopf aus Jute-Blätter-Pulver – langsam geschmort, festlich zu Ras el Am.",
+   "language": "de",
+   "servings": 4,
+   "unit_text": "portion",
+   "prep_time_min": 20,
+   "total_time_min": 210,
+   "machine": "TM6",
+   "category": "Hauptgericht",
+   "region": "Tunesien",
+   "tags": [
+    "Rind",
+    "Schmorgericht",
+    "Neujahr"
+   ],
+   "ingredients": [
+    {
+     "amount": "50",
+     "unit": "g",
+     "name": "Mloukhia-Pulver (gemahlene Jute-Blätter)",
+     "note": "",
+     "group": ""
+    },
+    {
+     "amount": "120",
+     "unit": "g",
+     "name": "Olivenöl",
+     "note": "",
+     "group": ""
+    },
+    {
+     "amount": "1300",
+     "unit": "g",
+     "name": "Wasser",
+     "note": "",
+     "group": ""
+    },
+    {
+     "amount": "400",
+     "unit": "g",
+     "name": "Rindfleisch (Wade oder Schulter)",
+     "note": "in großen Stücken",
+     "group": ""
+    },
+    {
+     "amount": "2",
+     "unit": "",
+     "name": "Lorbeerblätter",
+     "note": "",
+     "group": ""
+    },
+    {
+     "amount": "4",
+     "unit": "",
+     "name": "Knoblauchzehen",
+     "note": "",
+     "group": ""
+    },
+    {
+     "amount": "1",
+     "unit": "TL",
+     "name": "Tabil (tunesische Gewürzmischung)",
+     "note": "",
+     "group": ""
+    },
+    {
+     "amount": "1",
+     "unit": "TL",
+     "name": "Karouia (gemahlener Kümmel)",
+     "note": "",
+     "group": ""
+    },
+    {
+     "amount": "1",
+     "unit": "TL",
+     "name": "Koriander, gemahlen",
+     "note": "",
+     "group": ""
+    },
+    {
+     "amount": "1",
+     "unit": "TL",
+     "name": "Salz",
+     "note": "",
+     "group": ""
+    },
+    {
+     "amount": "½",
+     "unit": "TL",
+     "name": "schwarzer Pfeffer",
+     "note": "",
+     "group": ""
+    }
+   ],
+   "steps": [
+    {
+     "text": "Mloukhia-Pulver und Olivenöl in den Mixtopf geben und {S} zu einer glatten Paste verrühren.",
+     "setting": {
+      "time_s": 30,
+      "temperature": null,
+      "speed": "3",
+      "reverse": false,
+      "mode": null,
+      "accessory": null,
+      "browning_power": null
+     },
+     "off_machine": false
+    },
+    {
+     "text": "Wasser nach und nach durch die Deckelöffnung zugeben und {S} klümpchenfrei verrühren.",
+     "setting": {
+      "time_s": 30,
+      "temperature": null,
+      "speed": "4",
+      "reverse": false,
+      "mode": null,
+      "accessory": null,
+      "browning_power": null
+     },
+     "off_machine": false
+    },
+    {
+     "text": "Rindfleisch und Lorbeerblätter zugeben und {S} sanft köcheln lassen, ohne Messbecher, Garkörbchen als Spritzschutz auf den Deckel stellen.",
+     "setting": {
+      "time_s": 5940,
+      "temperature": 98,
+      "speed": "soft",
+      "reverse": true,
+      "mode": null,
+      "accessory": null,
+      "browning_power": null
+     },
+     "off_machine": false
+    },
+    {
+     "text": "Weitergaren {S}.",
+     "setting": {
+      "time_s": 4860,
+      "temperature": 98,
+      "speed": "soft",
+      "reverse": true,
+      "mode": null,
+      "accessory": null,
+      "browning_power": null
+     },
+     "off_machine": false
+    },
+    {
+     "text": "Knoblauch mit Tabil, Kümmel, Koriander, Salz und Pfeffer in einem Mörser zerstoßen, in den Mixtopf geben und {S} weitergaren, bis sich das Öl an der Oberfläche absetzt.",
+     "setting": {
+      "time_s": 1200,
+      "temperature": 98,
+      "speed": "soft",
+      "reverse": true,
+      "mode": null,
+      "accessory": null,
+      "browning_power": null
+     },
+     "off_machine": false
+    },
+    {
+     "text": "Mloukhia mit frischem Brot servieren. Das Öl an der Oberfläche ist gewollt – es zeigt, dass sie fertig ist.",
+     "setting": null,
+     "off_machine": true
+    }
+   ],
+   "hints": [
+    "Je länger, desto besser: traditionell köchelt Mloukhia 4–6 Stunden. Bei Bedarf Schritt 3 wiederholen und etwas heißes Wasser nachgießen.",
+    "Am nächsten Tag aufgewärmt schmeckt sie am besten.",
+    "Statt Rind auch mit Lammfleisch."
+   ],
+   "warnings": [
+    "Langer Garvorgang wurde in Schritte ≤ 99 Min. aufgeteilt."
+   ],
+   "source_url": "",
+   "author": "TuniMix",
+   "slug": "mloukhia"
+  },
+  {
+   "title": "Ojja Merguez",
+   "original_title": "Ojja Merguez · عجة مرقاز",
+   "description": "Würzige Tomaten-Paprika-Pfanne mit Merguez und Eiern – der tunesische Klassiker für jeden Tag.",
+   "language": "de",
+   "servings": 4,
+   "unit_text": "portion",
+   "prep_time_min": 15,
+   "total_time_min": 40,
+   "machine": "TM6",
+   "category": "Hauptgericht",
+   "region": "Tunesien",
+   "tags": [
+    "Eier",
+    "Merguez",
+    "scharf",
+    "schnell"
+   ],
+   "ingredients": [
+    {
+     "amount": "1",
+     "unit": "",
+     "name": "Zwiebel",
+     "note": "halbiert",
+     "group": ""
+    },
+    {
+     "amount": "3",
+     "unit": "",
+     "name": "Knoblauchzehen",
+     "note": "",
+     "group": ""
+    },
+    {
+     "amount": "40",
+     "unit": "g",
+     "name": "Olivenöl",
+     "note": "",
+     "group": ""
+    },
+    {
+     "amount": "300",
+     "unit": "g",
+     "name": "Merguez",
+     "note": "in 2-cm-Stücken",
+     "group": ""
+    },
+    {
+     "amount": "2",
+     "unit": "EL",
+     "name": "Tomatenmark",
+     "note": "",
+     "group": ""
+    },
+    {
+     "amount": "1",
+     "unit": "TL",
+     "name": "Harissa",
+     "note": "nach Geschmack mehr",
+     "group": ""
+    },
+    {
+     "amount": "1",
+     "unit": "TL",
+     "name": "Tabil (tunesische Gewürzmischung)",
+     "note": "",
+     "group": ""
+    },
+    {
+     "amount": "½",
+     "unit": "TL",
+     "name": "Karouia (gemahlener Kümmel)",
+     "note": "",
+     "group": ""
+    },
+    {
+     "amount": "1",
+     "unit": "TL",
+     "name": "Paprikapulver edelsüß",
+     "note": "",
+     "group": ""
+    },
+    {
+     "amount": "2",
+     "unit": "",
+     "name": "grüne Paprikaschoten",
+     "note": "in Streifen",
+     "group": ""
+    },
+    {
+     "amount": "400",
+     "unit": "g",
+     "name": "Tomaten",
+     "note": "gehackt (frisch oder aus der Dose)",
+     "group": ""
+    },
+    {
+     "amount": "150",
+     "unit": "g",
+     "name": "Wasser",
+     "note": "",
+     "group": ""
+    },
+    {
+     "amount": "1",
+     "unit": "TL",
+     "name": "Salz",
+     "note": "",
+     "group": ""
+    },
+    {
+     "amount": "1",
+     "unit": "Prise",
+     "name": "schwarzer Pfeffer",
+     "note": "",
+     "group": ""
+    },
+    {
+     "amount": "4",
+     "unit": "",
+     "name": "Eier",
+     "note": "",
+     "group": ""
+    }
+   ],
+   "steps": [
+    {
+     "text": "Zwiebel und Knoblauch in den Mixtopf geben, {S} zerkleinern und mit dem Spatel nach unten schieben.",
+     "setting": {
+      "time_s": 5,
+      "temperature": null,
+      "speed": "5",
+      "reverse": false,
+      "mode": null,
+      "accessory": null,
+      "browning_power": null
+     },
+     "off_machine": false
+    },
+    {
+     "text": "Olivenöl zugeben und {S} dünsten.",
+     "setting": {
+      "time_s": 180,
+      "temperature": 120,
+      "speed": "1",
+      "reverse": false,
+      "mode": null,
+      "accessory": null,
+      "browning_power": null
+     },
+     "off_machine": false
+    },
+    {
+     "text": "Merguez-Stücke zugeben und {S} anbraten.",
+     "setting": {
+      "time_s": 300,
+      "temperature": 120,
+      "speed": "soft",
+      "reverse": true,
+      "mode": null,
+      "accessory": null,
+      "browning_power": null
+     },
+     "off_machine": false
+    },
+    {
+     "text": "Tomatenmark, Harissa, Tabil, Karouia und Paprikapulver zugeben und {S} anschwitzen.",
+     "setting": {
+      "time_s": 120,
+      "temperature": 120,
+      "speed": "1",
+      "reverse": true,
+      "mode": null,
+      "accessory": null,
+      "browning_power": null
+     },
+     "off_machine": false
+    },
+    {
+     "text": "Paprikastreifen, Tomaten, Wasser, Salz und Pfeffer zugeben und {S} köcheln lassen. Garkörbchen statt Messbecher als Spritzschutz auf den Deckel stellen.",
+     "setting": {
+      "time_s": 900,
+      "temperature": 100,
+      "speed": "soft",
+      "reverse": true,
+      "mode": null,
+      "accessory": null,
+      "browning_power": null
+     },
+     "off_machine": false
+    },
+    {
+     "text": "Eier aufschlagen, in den Mixtopf geben und {S} stocken lassen.",
+     "setting": {
+      "time_s": 240,
+      "temperature": 90,
+      "speed": "soft",
+      "reverse": true,
+      "mode": null,
+      "accessory": null,
+      "browning_power": null
+     },
+     "off_machine": false
+    },
+    {
+     "text": "Ojja in eine Pfanne oder Schüssel umfüllen und sofort mit frischem Weißbrot oder Tabouna servieren.",
+     "setting": null,
+     "off_machine": true
+    }
+   ],
+   "hints": [
+    "Für die klassische Variante mit ganzen Eiern: Ojja in eine Pfanne füllen, Eier hineinschlagen und abgedeckt 4–5 Min. auf dem Herd stocken lassen.",
+    "Varianten: mit Garnelen (Ojja Crevettes), mit Thunfisch oder vegetarisch nur mit Paprika.",
+    "TM5: Schritt 3 mit 120 °C funktioniert gleich."
+   ],
+   "warnings": [],
+   "source_url": "",
+   "author": "TuniMix",
+   "slug": "ojja-merguez"
+  },
+  {
+   "title": "Salata Mechouia",
+   "original_title": "Slata Mechouia · سلطة مشوية",
+   "description": "Gegrillter Paprika-Tomaten-Salat mit Knoblauch und Kümmel, garniert mit Thunfisch, Ei und Oliven.",
+   "language": "de",
+   "servings": 4,
+   "unit_text": "portion",
+   "prep_time_min": 25,
+   "total_time_min": 55,
+   "machine": "TM6",
+   "category": "Vorspeise",
+   "region": "Tunesien",
+   "tags": [
+    "Salat",
+    "gegrillt",
+    "Sommer"
+   ],
+   "ingredients": [
+    {
+     "amount": "4",
+     "unit": "",
+     "name": "grüne Paprikaschoten (spitz)",
+     "note": "",
+     "group": ""
+    },
+    {
+     "amount": "3",
+     "unit": "",
+     "name": "Tomaten",
+     "note": "",
+     "group": ""
+    },
+    {
+     "amount": "1",
+     "unit": "",
+     "name": "Zwiebel",
+     "note": "ungeschält",
+     "group": ""
+    },
+    {
+     "amount": "2",
+     "unit": "",
+     "name": "scharfe grüne Chilischoten",
+     "note": "",
+     "group": ""
+    },
+    {
+     "amount": "2",
+     "unit": "",
+     "name": "Knoblauchzehen",
+     "note": "",
+     "group": ""
+    },
+    {
+     "amount": "1",
+     "unit": "TL",
+     "name": "Kümmelsamen (Karouia)",
+     "note": "",
+     "group": ""
+    },
+    {
+     "amount": "½",
+     "unit": "TL",
+     "name": "Koriandersamen",
+     "note": "",
+     "group": ""
+    },
+    {
+     "amount": "1",
+     "unit": "TL",
+     "name": "Salz",
+     "note": "",
+     "group": ""
+    },
+    {
+     "amount": "40",
+     "unit": "g",
+     "name": "Olivenöl",
+     "note": "",
+     "group": ""
+    },
+    {
+     "amount": "1",
+     "unit": "EL",
+     "name": "Zitronensaft",
+     "note": "",
+     "group": ""
+    },
+    {
+     "amount": "1",
+     "unit": "Dose",
+     "name": "Thunfisch in Öl",
+     "note": "",
+     "group": "Zum Garnieren"
+    },
+    {
+     "amount": "2",
+     "unit": "",
+     "name": "hart gekochte Eier",
+     "note": "geviertelt",
+     "group": "Zum Garnieren"
+    },
+    {
+     "amount": "10",
+     "unit": "",
+     "name": "schwarze Oliven",
+     "note": "",
+     "group": "Zum Garnieren"
+    },
+    {
+     "amount": "1",
+     "unit": "EL",
+     "name": "Kapern",
+     "note": "",
+     "group": "Zum Garnieren"
+    }
+   ],
+   "steps": [
+    {
+     "text": "Paprika, Tomaten, Zwiebel und Chilis im Backofen (Grillfunktion, 250 °C) oder auf dem Grill rundum schwarz rösten (ca. 25 Min.). In eine Schüssel geben, abdecken, 10 Min. schwitzen lassen, dann häuten und entkernen.",
+     "setting": null,
+     "off_machine": true
+    },
+    {
+     "text": "Kümmel- und Koriandersamen in den Mixtopf geben und {S} mahlen.",
+     "setting": {
+      "time_s": 20,
+      "temperature": null,
+      "speed": "10",
+      "reverse": false,
+      "mode": null,
+      "accessory": null,
+      "browning_power": null
+     },
+     "off_machine": false
+    },
+    {
+     "text": "Knoblauch und Salz zugeben und {S} zerkleinern.",
+     "setting": {
+      "time_s": 4,
+      "temperature": null,
+      "speed": "5",
+      "reverse": false,
+      "mode": null,
+      "accessory": null,
+      "browning_power": null
+     },
+     "off_machine": false
+    },
+    {
+     "text": "Geröstetes Gemüse zugeben und {S} grob zerkleinern – es soll stückig bleiben.",
+     "setting": {
+      "time_s": 4,
+      "temperature": null,
+      "speed": "4",
+      "reverse": false,
+      "mode": null,
+      "accessory": null,
+      "browning_power": null
+     },
+     "off_machine": false
+    },
+    {
+     "text": "Olivenöl und Zitronensaft zugeben und {S} vermengen.",
+     "setting": {
+      "time_s": 10,
+      "temperature": null,
+      "speed": "2",
+      "reverse": true,
+      "mode": null,
+      "accessory": null,
+      "browning_power": null
+     },
+     "off_machine": false
+    },
+    {
+     "text": "Auf einem flachen Teller verteilen und mit Thunfisch, Eiern, Oliven und Kapern garnieren. Mit Olivenöl beträufeln.",
+     "setting": null,
+     "off_machine": true
+    }
+   ],
+   "hints": [
+    "Die Eier können nebenbei im Varoma garen: 250 g Wasser in den Mixtopf, Eier in den Varoma, 14 Min./Varoma/Stufe 1.",
+    "Schmeckt am nächsten Tag noch besser."
+   ],
+   "warnings": [],
+   "source_url": "",
+   "author": "TuniMix",
+   "slug": "salata-mechouia"
+  },
+  {
+   "title": "Tabil",
+   "original_title": "Tabil · تابل",
+   "description": "Die tunesische Hausgewürzmischung aus Koriander, Kümmel, Knoblauch und Chili.",
+   "language": "de",
+   "servings": 1,
+   "unit_text": "Glas (ca. 60 g)",
+   "prep_time_min": 10,
+   "total_time_min": 25,
+   "machine": "TM6",
+   "category": "Grundrezept",
+   "region": "Tunesien",
+   "tags": [
+    "Gewürz",
+    "Vorrat"
+   ],
+   "ingredients": [
+    {
+     "amount": "40",
+     "unit": "g",
+     "name": "Koriandersamen",
+     "note": "",
+     "group": ""
+    },
+    {
+     "amount": "10",
+     "unit": "g",
+     "name": "Kümmelsamen (Karouia)",
+     "note": "",
+     "group": ""
+    },
+    {
+     "amount": "1",
+     "unit": "EL",
+     "name": "getrocknetes Knoblauchgranulat",
+     "note": "",
+     "group": ""
+    },
+    {
+     "amount": "1",
+     "unit": "TL",
+     "name": "Chiliflocken",
+     "note": "",
+     "group": ""
+    }
+   ],
+   "steps": [
+    {
+     "text": "Koriander- und Kümmelsamen in den Mixtopf geben und {S} trocken anrösten, ohne Messbecher.",
+     "setting": {
+      "time_s": 300,
+      "temperature": "varoma",
+      "speed": "1",
+      "reverse": false,
+      "mode": null,
+      "accessory": null,
+      "browning_power": null
+     },
+     "off_machine": false
+    },
+    {
+     "text": "Samen auf einem Teller 10 Min. abkühlen lassen.",
+     "setting": null,
+     "off_machine": true
+    },
+    {
+     "text": "Samen zurück in den Mixtopf geben, Knoblauchgranulat und Chiliflocken zugeben und {S} fein mahlen.",
+     "setting": {
+      "time_s": 60,
+      "temperature": null,
+      "speed": "10",
+      "reverse": false,
+      "mode": null,
+      "accessory": null,
+      "browning_power": null
+     },
+     "off_machine": false
+    },
+    {
+     "text": "In ein trockenes, luftdichtes Glas füllen und dunkel aufbewahren.",
+     "setting": null,
+     "off_machine": true
+    }
+   ],
+   "hints": [
+    "Hält 3 Monate. Traditionell werden frischer Knoblauch und Chili in der Sonne getrocknet und mitgemahlen."
+   ],
+   "warnings": [],
+   "source_url": "",
+   "author": "TuniMix",
+   "slug": "tabil"
+  }
+ ]
+}

@@ -1,0 +1,1532 @@
+{
+ "salata-mechouia": {
+  "name": "Salata Mechouia",
+  "image": null,
+  "isImageOwnedByUser": false,
+  "tools": [
+   "TM6"
+  ],
+  "yield": {
+   "value": 4,
+   "unitText": "portion"
+  },
+  "prepTime": 1500,
+  "cookTime": 1800,
+  "totalTime": 3300,
+  "ingredients": [
+   {
+    "type": "INGREDIENT",
+    "text": "4 grüne Paprikaschoten (spitz)"
+   },
+   {
+    "type": "INGREDIENT",
+    "text": "3 Tomaten"
+   },
+   {
+    "type": "INGREDIENT",
+    "text": "1 Zwiebel, ungeschält"
+   },
+   {
+    "type": "INGREDIENT",
+    "text": "2 scharfe grüne Chilischoten"
+   },
+   {
+    "type": "INGREDIENT",
+    "text": "2 Knoblauchzehen"
+   },
+   {
+    "type": "INGREDIENT",
+    "text": "1 TL Kümmelsamen (Karouia)"
+   },
+   {
+    "type": "INGREDIENT",
+    "text": "½ TL Koriandersamen"
+   },
+   {
+    "type": "INGREDIENT",
+    "text": "1 TL Salz"
+   },
+   {
+    "type": "INGREDIENT",
+    "text": "40 g Olivenöl"
+   },
+   {
+    "type": "INGREDIENT",
+    "text": "1 EL Zitronensaft"
+   },
+   {
+    "type": "INGREDIENT",
+    "text": "1 Dose Thunfisch in Öl"
+   },
+   {
+    "type": "INGREDIENT",
+    "text": "2 hart gekochte Eier, geviertelt"
+   },
+   {
+    "type": "INGREDIENT",
+    "text": "10 schwarze Oliven"
+   },
+   {
+    "type": "INGREDIENT",
+    "text": "1 EL Kapern"
+   }
+  ],
+  "instructions": [
+   {
+    "type": "STEP",
+    "text": "Paprika, Tomaten, Zwiebel und Chilis im Backofen (Grillfunktion, 250 °C) oder auf dem Grill rundum schwarz rösten (ca. 25 Min.). In eine Schüssel geben, abdecken, 10 Min. schwitzen lassen, dann häuten und entkernen."
+   },
+   {
+    "type": "STEP",
+    "text": "Kümmel- und Koriandersamen in den Mixtopf geben und 20 Sek./Stufe 10 mahlen.",
+    "annotations": [
+     {
+      "type": "TTS",
+      "data": {
+       "time": 20,
+       "speed": "10"
+      },
+      "position": {
+       "offset": 52,
+       "length": 16
+      }
+     }
+    ]
+   },
+   {
+    "type": "STEP",
+    "text": "Knoblauch und Salz zugeben und 4 Sek./Stufe 5 zerkleinern.",
+    "annotations": [
+     {
+      "type": "TTS",
+      "data": {
+       "time": 4,
+       "speed": "5"
+      },
+      "position": {
+       "offset": 31,
+       "length": 14
+      }
+     }
+    ]
+   },
+   {
+    "type": "STEP",
+    "text": "Geröstetes Gemüse zugeben und 4 Sek./Stufe 4 grob zerkleinern – es soll stückig bleiben.",
+    "annotations": [
+     {
+      "type": "TTS",
+      "data": {
+       "time": 4,
+       "speed": "4"
+      },
+      "position": {
+       "offset": 30,
+       "length": 14
+      }
+     }
+    ]
+   },
+   {
+    "type": "STEP",
+    "text": "Olivenöl und Zitronensaft zugeben und 10 Sek./Linkslauf/Stufe 2 vermengen.",
+    "annotations": [
+     {
+      "type": "TTS",
+      "data": {
+       "time": 10,
+       "speed": "2",
+       "direction": "CCW"
+      },
+      "position": {
+       "offset": 38,
+       "length": 25
+      }
+     }
+    ]
+   },
+   {
+    "type": "STEP",
+    "text": "Auf einem flachen Teller verteilen und mit Thunfisch, Eiern, Oliven und Kapern garnieren. Mit Olivenöl beträufeln."
+   }
+  ],
+  "hints": "Die Eier können nebenbei im Varoma garen: 250 g Wasser in den Mixtopf, Eier in den Varoma, 14 Min./Varoma/Stufe 1.\nSchmeckt am nächsten Tag noch besser.",
+  "workStatus": "PRIVATE",
+  "recipeMetadata": {
+   "requiresAnnotationsCheck": false
+  }
+ },
+ "chorba-frik": {
+  "name": "Chorba Frik",
+  "image": null,
+  "isImageOwnedByUser": false,
+  "tools": [
+   "TM6"
+  ],
+  "yield": {
+   "value": 4,
+   "unitText": "portion"
+  },
+  "prepTime": 1200,
+  "cookTime": 4200,
+  "totalTime": 5400,
+  "ingredients": [
+   {
+    "type": "INGREDIENT",
+    "text": "½ Bund glatte Petersilie, Blättchen und zarte Stiele"
+   },
+   {
+    "type": "INGREDIENT",
+    "text": "1 Zwiebel, halbiert"
+   },
+   {
+    "type": "INGREDIENT",
+    "text": "2 Knoblauchzehen"
+   },
+   {
+    "type": "INGREDIENT",
+    "text": "40 g Olivenöl"
+   },
+   {
+    "type": "INGREDIENT",
+    "text": "300 g Lammfleisch (Schulter), in 1-cm-Würfeln"
+   },
+   {
+    "type": "INGREDIENT",
+    "text": "2 EL Tomatenmark"
+   },
+   {
+    "type": "INGREDIENT",
+    "text": "1 TL Harissa"
+   },
+   {
+    "type": "INGREDIENT",
+    "text": "1 TL Tabil (tunesische Gewürzmischung)"
+   },
+   {
+    "type": "INGREDIENT",
+    "text": "1 TL Paprikapulver edelsüß"
+   },
+   {
+    "type": "INGREDIENT",
+    "text": "½ TL Kurkuma"
+   },
+   {
+    "type": "INGREDIENT",
+    "text": "1200 g Wasser"
+   },
+   {
+    "type": "INGREDIENT",
+    "text": "100 g Kichererbsen aus der Dose, abgetropft"
+   },
+   {
+    "type": "INGREDIENT",
+    "text": "80 g Frik (grüner geschroteter Weizen), gewaschen"
+   },
+   {
+    "type": "INGREDIENT",
+    "text": "1½ TL Salz"
+   },
+   {
+    "type": "INGREDIENT",
+    "text": "½ TL schwarzer Pfeffer"
+   },
+   {
+    "type": "INGREDIENT",
+    "text": "1 TL getrocknete Minze"
+   },
+   {
+    "type": "INGREDIENT",
+    "text": "1 Zitrone, in Spalten"
+   }
+  ],
+  "instructions": [
+   {
+    "type": "STEP",
+    "text": "Petersilie in den trockenen Mixtopf geben, 3 Sek./Stufe 7 hacken und umfüllen.",
+    "annotations": [
+     {
+      "type": "TTS",
+      "data": {
+       "time": 3,
+       "speed": "7"
+      },
+      "position": {
+       "offset": 43,
+       "length": 14
+      }
+     }
+    ]
+   },
+   {
+    "type": "STEP",
+    "text": "Zwiebel und Knoblauch in den Mixtopf geben, 5 Sek./Stufe 5 zerkleinern und nach unten schieben.",
+    "annotations": [
+     {
+      "type": "TTS",
+      "data": {
+       "time": 5,
+       "speed": "5"
+      },
+      "position": {
+       "offset": 44,
+       "length": 14
+      }
+     }
+    ]
+   },
+   {
+    "type": "STEP",
+    "text": "Olivenöl zugeben und 3 Min./120°C/Stufe 1 dünsten.",
+    "annotations": [
+     {
+      "type": "TTS",
+      "data": {
+       "time": 180,
+       "temperature": {
+        "value": "120",
+        "unit": "C"
+       },
+       "speed": "1"
+      },
+      "position": {
+       "offset": 21,
+       "length": 20
+      }
+     }
+    ]
+   },
+   {
+    "type": "STEP",
+    "text": "Lammwürfel zugeben und 5 Min./120°C/Linkslauf/Sanftrührstufe anbraten.",
+    "annotations": [
+     {
+      "type": "TTS",
+      "data": {
+       "time": 300,
+       "temperature": {
+        "value": "120",
+        "unit": "C"
+       },
+       "speed": "soft",
+       "direction": "CCW"
+      },
+      "position": {
+       "offset": 23,
+       "length": 37
+      }
+     }
+    ]
+   },
+   {
+    "type": "STEP",
+    "text": "Tomatenmark, Harissa, Tabil, Paprikapulver und Kurkuma zugeben und 2 Min./120°C/Linkslauf/Stufe 1 anschwitzen.",
+    "annotations": [
+     {
+      "type": "TTS",
+      "data": {
+       "time": 120,
+       "temperature": {
+        "value": "120",
+        "unit": "C"
+       },
+       "speed": "1",
+       "direction": "CCW"
+      },
+      "position": {
+       "offset": 67,
+       "length": 30
+      }
+     }
+    ]
+   },
+   {
+    "type": "STEP",
+    "text": "Wasser, Kichererbsen, Salz und Pfeffer zugeben und 45 Min./100°C/Linkslauf/Sanftrührstufe köcheln lassen. Garkörbchen als Spritzschutz auf den Deckel stellen.",
+    "annotations": [
+     {
+      "type": "TTS",
+      "data": {
+       "time": 2700,
+       "temperature": {
+        "value": "100",
+        "unit": "C"
+       },
+       "speed": "soft",
+       "direction": "CCW"
+      },
+      "position": {
+       "offset": 51,
+       "length": 38
+      }
+     }
+    ]
+   },
+   {
+    "type": "STEP",
+    "text": "Frik und die Hälfte der Petersilie zugeben und 25 Min./100°C/Linkslauf/Sanftrührstufe garen, bis der Frik weich ist.",
+    "annotations": [
+     {
+      "type": "TTS",
+      "data": {
+       "time": 1500,
+       "temperature": {
+        "value": "100",
+        "unit": "C"
+       },
+       "speed": "soft",
+       "direction": "CCW"
+      },
+      "position": {
+       "offset": 47,
+       "length": 38
+      }
+     }
+    ]
+   },
+   {
+    "type": "STEP",
+    "text": "Chorba in Schalen füllen, mit restlicher Petersilie und getrockneter Minze bestreuen und mit Zitronenspalten und Brik servieren."
+   }
+  ],
+  "hints": "Ist die Suppe zu dick, 100–200 g heißes Wasser zugeben und 2 Min./100°C/Linkslauf/Sanftrührstufe erhitzen.\nStatt Lamm geht auch Hähnchenbrust (Garzeit in Schritt 6 auf 20 Min. verkürzen).\nTraditionell zu Brik à l'œuf serviert.",
+  "workStatus": "PRIVATE",
+  "recipeMetadata": {
+   "requiresAnnotationsCheck": false
+  }
+ },
+ "lablabi": {
+  "name": "Lablabi",
+  "image": null,
+  "isImageOwnedByUser": false,
+  "tools": [
+   "TM6"
+  ],
+  "yield": {
+   "value": 4,
+   "unitText": "portion"
+  },
+  "prepTime": 900,
+  "cookTime": 5700,
+  "totalTime": 6600,
+  "ingredients": [
+   {
+    "type": "INGREDIENT",
+    "text": "250 g getrocknete Kichererbsen, über Nacht eingeweicht, abgetropft (oder 2 Dosen à 400 g, abgetropft)"
+   },
+   {
+    "type": "INGREDIENT",
+    "text": "5 Knoblauchzehen"
+   },
+   {
+    "type": "INGREDIENT",
+    "text": "30 g Olivenöl"
+   },
+   {
+    "type": "INGREDIENT",
+    "text": "2 TL Kreuzkümmel (Kammoun), gemahlen"
+   },
+   {
+    "type": "INGREDIENT",
+    "text": "1200 g Wasser"
+   },
+   {
+    "type": "INGREDIENT",
+    "text": "1 Lorbeerblatt"
+   },
+   {
+    "type": "INGREDIENT",
+    "text": "1½ TL Salz"
+   },
+   {
+    "type": "INGREDIENT",
+    "text": "1 EL Harissa"
+   },
+   {
+    "type": "INGREDIENT",
+    "text": "200 g altbackenes Weißbrot, in Stücke gezupft"
+   },
+   {
+    "type": "INGREDIENT",
+    "text": "4 Eier, weich gekocht oder roh (siehe Tipp)"
+   },
+   {
+    "type": "INGREDIENT",
+    "text": "1 EL Kapern"
+   },
+   {
+    "type": "INGREDIENT",
+    "text": "1 Dose Thunfisch in Öl, optional"
+   },
+   {
+    "type": "INGREDIENT",
+    "text": "1 Zitrone, in Spalten"
+   },
+   {
+    "type": "INGREDIENT",
+    "text": "Olivenöl, Kreuzkümmel und Harissa zum Beträufeln"
+   }
+  ],
+  "instructions": [
+   {
+    "type": "STEP",
+    "text": "Knoblauch in den Mixtopf geben, 3 Sek./Stufe 5 zerkleinern und mit dem Spatel nach unten schieben.",
+    "annotations": [
+     {
+      "type": "TTS",
+      "data": {
+       "time": 3,
+       "speed": "5"
+      },
+      "position": {
+       "offset": 32,
+       "length": 14
+      }
+     }
+    ]
+   },
+   {
+    "type": "STEP",
+    "text": "Olivenöl und Kreuzkümmel zugeben und 2 Min./120°C/Stufe 1 dünsten.",
+    "annotations": [
+     {
+      "type": "TTS",
+      "data": {
+       "time": 120,
+       "temperature": {
+        "value": "120",
+        "unit": "C"
+       },
+       "speed": "1"
+      },
+      "position": {
+       "offset": 37,
+       "length": 20
+      }
+     }
+    ]
+   },
+   {
+    "type": "STEP",
+    "text": "Kichererbsen, Wasser und Lorbeerblatt zugeben und 90 Min./100°C/Linkslauf/Sanftrührstufe garen, bis die Kichererbsen weich sind. Garkörbchen als Spritzschutz auf den Deckel stellen. (Mit Dosen-Kichererbsen: nur 15 Min.)",
+    "annotations": [
+     {
+      "type": "TTS",
+      "data": {
+       "time": 5400,
+       "temperature": {
+        "value": "100",
+        "unit": "C"
+       },
+       "speed": "soft",
+       "direction": "CCW"
+      },
+      "position": {
+       "offset": 50,
+       "length": 38
+      }
+     }
+    ]
+   },
+   {
+    "type": "STEP",
+    "text": "Salz und Harissa zugeben und 1 Min./100°C/Linkslauf/Sanftrührstufe unterrühren. Abschmecken.",
+    "annotations": [
+     {
+      "type": "TTS",
+      "data": {
+       "time": 60,
+       "temperature": {
+        "value": "100",
+        "unit": "C"
+       },
+       "speed": "soft",
+       "direction": "CCW"
+      },
+      "position": {
+       "offset": 29,
+       "length": 37
+      }
+     }
+    ]
+   },
+   {
+    "type": "STEP",
+    "text": "Brot in tiefe Schalen geben, Kichererbsen mit reichlich heißer Brühe darüber schöpfen. Mit Ei, Kapern, Thunfisch, Kreuzkümmel, Harissa und Olivenöl toppen und mit Zitrone servieren."
+   }
+  ],
+  "hints": "Wie in Tunis: ein rohes Ei direkt in die kochend heiße Suppe in der Schale geben und umrühren – es gart in der Brühe.\nWeich gekochte Eier gelingen nebenbei: in den letzten 12 Min. von Schritt 3 die Eier im Varoma garen (Temperatur dann auf Varoma stellen).\nDie Suppe lässt sich 3 Tage im Kühlschrank aufbewahren; Brot erst beim Servieren zugeben.",
+  "workStatus": "PRIVATE",
+  "recipeMetadata": {
+   "requiresAnnotationsCheck": false
+  }
+ },
+ "couscous-mit-hahnchen-und-gemuse": {
+  "name": "Couscous mit Hähnchen und Gemüse",
+  "image": null,
+  "isImageOwnedByUser": false,
+  "tools": [
+   "TM6"
+  ],
+  "yield": {
+   "value": 4,
+   "unitText": "portion"
+  },
+  "prepTime": 1500,
+  "cookTime": 3000,
+  "totalTime": 4500,
+  "ingredients": [
+   {
+    "type": "INGREDIENT",
+    "text": "1 Zwiebel, halbiert"
+   },
+   {
+    "type": "INGREDIENT",
+    "text": "40 g Olivenöl"
+   },
+   {
+    "type": "INGREDIENT",
+    "text": "600 g Hähnchenschenkel ohne Knochen, in großen Stücken"
+   },
+   {
+    "type": "INGREDIENT",
+    "text": "3 EL Tomatenmark"
+   },
+   {
+    "type": "INGREDIENT",
+    "text": "1 TL Harissa"
+   },
+   {
+    "type": "INGREDIENT",
+    "text": "1 TL Tabil (tunesische Gewürzmischung)"
+   },
+   {
+    "type": "INGREDIENT",
+    "text": "1 TL Paprikapulver edelsüß"
+   },
+   {
+    "type": "INGREDIENT",
+    "text": "½ TL Kurkuma"
+   },
+   {
+    "type": "INGREDIENT",
+    "text": "1½ TL Salz"
+   },
+   {
+    "type": "INGREDIENT",
+    "text": "½ TL schwarzer Pfeffer"
+   },
+   {
+    "type": "INGREDIENT",
+    "text": "900 g Wasser"
+   },
+   {
+    "type": "INGREDIENT",
+    "text": "100 g Kichererbsen aus der Dose, abgetropft"
+   },
+   {
+    "type": "INGREDIENT",
+    "text": "2 Karotten, längs geviertelt"
+   },
+   {
+    "type": "INGREDIENT",
+    "text": "1 Zucchini, in dicken Stücken"
+   },
+   {
+    "type": "INGREDIENT",
+    "text": "300 g Kürbis, in großen Stücken"
+   },
+   {
+    "type": "INGREDIENT",
+    "text": "2 grüne Chilischoten, ganz"
+   },
+   {
+    "type": "INGREDIENT",
+    "text": "350 g mittelfeiner Couscous"
+   },
+   {
+    "type": "INGREDIENT",
+    "text": "1 EL Olivenöl"
+   },
+   {
+    "type": "INGREDIENT",
+    "text": "½ TL Salz"
+   },
+   {
+    "type": "INGREDIENT",
+    "text": "30 g Butter"
+   }
+  ],
+  "instructions": [
+   {
+    "type": "STEP",
+    "text": "Zwiebel in den Mixtopf geben, 5 Sek./Stufe 5 zerkleinern und nach unten schieben.",
+    "annotations": [
+     {
+      "type": "TTS",
+      "data": {
+       "time": 5,
+       "speed": "5"
+      },
+      "position": {
+       "offset": 30,
+       "length": 14
+      }
+     }
+    ]
+   },
+   {
+    "type": "STEP",
+    "text": "Olivenöl zugeben und 3 Min./120°C/Stufe 1 dünsten.",
+    "annotations": [
+     {
+      "type": "TTS",
+      "data": {
+       "time": 180,
+       "temperature": {
+        "value": "120",
+        "unit": "C"
+       },
+       "speed": "1"
+      },
+      "position": {
+       "offset": 21,
+       "length": 20
+      }
+     }
+    ]
+   },
+   {
+    "type": "STEP",
+    "text": "Hähnchen, Tomatenmark, Harissa, Tabil, Paprikapulver, Kurkuma, Salz und Pfeffer zugeben und 3 Min./120°C/Linkslauf/Sanftrührstufe anschwitzen.",
+    "annotations": [
+     {
+      "type": "TTS",
+      "data": {
+       "time": 180,
+       "temperature": {
+        "value": "120",
+        "unit": "C"
+       },
+       "speed": "soft",
+       "direction": "CCW"
+      },
+      "position": {
+       "offset": 92,
+       "length": 37
+      }
+     }
+    ]
+   },
+   {
+    "type": "STEP",
+    "text": "Wasser und Kichererbsen zugeben. Gemüse in den Varoma-Behälter legen, Varoma aufsetzen und 35 Min./Varoma/Linkslauf/Sanftrührstufe garen.",
+    "annotations": [
+     {
+      "type": "TTS",
+      "data": {
+       "time": 2100,
+       "temperature": {
+        "value": "varoma"
+       },
+       "speed": "soft",
+       "direction": "CCW"
+      },
+      "position": {
+       "offset": 91,
+       "length": 39
+      }
+     }
+    ]
+   },
+   {
+    "type": "STEP",
+    "text": "Couscous in einer Schüssel mit Olivenöl und Salz vermengen. 300 g heiße Soße aus dem Mixtopf darübergießen, 10 Min. quellen lassen und mit einer Gabel auflockern."
+   },
+   {
+    "type": "STEP",
+    "text": "Einlegeboden mit einem feuchten Tuch oder Varoma-Papier auslegen, Couscous darauf verteilen, Varoma mit Gemüse und Einlegeboden aufsetzen und 15 Min./Varoma/Linkslauf/Sanftrührstufe dämpfen.",
+    "annotations": [
+     {
+      "type": "TTS",
+      "data": {
+       "time": 900,
+       "temperature": {
+        "value": "varoma"
+       },
+       "speed": "soft",
+       "direction": "CCW"
+      },
+      "position": {
+       "offset": 142,
+       "length": 39
+      }
+     }
+    ]
+   },
+   {
+    "type": "STEP",
+    "text": "Couscous in eine große Schüssel geben, Butter mit der Gabel unterarbeiten. Hähnchen und Gemüse darauf anrichten und mit Soße übergießen."
+   }
+  ],
+  "hints": "Für Lamm (Kousksi bel Allouch): 600 g Lammschulter in Stücken, Garzeit in Schritt 4 auf 60 Min. verlängern.\nFür Fisch-Couscous (Djerba-Stil): Fischstücke erst in den letzten 15 Min. in den Varoma legen.\nWer es authentischer mag: Couscous zweimal dämpfen und zwischendurch mit etwas Soße und Olivenöl einreiben.",
+  "workStatus": "PRIVATE",
+  "recipeMetadata": {
+   "requiresAnnotationsCheck": false
+  }
+ },
+ "mloukhia": {
+  "name": "Mloukhia",
+  "image": null,
+  "isImageOwnedByUser": false,
+  "tools": [
+   "TM6"
+  ],
+  "yield": {
+   "value": 4,
+   "unitText": "portion"
+  },
+  "prepTime": 1200,
+  "cookTime": 11400,
+  "totalTime": 12600,
+  "ingredients": [
+   {
+    "type": "INGREDIENT",
+    "text": "50 g Mloukhia-Pulver (gemahlene Jute-Blätter)"
+   },
+   {
+    "type": "INGREDIENT",
+    "text": "120 g Olivenöl"
+   },
+   {
+    "type": "INGREDIENT",
+    "text": "1300 g Wasser"
+   },
+   {
+    "type": "INGREDIENT",
+    "text": "400 g Rindfleisch (Wade oder Schulter), in großen Stücken"
+   },
+   {
+    "type": "INGREDIENT",
+    "text": "2 Lorbeerblätter"
+   },
+   {
+    "type": "INGREDIENT",
+    "text": "4 Knoblauchzehen"
+   },
+   {
+    "type": "INGREDIENT",
+    "text": "1 TL Tabil (tunesische Gewürzmischung)"
+   },
+   {
+    "type": "INGREDIENT",
+    "text": "1 TL Karouia (gemahlener Kümmel)"
+   },
+   {
+    "type": "INGREDIENT",
+    "text": "1 TL Koriander, gemahlen"
+   },
+   {
+    "type": "INGREDIENT",
+    "text": "1 TL Salz"
+   },
+   {
+    "type": "INGREDIENT",
+    "text": "½ TL schwarzer Pfeffer"
+   }
+  ],
+  "instructions": [
+   {
+    "type": "STEP",
+    "text": "Mloukhia-Pulver und Olivenöl in den Mixtopf geben und 30 Sek./Stufe 3 zu einer glatten Paste verrühren.",
+    "annotations": [
+     {
+      "type": "TTS",
+      "data": {
+       "time": 30,
+       "speed": "3"
+      },
+      "position": {
+       "offset": 54,
+       "length": 15
+      }
+     }
+    ]
+   },
+   {
+    "type": "STEP",
+    "text": "Wasser nach und nach durch die Deckelöffnung zugeben und 30 Sek./Stufe 4 klümpchenfrei verrühren.",
+    "annotations": [
+     {
+      "type": "TTS",
+      "data": {
+       "time": 30,
+       "speed": "4"
+      },
+      "position": {
+       "offset": 57,
+       "length": 15
+      }
+     }
+    ]
+   },
+   {
+    "type": "STEP",
+    "text": "Rindfleisch und Lorbeerblätter zugeben und 99 Min./98°C/Linkslauf/Sanftrührstufe sanft köcheln lassen, ohne Messbecher, Garkörbchen als Spritzschutz auf den Deckel stellen.",
+    "annotations": [
+     {
+      "type": "TTS",
+      "data": {
+       "time": 5940,
+       "temperature": {
+        "value": "98",
+        "unit": "C"
+       },
+       "speed": "soft",
+       "direction": "CCW"
+      },
+      "position": {
+       "offset": 43,
+       "length": 37
+      }
+     }
+    ]
+   },
+   {
+    "type": "STEP",
+    "text": "Weitergaren 81 Min./98°C/Linkslauf/Sanftrührstufe.",
+    "annotations": [
+     {
+      "type": "TTS",
+      "data": {
+       "time": 4860,
+       "temperature": {
+        "value": "98",
+        "unit": "C"
+       },
+       "speed": "soft",
+       "direction": "CCW"
+      },
+      "position": {
+       "offset": 12,
+       "length": 37
+      }
+     }
+    ]
+   },
+   {
+    "type": "STEP",
+    "text": "Knoblauch mit Tabil, Kümmel, Koriander, Salz und Pfeffer in einem Mörser zerstoßen, in den Mixtopf geben und 20 Min./98°C/Linkslauf/Sanftrührstufe weitergaren, bis sich das Öl an der Oberfläche absetzt.",
+    "annotations": [
+     {
+      "type": "TTS",
+      "data": {
+       "time": 1200,
+       "temperature": {
+        "value": "98",
+        "unit": "C"
+       },
+       "speed": "soft",
+       "direction": "CCW"
+      },
+      "position": {
+       "offset": 109,
+       "length": 37
+      }
+     }
+    ]
+   },
+   {
+    "type": "STEP",
+    "text": "Mloukhia mit frischem Brot servieren. Das Öl an der Oberfläche ist gewollt – es zeigt, dass sie fertig ist."
+   }
+  ],
+  "hints": "Je länger, desto besser: traditionell köchelt Mloukhia 4–6 Stunden. Bei Bedarf Schritt 3 wiederholen und etwas heißes Wasser nachgießen.\nAm nächsten Tag aufgewärmt schmeckt sie am besten.\nStatt Rind auch mit Lammfleisch.",
+  "workStatus": "PRIVATE",
+  "recipeMetadata": {
+   "requiresAnnotationsCheck": false
+  }
+ },
+ "ojja-merguez": {
+  "name": "Ojja Merguez",
+  "image": null,
+  "isImageOwnedByUser": false,
+  "tools": [
+   "TM6"
+  ],
+  "yield": {
+   "value": 4,
+   "unitText": "portion"
+  },
+  "prepTime": 900,
+  "cookTime": 1500,
+  "totalTime": 2400,
+  "ingredients": [
+   {
+    "type": "INGREDIENT",
+    "text": "1 Zwiebel, halbiert"
+   },
+   {
+    "type": "INGREDIENT",
+    "text": "3 Knoblauchzehen"
+   },
+   {
+    "type": "INGREDIENT",
+    "text": "40 g Olivenöl"
+   },
+   {
+    "type": "INGREDIENT",
+    "text": "300 g Merguez, in 2-cm-Stücken"
+   },
+   {
+    "type": "INGREDIENT",
+    "text": "2 EL Tomatenmark"
+   },
+   {
+    "type": "INGREDIENT",
+    "text": "1 TL Harissa, nach Geschmack mehr"
+   },
+   {
+    "type": "INGREDIENT",
+    "text": "1 TL Tabil (tunesische Gewürzmischung)"
+   },
+   {
+    "type": "INGREDIENT",
+    "text": "½ TL Karouia (gemahlener Kümmel)"
+   },
+   {
+    "type": "INGREDIENT",
+    "text": "1 TL Paprikapulver edelsüß"
+   },
+   {
+    "type": "INGREDIENT",
+    "text": "2 grüne Paprikaschoten, in Streifen"
+   },
+   {
+    "type": "INGREDIENT",
+    "text": "400 g Tomaten, gehackt (frisch oder aus der Dose)"
+   },
+   {
+    "type": "INGREDIENT",
+    "text": "150 g Wasser"
+   },
+   {
+    "type": "INGREDIENT",
+    "text": "1 TL Salz"
+   },
+   {
+    "type": "INGREDIENT",
+    "text": "1 Prise schwarzer Pfeffer"
+   },
+   {
+    "type": "INGREDIENT",
+    "text": "4 Eier"
+   }
+  ],
+  "instructions": [
+   {
+    "type": "STEP",
+    "text": "Zwiebel und Knoblauch in den Mixtopf geben, 5 Sek./Stufe 5 zerkleinern und mit dem Spatel nach unten schieben.",
+    "annotations": [
+     {
+      "type": "TTS",
+      "data": {
+       "time": 5,
+       "speed": "5"
+      },
+      "position": {
+       "offset": 44,
+       "length": 14
+      }
+     }
+    ]
+   },
+   {
+    "type": "STEP",
+    "text": "Olivenöl zugeben und 3 Min./120°C/Stufe 1 dünsten.",
+    "annotations": [
+     {
+      "type": "TTS",
+      "data": {
+       "time": 180,
+       "temperature": {
+        "value": "120",
+        "unit": "C"
+       },
+       "speed": "1"
+      },
+      "position": {
+       "offset": 21,
+       "length": 20
+      }
+     }
+    ]
+   },
+   {
+    "type": "STEP",
+    "text": "Merguez-Stücke zugeben und 5 Min./120°C/Linkslauf/Sanftrührstufe anbraten.",
+    "annotations": [
+     {
+      "type": "TTS",
+      "data": {
+       "time": 300,
+       "temperature": {
+        "value": "120",
+        "unit": "C"
+       },
+       "speed": "soft",
+       "direction": "CCW"
+      },
+      "position": {
+       "offset": 27,
+       "length": 37
+      }
+     }
+    ]
+   },
+   {
+    "type": "STEP",
+    "text": "Tomatenmark, Harissa, Tabil, Karouia und Paprikapulver zugeben und 2 Min./120°C/Linkslauf/Stufe 1 anschwitzen.",
+    "annotations": [
+     {
+      "type": "TTS",
+      "data": {
+       "time": 120,
+       "temperature": {
+        "value": "120",
+        "unit": "C"
+       },
+       "speed": "1",
+       "direction": "CCW"
+      },
+      "position": {
+       "offset": 67,
+       "length": 30
+      }
+     }
+    ]
+   },
+   {
+    "type": "STEP",
+    "text": "Paprikastreifen, Tomaten, Wasser, Salz und Pfeffer zugeben und 15 Min./100°C/Linkslauf/Sanftrührstufe köcheln lassen. Garkörbchen statt Messbecher als Spritzschutz auf den Deckel stellen.",
+    "annotations": [
+     {
+      "type": "TTS",
+      "data": {
+       "time": 900,
+       "temperature": {
+        "value": "100",
+        "unit": "C"
+       },
+       "speed": "soft",
+       "direction": "CCW"
+      },
+      "position": {
+       "offset": 63,
+       "length": 38
+      }
+     }
+    ]
+   },
+   {
+    "type": "STEP",
+    "text": "Eier aufschlagen, in den Mixtopf geben und 4 Min./90°C/Linkslauf/Sanftrührstufe stocken lassen.",
+    "annotations": [
+     {
+      "type": "TTS",
+      "data": {
+       "time": 240,
+       "temperature": {
+        "value": "90",
+        "unit": "C"
+       },
+       "speed": "soft",
+       "direction": "CCW"
+      },
+      "position": {
+       "offset": 43,
+       "length": 36
+      }
+     }
+    ]
+   },
+   {
+    "type": "STEP",
+    "text": "Ojja in eine Pfanne oder Schüssel umfüllen und sofort mit frischem Weißbrot oder Tabouna servieren."
+   }
+  ],
+  "hints": "Für die klassische Variante mit ganzen Eiern: Ojja in eine Pfanne füllen, Eier hineinschlagen und abgedeckt 4–5 Min. auf dem Herd stocken lassen.\nVarianten: mit Garnelen (Ojja Crevettes), mit Thunfisch oder vegetarisch nur mit Paprika.\nTM5: Schritt 3 mit 120 °C funktioniert gleich.",
+  "workStatus": "PRIVATE",
+  "recipeMetadata": {
+   "requiresAnnotationsCheck": false
+  }
+ },
+ "harissa-selbst-gemacht": {
+  "name": "Harissa selbst gemacht",
+  "image": null,
+  "isImageOwnedByUser": false,
+  "tools": [
+   "TM6"
+  ],
+  "yield": {
+   "value": 1,
+   "unitText": "Glas (ca. 250 g)"
+  },
+  "prepTime": 900,
+  "cookTime": 2100,
+  "totalTime": 3000,
+  "ingredients": [
+   {
+    "type": "INGREDIENT",
+    "text": "1 TL Koriandersamen"
+   },
+   {
+    "type": "INGREDIENT",
+    "text": "1 TL Kümmelsamen (Karouia)"
+   },
+   {
+    "type": "INGREDIENT",
+    "text": "80 g getrocknete rote Chilischoten (z. B. Baklouti oder Guajillo), 30 Min. in warmem Wasser eingeweicht, entkernt, ausgedrückt"
+   },
+   {
+    "type": "INGREDIENT",
+    "text": "6 Knoblauchzehen"
+   },
+   {
+    "type": "INGREDIENT",
+    "text": "1 TL Salz"
+   },
+   {
+    "type": "INGREDIENT",
+    "text": "70 g Olivenöl, plus etwas zum Bedecken"
+   }
+  ],
+  "instructions": [
+   {
+    "type": "STEP",
+    "text": "Koriander- und Kümmelsamen in den trockenen Mixtopf geben und 30 Sek./Stufe 10 mahlen.",
+    "annotations": [
+     {
+      "type": "TTS",
+      "data": {
+       "time": 30,
+       "speed": "10"
+      },
+      "position": {
+       "offset": 62,
+       "length": 16
+      }
+     }
+    ]
+   },
+   {
+    "type": "STEP",
+    "text": "Eingeweichte Chilis, Knoblauch, Salz und 40 g Olivenöl zugeben und 15 Sek./Stufe 8 zerkleinern. Mit dem Spatel nach unten schieben.",
+    "annotations": [
+     {
+      "type": "TTS",
+      "data": {
+       "time": 15,
+       "speed": "8"
+      },
+      "position": {
+       "offset": 67,
+       "length": 15
+      }
+     }
+    ]
+   },
+   {
+    "type": "STEP",
+    "text": "Restliches Olivenöl zugeben und 20 Sek./Stufe 8 zu einer Paste verarbeiten.",
+    "annotations": [
+     {
+      "type": "TTS",
+      "data": {
+       "time": 20,
+       "speed": "8"
+      },
+      "position": {
+       "offset": 32,
+       "length": 15
+      }
+     }
+    ]
+   },
+   {
+    "type": "STEP",
+    "text": "Harissa in ein sauberes Glas füllen, mit einer dünnen Schicht Olivenöl bedecken und im Kühlschrank aufbewahren."
+   }
+  ],
+  "hints": "Beim Entkernen Handschuhe tragen.\nHält mit Ölschicht ca. 1 Monat im Kühlschrank – nach jeder Entnahme wieder mit Öl bedecken.\nMildere Variante: die Hälfte der Chilis durch geröstete rote Paprika ersetzen.",
+  "workStatus": "PRIVATE",
+  "recipeMetadata": {
+   "requiresAnnotationsCheck": false
+  }
+ },
+ "tabil": {
+  "name": "Tabil",
+  "image": null,
+  "isImageOwnedByUser": false,
+  "tools": [
+   "TM6"
+  ],
+  "yield": {
+   "value": 1,
+   "unitText": "Glas (ca. 60 g)"
+  },
+  "prepTime": 600,
+  "cookTime": 900,
+  "totalTime": 1500,
+  "ingredients": [
+   {
+    "type": "INGREDIENT",
+    "text": "40 g Koriandersamen"
+   },
+   {
+    "type": "INGREDIENT",
+    "text": "10 g Kümmelsamen (Karouia)"
+   },
+   {
+    "type": "INGREDIENT",
+    "text": "1 EL getrocknetes Knoblauchgranulat"
+   },
+   {
+    "type": "INGREDIENT",
+    "text": "1 TL Chiliflocken"
+   }
+  ],
+  "instructions": [
+   {
+    "type": "STEP",
+    "text": "Koriander- und Kümmelsamen in den Mixtopf geben und 5 Min./Varoma/Stufe 1 trocken anrösten, ohne Messbecher.",
+    "annotations": [
+     {
+      "type": "TTS",
+      "data": {
+       "time": 300,
+       "temperature": {
+        "value": "varoma"
+       },
+       "speed": "1"
+      },
+      "position": {
+       "offset": 52,
+       "length": 21
+      }
+     }
+    ]
+   },
+   {
+    "type": "STEP",
+    "text": "Samen auf einem Teller 10 Min. abkühlen lassen."
+   },
+   {
+    "type": "STEP",
+    "text": "Samen zurück in den Mixtopf geben, Knoblauchgranulat und Chiliflocken zugeben und 1 Min./Stufe 10 fein mahlen.",
+    "annotations": [
+     {
+      "type": "TTS",
+      "data": {
+       "time": 60,
+       "speed": "10"
+      },
+      "position": {
+       "offset": 82,
+       "length": 15
+      }
+     }
+    ]
+   },
+   {
+    "type": "STEP",
+    "text": "In ein trockenes, luftdichtes Glas füllen und dunkel aufbewahren."
+   }
+  ],
+  "hints": "Hält 3 Monate. Traditionell werden frischer Knoblauch und Chili in der Sonne getrocknet und mitgemahlen.",
+  "workStatus": "PRIVATE",
+  "recipeMetadata": {
+   "requiresAnnotationsCheck": false
+  }
+ },
+ "makroudh": {
+  "name": "Makroudh",
+  "image": null,
+  "isImageOwnedByUser": false,
+  "tools": [
+   "TM6"
+  ],
+  "yield": {
+   "value": 30,
+   "unitText": "Stück"
+  },
+  "prepTime": 3600,
+  "cookTime": 3600,
+  "totalTime": 7200,
+  "ingredients": [
+   {
+    "type": "INGREDIENT",
+    "text": "300 g Zucker"
+   },
+   {
+    "type": "INGREDIENT",
+    "text": "150 g Wasser"
+   },
+   {
+    "type": "INGREDIENT",
+    "text": "1 EL Zitronensaft"
+   },
+   {
+    "type": "INGREDIENT",
+    "text": "1 EL Orangenblütenwasser (Mazhar)"
+   },
+   {
+    "type": "INGREDIENT",
+    "text": "300 g Dattelpaste"
+   },
+   {
+    "type": "INGREDIENT",
+    "text": "1 EL Olivenöl"
+   },
+   {
+    "type": "INGREDIENT",
+    "text": "½ TL Zimt"
+   },
+   {
+    "type": "INGREDIENT",
+    "text": "1 Prise gemahlene Nelken"
+   },
+   {
+    "type": "INGREDIENT",
+    "text": "1 EL Orangenblütenwasser (Mazhar)"
+   },
+   {
+    "type": "INGREDIENT",
+    "text": "500 g mittelfeiner Hartweizengrieß"
+   },
+   {
+    "type": "INGREDIENT",
+    "text": "125 g Olivenöl"
+   },
+   {
+    "type": "INGREDIENT",
+    "text": "1 Prise Salz"
+   },
+   {
+    "type": "INGREDIENT",
+    "text": "150 g lauwarmes Wasser"
+   },
+   {
+    "type": "INGREDIENT",
+    "text": "1 EL Orangenblütenwasser (Mazhar)"
+   },
+   {
+    "type": "INGREDIENT",
+    "text": "1 l Öl zum Frittieren"
+   },
+   {
+    "type": "INGREDIENT",
+    "text": "2 EL Sesam, optional"
+   }
+  ],
+  "instructions": [
+   {
+    "type": "STEP",
+    "text": "Zucker, Wasser und Zitronensaft in den Mixtopf geben und 10 Min./Varoma/Stufe 1 kochen, ohne Messbecher, Garkörbchen als Spritzschutz auf den Deckel stellen.",
+    "annotations": [
+     {
+      "type": "TTS",
+      "data": {
+       "time": 600,
+       "temperature": {
+        "value": "varoma"
+       },
+       "speed": "1"
+      },
+      "position": {
+       "offset": 57,
+       "length": 22
+      }
+     }
+    ]
+   },
+   {
+    "type": "STEP",
+    "text": "Sirup in eine Schüssel umfüllen, Orangenblütenwasser einrühren und abkühlen lassen. Mixtopf spülen und gut abtrocknen."
+   },
+   {
+    "type": "STEP",
+    "text": "Dattelpaste, Olivenöl, Zimt, Nelken und Orangenblütenwasser in den Mixtopf geben und 30 Sek./Stufe 5 zu einer glatten Masse verarbeiten. Umfüllen.",
+    "annotations": [
+     {
+      "type": "TTS",
+      "data": {
+       "time": 30,
+       "speed": "5"
+      },
+      "position": {
+       "offset": 85,
+       "length": 15
+      }
+     }
+    ]
+   },
+   {
+    "type": "STEP",
+    "text": "Grieß, Olivenöl und Salz in den Mixtopf geben und 30 Sek./Linkslauf/Stufe 3 vermengen, bis der Grieß sandig ist.",
+    "annotations": [
+     {
+      "type": "TTS",
+      "data": {
+       "time": 30,
+       "speed": "3",
+       "direction": "CCW"
+      },
+      "position": {
+       "offset": 50,
+       "length": 25
+      }
+     }
+    ]
+   },
+   {
+    "type": "STEP",
+    "text": "Grieß 30 Min. im Mixtopf ruhen lassen, damit er das Öl aufnimmt."
+   },
+   {
+    "type": "STEP",
+    "text": "Wasser und Orangenblütenwasser zugeben und 1 Min./Teigknetstufe zu einem weichen Teig verarbeiten – nicht zu lange kneten.",
+    "annotations": [
+     {
+      "type": "MODE",
+      "data": {
+       "time": 60
+      },
+      "position": {
+       "offset": 43,
+       "length": 20
+      },
+      "name": "dough"
+     }
+    ]
+   },
+   {
+    "type": "STEP",
+    "text": "Teig in 3 Portionen teilen, jede zu einer Rolle formen, längs eine Rinne drücken, Dattelmasse als dünne Rolle hineinlegen und den Teig darüber schließen. Leicht flach drücken und schräg in Rauten schneiden."
+   },
+   {
+    "type": "STEP",
+    "text": "Öl auf 170 °C erhitzen und die Makroudh portionsweise goldbraun frittieren."
+   },
+   {
+    "type": "STEP",
+    "text": "Noch heiß 1–2 Min. in den kalten Sirup legen, abtropfen lassen und nach Wunsch mit Sesam bestreuen."
+   }
+  ],
+  "hints": "Ofen-Variante (Makroudh fil koucha): bei 180 °C Umluft 20–25 Min. backen, dann in Sirup tränken.\nIn einer Dose 1–2 Wochen haltbar.\nStatt Zuckersirup traditionell auch mit Honig.",
+  "workStatus": "PRIVATE",
+  "recipeMetadata": {
+   "requiresAnnotationsCheck": false
+  }
+ }
+}

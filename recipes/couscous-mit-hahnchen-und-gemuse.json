@@ -1,0 +1,246 @@
+{
+  "title": "Couscous mit Hähnchen und Gemüse",
+  "original_title": "Kousksi bel Djej · كسكسي بالدجاج",
+  "description": "Roter tunesischer Couscous: Hähnchen in würziger Tomatensoße, Gemüse und Couscous im Varoma gedämpft.",
+  "language": "de",
+  "servings": 4,
+  "unit_text": "portion",
+  "prep_time_min": 25,
+  "total_time_min": 75,
+  "machine": "TM6",
+  "category": "Hauptgericht",
+  "region": "Tunesien",
+  "tags": [
+    "Couscous",
+    "Hähnchen",
+    "Varoma",
+    "Familienessen"
+  ],
+  "ingredients": [
+    {
+      "amount": "1",
+      "unit": "",
+      "name": "Zwiebel",
+      "note": "halbiert",
+      "group": "Für die Soße (Marqa)"
+    },
+    {
+      "amount": "40",
+      "unit": "g",
+      "name": "Olivenöl",
+      "note": "",
+      "group": "Für die Soße (Marqa)"
+    },
+    {
+      "amount": "600",
+      "unit": "g",
+      "name": "Hähnchenschenkel ohne Knochen",
+      "note": "in großen Stücken",
+      "group": "Für die Soße (Marqa)"
+    },
+    {
+      "amount": "3",
+      "unit": "EL",
+      "name": "Tomatenmark",
+      "note": "",
+      "group": "Für die Soße (Marqa)"
+    },
+    {
+      "amount": "1",
+      "unit": "TL",
+      "name": "Harissa",
+      "note": "",
+      "group": "Für die Soße (Marqa)"
+    },
+    {
+      "amount": "1",
+      "unit": "TL",
+      "name": "Tabil (tunesische Gewürzmischung)",
+      "note": "",
+      "group": "Für die Soße (Marqa)"
+    },
+    {
+      "amount": "1",
+      "unit": "TL",
+      "name": "Paprikapulver edelsüß",
+      "note": "",
+      "group": "Für die Soße (Marqa)"
+    },
+    {
+      "amount": "½",
+      "unit": "TL",
+      "name": "Kurkuma",
+      "note": "",
+      "group": "Für die Soße (Marqa)"
+    },
+    {
+      "amount": "1½",
+      "unit": "TL",
+      "name": "Salz",
+      "note": "",
+      "group": "Für die Soße (Marqa)"
+    },
+    {
+      "amount": "½",
+      "unit": "TL",
+      "name": "schwarzer Pfeffer",
+      "note": "",
+      "group": "Für die Soße (Marqa)"
+    },
+    {
+      "amount": "900",
+      "unit": "g",
+      "name": "Wasser",
+      "note": "",
+      "group": "Für die Soße (Marqa)"
+    },
+    {
+      "amount": "100",
+      "unit": "g",
+      "name": "Kichererbsen aus der Dose",
+      "note": "abgetropft",
+      "group": "Für die Soße (Marqa)"
+    },
+    {
+      "amount": "2",
+      "unit": "",
+      "name": "Karotten",
+      "note": "längs geviertelt",
+      "group": "Gemüse für den Varoma"
+    },
+    {
+      "amount": "1",
+      "unit": "",
+      "name": "Zucchini",
+      "note": "in dicken Stücken",
+      "group": "Gemüse für den Varoma"
+    },
+    {
+      "amount": "300",
+      "unit": "g",
+      "name": "Kürbis",
+      "note": "in großen Stücken",
+      "group": "Gemüse für den Varoma"
+    },
+    {
+      "amount": "2",
+      "unit": "",
+      "name": "grüne Chilischoten",
+      "note": "ganz",
+      "group": "Gemüse für den Varoma"
+    },
+    {
+      "amount": "350",
+      "unit": "g",
+      "name": "mittelfeiner Couscous",
+      "note": "",
+      "group": "Für den Couscous"
+    },
+    {
+      "amount": "1",
+      "unit": "EL",
+      "name": "Olivenöl",
+      "note": "",
+      "group": "Für den Couscous"
+    },
+    {
+      "amount": "½",
+      "unit": "TL",
+      "name": "Salz",
+      "note": "",
+      "group": "Für den Couscous"
+    },
+    {
+      "amount": "30",
+      "unit": "g",
+      "name": "Butter",
+      "note": "",
+      "group": "Für den Couscous"
+    }
+  ],
+  "steps": [
+    {
+      "text": "Zwiebel in den Mixtopf geben, {S} zerkleinern und nach unten schieben.",
+      "setting": {
+        "time_s": 5,
+        "temperature": null,
+        "speed": "5",
+        "reverse": false,
+        "mode": null,
+        "accessory": null,
+        "browning_power": null
+      },
+      "off_machine": false
+    },
+    {
+      "text": "Olivenöl zugeben und {S} dünsten.",
+      "setting": {
+        "time_s": 180,
+        "temperature": 120,
+        "speed": "1",
+        "reverse": false,
+        "mode": null,
+        "accessory": null,
+        "browning_power": null
+      },
+      "off_machine": false
+    },
+    {
+      "text": "Hähnchen, Tomatenmark, Harissa, Tabil, Paprikapulver, Kurkuma, Salz und Pfeffer zugeben und {S} anschwitzen.",
+      "setting": {
+        "time_s": 180,
+        "temperature": 120,
+        "speed": "soft",
+        "reverse": true,
+        "mode": null,
+        "accessory": null,
+        "browning_power": null
+      },
+      "off_machine": false
+    },
+    {
+      "text": "Wasser und Kichererbsen zugeben. Gemüse in den Varoma-Behälter legen, Varoma aufsetzen und {S} garen.",
+      "setting": {
+        "time_s": 2100,
+        "temperature": "varoma",
+        "speed": "soft",
+        "reverse": true,
+        "mode": null,
+        "accessory": null,
+        "browning_power": null
+      },
+      "off_machine": false
+    },
+    {
+      "text": "Couscous in einer Schüssel mit Olivenöl und Salz vermengen. 300 g heiße Soße aus dem Mixtopf darübergießen, 10 Min. quellen lassen und mit einer Gabel auflockern.",
+      "setting": null,
+      "off_machine": true
+    },
+    {
+      "text": "Einlegeboden mit einem feuchten Tuch oder Varoma-Papier auslegen, Couscous darauf verteilen, Varoma mit Gemüse und Einlegeboden aufsetzen und {S} dämpfen.",
+      "setting": {
+        "time_s": 900,
+        "temperature": "varoma",
+        "speed": "soft",
+        "reverse": true,
+        "mode": null,
+        "accessory": null,
+        "browning_power": null
+      },
+      "off_machine": false
+    },
+    {
+      "text": "Couscous in eine große Schüssel geben, Butter mit der Gabel unterarbeiten. Hähnchen und Gemüse darauf anrichten und mit Soße übergießen.",
+      "setting": null,
+      "off_machine": true
+    }
+  ],
+  "hints": [
+    "Für Lamm (Kousksi bel Allouch): 600 g Lammschulter in Stücken, Garzeit in Schritt 4 auf 60 Min. verlängern.",
+    "Für Fisch-Couscous (Djerba-Stil): Fischstücke erst in den letzten 15 Min. in den Varoma legen.",
+    "Wer es authentischer mag: Couscous zweimal dämpfen und zwischendurch mit etwas Soße und Olivenöl einreiben."
+  ],
+  "warnings": [],
+  "source_url": "",
+  "author": "TuniMix"
+}
