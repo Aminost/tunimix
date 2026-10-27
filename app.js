@@ -7,7 +7,7 @@ import { COUNTRIES, UI } from "./i18n.js";
 // ---------- storage (everything stays in this browser) ----------
 const store = {
   get(k, d) { try { const v = localStorage.getItem("tunimix." + k); return v == null ? d : JSON.parse(v); } catch { return d; } },
-  set(k, v) { try { localStorage.setItem("tunimix." + k, JSON.stringify(v)); } catch {} },
+  set(k, v) { try { localStorage.setItem("tunimix." + k, JSON.stringify(v)); return true; } catch { return false; } },
   del(k) { try { localStorage.removeItem("tunimix." + k); } catch {} },
 };
 const $ = (s) => document.querySelector(s);
@@ -307,11 +307,49 @@ function countrySite() {
   const c = COUNTRIES.find((x) => x[0] === loc) || COUNTRIES[0];
   return `https://${c[1]}/foundation/${c[0]}`;
 }
+// The recipe photo travels with the recipe to Cookidoo as a small JPEG (data URI), because the
+// Cookidoo page can't download pictures from other sites itself. Web pictures go through the
+// open-source images.weserv.nl proxy, which allows browser downloads and shrinks the picture.
+function blobToDataUrl(blob) {
+  return new Promise((ok, bad) => { const r = new FileReader(); r.onload = () => ok(r.result); r.onerror = bad; r.readAsDataURL(blob); });
+}
+function shrink(src, maxW) {
+  return new Promise((ok) => {
+    const img = new Image();
+    img.onload = () => {
+      const k = Math.min(1, maxW / img.naturalWidth), c = document.createElement("canvas");
+      c.width = Math.round(img.naturalWidth * k); c.height = Math.round(img.naturalHeight * k);
+      const g = c.getContext("2d"); g.fillStyle = "#fff"; g.fillRect(0, 0, c.width, c.height); g.drawImage(img, 0, 0, c.width, c.height);
+      try { ok(c.toDataURL("image/jpeg", 0.82)); } catch { ok(""); }
+    };
+    img.onerror = () => ok("");
+    img.src = src;
+  });
+}
+async function recipePhoto(url, maxW = 1200) {
+  if (!url) return "";
+  if (url.startsWith("data:image/")) return shrink(url, maxW);
+  if (!/^https?:/.test(url)) return "";
+  const tries = [`https://images.weserv.nl/?url=${encodeURIComponent(url)}&w=${maxW}&output=jpg&q=82`, url];
+  for (const u of tries) {
+    try {
+      const r = await fetch(u, { referrerPolicy: "no-referrer" });
+      const b = r.ok ? await r.blob() : null;
+      if (b && b.type.startsWith("image/") && b.size > 500) return shrink(await blobToDataUrl(b), maxW);
+    } catch {}
+  }
+  return "";
+}
+
 const ACTIONS = {
-  cookidoo() {
-    const q = store.get("queue", []).filter((x) => x.id !== (current.id || current.slug));
-    q.push({ id: current.id || current.slug || slugify(current.title), title: current.title, payload: cookidooPayload(current) });
-    store.set("queue", q); renderQueueNote();
+  async cookidoo() {
+    const id = current.id || current.slug || slugify(current.title);
+    const q = store.get("queue", []).filter((x) => x.id !== id);
+    toast(t("preparing"));
+    const item = { id, title: current.title, payload: cookidooPayload(current), image: await recipePhoto(current.image_url) };
+    q.push(item);
+    if (!store.set("queue", q)) { item.image = ""; store.set("queue", q); }   // storage full: send without photo
+    renderQueueNote();
     dialog(`<h3>${esc(t("queued_title"))}</h3>
       <ol class="steps-list"><li>${esc(t("queued_1"))}<div style="margin-top:6px"><a class="btn p" href="${esc(countrySite())}" target="_blank" rel="noopener">${esc(t("queued_open"))} ↗</a></div></li>
       <li>${esc(t("queued_2"))}</li></ol>
@@ -322,7 +360,7 @@ const ACTIONS = {
         el.querySelector('[data-x="bm"]').onclick = (e) => { e.preventDefault(); $("#dlg").close(); show("button"); };
       });
   },
-  code() { copy(JSON.stringify([{ payload: cookidooPayload(current) }])); },
+  async code() { copy(JSON.stringify([{ payload: cookidooPayload(current), image: await recipePhoto(current.image_url, 800) }])); },
   text() { copy(toCopyPaste(current)); },
   json() { download(`${slugify(current.title)}.json`, JSON.stringify(current, null, 2), "application/json"); },
   md() { download(`${slugify(current.title)}.md`, toMarkdown(current), "text/markdown"); },

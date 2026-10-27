@@ -15,17 +15,17 @@
     de: { capture: "Rezept wird an TuniMix gesendet …", blocked: "Pop-up blockiert. Erlaube Pop-ups für diese Seite und klicke erneut.",
       sent: "Gesendet ✓ – im TuniMix-Fenster weitermachen.", title: "TuniMix → Cookidoo", wait: "Hole Rezepte aus TuniMix …",
       paste: "Oder den Cookidoo-Code aus TuniMix hier einfügen:", go: "In Cookidoo speichern", none: "Keine Rezepte in der Warteschlange.",
-      login: "Bitte zuerst bei Cookidoo anmelden und die Seite neu laden.", saving: "Speichere", done: "Gespeichert ✓ – am Thermomix unter „Meine Kreationen“.",
+      login: "Bitte zuerst bei Cookidoo anmelden und die Seite neu laden.", saving: "Speichere", noimg: "ohne Bild", done: "Gespeichert ✓ – am Thermomix unter „Meine Kreationen“.",
       open: "öffnen", fail: "Fehler", close: "Schließen", locale: "Cookidoo-Sprache nicht erkannt. Öffne cookidoo.de (bzw. dein Land) und klicke erneut." },
     en: { capture: "Sending recipe to TuniMix …", blocked: "Pop-up blocked. Allow pop-ups for this site and click again.",
       sent: "Sent ✓ – continue in the TuniMix window.", title: "TuniMix → Cookidoo", wait: "Fetching recipes from TuniMix …",
       paste: "Or paste the Cookidoo code from TuniMix here:", go: "Save to Cookidoo", none: "No recipes in the queue.",
-      login: "Please log in to Cookidoo first and reload the page.", saving: "Saving", done: "Saved ✓ – on the Thermomix under “Created recipes”.",
+      login: "Please log in to Cookidoo first and reload the page.", saving: "Saving", noimg: "without picture", done: "Saved ✓ – on the Thermomix under “Created recipes”.",
       open: "open", fail: "Error", close: "Close", locale: "Cookidoo language not detected. Open your Cookidoo site and click again." },
     fr: { capture: "Envoi de la recette à TuniMix …", blocked: "Pop-up bloquée. Autorisez les pop-ups pour ce site et recliquez.",
       sent: "Envoyé ✓ – continuez dans la fenêtre TuniMix.", title: "TuniMix → Cookidoo", wait: "Récupération des recettes TuniMix …",
       paste: "Ou collez ici le code Cookidoo de TuniMix :", go: "Enregistrer dans Cookidoo", none: "Aucune recette en attente.",
-      login: "Connectez-vous d'abord à Cookidoo puis rechargez la page.", saving: "Enregistrement", done: "Enregistré ✓ – sur le Thermomix dans « Mes créations ».",
+      login: "Connectez-vous d'abord à Cookidoo puis rechargez la page.", saving: "Enregistrement", noimg: "sans photo", done: "Enregistré ✓ – sur le Thermomix dans « Mes créations ».",
       open: "ouvrir", fail: "Erreur", close: "Fermer", locale: "Langue Cookidoo non détectée. Ouvrez votre site Cookidoo et recliquez." },
   };
   var lang = (navigator.language || "de").slice(0, 2);
@@ -116,6 +116,36 @@
     return next();
   }
   function sleep(ms) { return new Promise(function (r) { setTimeout(r, ms); }); }
+  /* Recipe photo: the same 3 steps the Cookidoo website uses (signature -> Vorwerk's Cloudinary -> PATCH). */
+  var CLD = { url: "https://api-eu.cloudinary.com/v1_1/vorwerk-users-gc/image/upload", key: "993585863591145", preset: "prod-customer-recipe-signed" };
+  function dataUrlToBlob(d) {
+    var m = /^data:([^;,]+)(;base64)?,(.*)$/.exec(d || "");
+    if (!m || !m[2]) return null;
+    var bin = atob(m[3]), a = new Uint8Array(bin.length);
+    for (var i = 0; i < bin.length; i++) a[i] = bin.charCodeAt(i);
+    return new Blob([a], { type: m[1] });
+  }
+  function uploadImage(base, id, dataUrl) {
+    var blob = dataUrlToBlob(dataUrl);
+    if (!blob) return Promise.reject(new Error("image"));
+    var ts = Math.floor(Date.now() / 1000);
+    var headers = { "Content-Type": "application/json", Accept: "application/json" };
+    return fetch(base + "/image/signature", { method: "POST", headers: headers, credentials: "include", body: JSON.stringify({ timestamp: ts, source: "uw" }) })
+      .then(function (r) { if (!r.ok) throw new Error("signature " + r.status); return r.json(); })
+      .then(function (j) {
+        var fd = new FormData();
+        fd.append("file", blob, blob.type === "image/png" ? "photo.png" : "photo.jpg");
+        fd.append("api_key", CLD.key); fd.append("timestamp", String(ts)); fd.append("source", "uw");
+        fd.append("upload_preset", CLD.preset); fd.append("signature", j.signature);
+        return fetch(CLD.url, { method: "POST", body: fd });
+      })
+      .then(function (r) { return r.json().catch(function () { return {}; }).then(function (u) {
+        if (!u.public_id) throw new Error("upload " + r.status + " " + ((u.error && u.error.message) || ""));
+        return fetch(base + "/" + id, { method: "PATCH", headers: headers, credentials: "include",
+          body: JSON.stringify({ image: u.public_id + "." + u.format, isImageOwnedByUser: false }) });
+      }); })
+      .then(function (r) { if (!r.ok) throw new Error("image " + r.status); });
+  }
   function saveOne(base, item) {
     var headers = { "Content-Type": "application/json", Accept: "application/json" };
     return fetch(base, { method: "POST", headers: headers, credentials: "include", body: JSON.stringify({ recipeName: item.payload.name }) })
@@ -128,7 +158,10 @@
         return fetch(base + "/" + id, { method: "PATCH", headers: headers, credentials: "include", body: JSON.stringify(item.payload) })
           .then(function (r) {
             if (!r.ok) return r.text().then(function (x) { throw new Error("update " + r.status + " " + x.slice(0, 200)); });
-            return base + "/" + id + "/edit";
+            var url = base + "/" + id + "/edit";
+            if (!item.image) return { url: url };
+            return uploadImage(base, id, item.image).then(function () { return { url: url, img: true }; },
+              function (e) { return { url: url, imgErr: e.message }; });  /* the recipe is saved even if the photo fails */
           });
       });
   }
@@ -145,8 +178,9 @@
           var li = document.createElement("li");
           li.textContent = t.saving + ": " + it.payload.name + " …";
           list.appendChild(li);
-          return (n ? sleep(9000) : Promise.resolve()).then(function () { return saveOne(base, it); }).then(function (url) {
-            li.innerHTML = '<span class="ok">✓</span> ' + esc(it.payload.name) + ' – <a href="' + esc(url) + '" target="_blank" rel="noopener">' + t.open + "</a>";
+          return (n ? sleep(9000) : Promise.resolve()).then(function () { return saveOne(base, it); }).then(function (res) {
+            li.innerHTML = '<span class="ok">✓</span> ' + esc(it.payload.name) + (res.img ? " 📷" : "") + ' – <a href="' + esc(res.url) + '" target="_blank" rel="noopener">' + t.open + "</a>" +
+              (res.imgErr ? ' <small class="er">(' + esc(t.noimg) + ": " + esc(res.imgErr) + ")</small>" : "");
             if (it.id) done.push(it.id);
           }, function (err) {
             li.innerHTML = '<span class="er">✗</span> ' + esc(it.payload.name) + ": " + esc(err.message === "login" ? t.login : err.message);

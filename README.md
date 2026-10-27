@@ -40,10 +40,13 @@ and it appears on your TM5 / TM6 / TM7.
    bookmark on a recipe page.
 2. **Convert.** Press **Umwandeln**. The rules engine runs without AI. If you want, there's
    also an optional free AI-chat route.
-3. **Save to Cookidoo.** Open Cookidoo, press the same TuniMix bookmark, and the recipe is saved.
+3. **Save to Cookidoo.** Open Cookidoo, press the same TuniMix bookmark, and the recipe is saved,
+   **with its photo**. The photo is uploaded the same way the Cookidoo website does it
+   (signature → Vorwerk's image service → attach to the recipe).
 
 Setting up the button takes one minute: open the **Cookidoo button** tab and drag it to your
-bookmarks bar.
+bookmarks bar. On a phone, save the **short code** from that tab as a bookmark and open it from the
+address bar on Cookidoo.
 
 ## Python script (no AI needed)
 
@@ -85,7 +88,8 @@ Please only share **your own or family recipes**, not text or photos copied from
 
 - No server, no tracking. Your recipes and the Cookidoo queue live in your browser's local storage.
   Files (PDF, Word, photos) are read on your device. Only links typed into the box go through the
-  `r.jina.ai` reader, which you can switch off; the TuniMix button doesn't need it.
+  `r.jina.ai` reader, which you can switch off; the TuniMix button doesn't need it. Recipe photos from
+  the web are shrunk through the open-source `images.weserv.nl` image proxy before they go to Cookidoo.
 - On Cookidoo, the button uses the same requests the Cookidoo website makes when you create a
   recipe yourself, with your own session. TuniMix never sees your login.
 - Converted settings are checked automatically (temperature/speed limits, 99-minute timers,
