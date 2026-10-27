@@ -2,6 +2,8 @@
 
 **→ https://aminost.github.io/tunimix/**
 
+[![Support on Ko-fi](https://img.shields.io/badge/Ko--fi-support%20TuniMix-1d4e9e?logo=ko-fi&logoColor=white)](https://ko-fi.com/aminoste)
+
 Paste a link, type a dish name, upload a photo of grandma's handwritten recipe, or press the
 TuniMix button on any recipe page. TuniMix turns it into a **Thermomix guided-cooking recipe**
 ("5 Min./100°C/Linkslauf/Stufe 1"). One more click saves it to **your Cookidoo "Created recipes"**,
@@ -128,6 +130,11 @@ endorsed by, or connected to Vorwerk**. Thermomix® and Cookidoo® are registere
 Vorwerk group. Cookidoo has no public API. TuniMix uses the same internal requests as the Cookidoo
 website, which can change at any time. Use it with your own account, for personal use, and within
 Cookidoo's terms of use. You need an active Cookidoo subscription for "Created recipes".
+
+## Support
+
+TuniMix is free, ad-free and open source. If it saves you time in the kitchen, you can buy me a
+coffee on **[Ko-fi](https://ko-fi.com/aminoste)**.
 
 ## License
 

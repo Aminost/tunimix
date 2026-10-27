@@ -15,7 +15,7 @@ const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "
 
 const APP_URL = new URL("./", location.href).href;
 // Ko-fi page for donations (change here to point a fork at your own page).
-const KOFI = "";   // e.g. "https://ko-fi.com/yourname"; empty hides the Ko-fi links
+const KOFI = "https://ko-fi.com/aminoste";   // empty hides the Ko-fi links (for forks)
 document.querySelectorAll(".kofiLink, .kofi").forEach((a) => { if (KOFI) { if (a.href !== undefined) a.href = KOFI; } else a.hidden = true; });
 const REPO = (() => {
   const m = location.hostname.match(/^([^.]+)\.github\.io$/);
