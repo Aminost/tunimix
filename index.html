@@ -96,6 +96,7 @@ ol.steps li::before{content:counter(s);position:absolute;inset-inline-start:0;to
 .rc .o{color:var(--muted);font-size:14px}
 h2.sec{font:700 22px var(--display);margin:26px 0 12px}
 /* bookmarklet */
+.bmcode{display:block;word-break:break-all;font-size:12px;background:#f3f6fb;border:1px solid #ccd6e6;border-radius:8px;padding:8px;margin:8px 0;user-select:all}
 .bm{display:inline-flex;align-items:center;gap:8px;background:var(--blue);color:var(--blue-ink);font:700 17px var(--body);padding:12px 20px;border-radius:12px;text-decoration:none;cursor:grab;border:2px dashed color-mix(in srgb,var(--blue-ink) 50%,transparent)}
 .steps-list{display:grid;gap:10px;margin:0;padding-inline-start:22px}
 dialog{border:none;border-radius:16px;padding:0;width:min(560px,calc(100% - 24px));background:var(--paper);color:var(--ink)}
@@ -216,7 +217,11 @@ code{font:13px ui-monospace,SFMono-Regular,Menlo,monospace;background:var(--pape
         <div><label class="l" for="country" data-i="country"></label><select id="country"></select></div>
         <p data-i="bm_drag"></p>
         <div><a class="bm" id="bmLink" href="#"><span data-i="bm_btn"></span></a></div>
-        <p class="muted small" data-i="bm_mobile"></p>
+        <h3 data-i="bm_phone_t"></h3>
+        <ol class="steps-list"><li data-i="bm_p1"></li><li data-i="bm_p2"></li><li data-i="bm_p3"></li></ol>
+        <code id="bmShort" class="bmcode"></code>
+        <div><button class="btn p" id="btnCopyShort" data-i="bm_copy_short"></button></div>
+        <p class="muted small" data-i="bm_long"></p>
         <div><button class="btn" id="btnCopyBm" data-i="bm_copy"></button></div>
       </div>
     </section>

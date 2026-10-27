@@ -434,6 +434,11 @@ async function renderBookmarklet() {
 }
 $("#bmLink").addEventListener("click", (e) => { e.preventDefault(); toast(t("bm_drag")); });
 $("#btnCopyBm").addEventListener("click", async () => { await renderBookmarklet(); copy(bmCode); });
+// Short code for phones: phone browsers often lose or cut the long code, so this one loads it from the site.
+const shortBm = (app) => "javascript:(function(){var s=document.createElement('script');s.charset='utf-8';s.src='" + app +
+  "bookmarklet.js?v='+Date.now();s.onerror=function(){alert('TuniMix: Laden fehlgeschlagen / could not load – langen Code nutzen.')};document.body.appendChild(s)})()";
+$("#bmShort").textContent = shortBm(APP_URL);
+$("#btnCopyShort").addEventListener("click", () => copy(shortBm(APP_URL)));
 
 // ---------- settings ----------
 $("#btnExport").addEventListener("click", () => download("tunimix-rezepte.json", JSON.stringify(mine(), null, 2), "application/json"));

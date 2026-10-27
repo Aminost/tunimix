@@ -4,6 +4,10 @@
                         user's own logged-in session (no password ever leaves the browser). */
 (function () {
   var APP = "__APP__";
+  if (APP.indexOf("__AP") === 0) {  /* loaded by the short phone code: find the app from this script's own URL */
+    var me = document.currentScript;
+    APP = me && me.src ? me.src.replace(/bookmarklet\.js.*$/, "") : "https://aminost.github.io/tunimix/";
+  }
   var APP_ORIGIN = new URL(APP).origin;
   var host = location.hostname;
   var IS_COOKIDOO = /(^|\.)cookidoo\.[a-z.]+$/.test(host) || /(^|\.)cookidoo\.thermomix\.com$/.test(host);
