@@ -14,6 +14,9 @@ const $ = (s) => document.querySelector(s);
 const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 
 const APP_URL = new URL("./", location.href).href;
+// Ko-fi page for donations (change here to point a fork at your own page).
+const KOFI = "";   // e.g. "https://ko-fi.com/yourname"; empty hides the Ko-fi links
+document.querySelectorAll(".kofiLink, .kofi").forEach((a) => { if (KOFI) { if (a.href !== undefined) a.href = KOFI; } else a.hidden = true; });
 const REPO = (() => {
   const m = location.hostname.match(/^([^.]+)\.github\.io$/);
   const seg = location.pathname.split("/").filter(Boolean)[0];
@@ -248,43 +251,64 @@ function openRecipe(r, source) {
 }
 $("#btnBack").addEventListener("click", () => show(currentSource === "community" || currentSource === "mine-list" ? "recipes" : "recipes"));
 
+const svg = (d) => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${d}</svg>`;
+const ICON = {
+  people: svg('<circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><path d="M16 4.5a3 3 0 0 1 0 6M21 20c0-2.8-1.7-5-4-5.7"/>'),
+  clock: svg('<circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/>'),
+  machine: svg('<path d="M7 4h10l-1 4H8z"/><path d="M6 8h12v11a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2z"/><circle cx="12" cy="14.5" r="2.5"/>'),
+  user: svg('<circle cx="12" cy="8" r="3.5"/><path d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6"/>'),
+};
 function stepHtml(s, rl) {
   const [txt, set] = stepText(s, rl);
   let h = esc(txt);
   if (set) h = h.replace(esc(set), `<span class="chip">${esc(set)}</span>`);
-  return `<li>${h}${s.off_machine ? ` <span class="offm">· ${esc(lx(rl).off)}</span>` : ""}</li>`;
+  return `<li>${h}${s.off_machine ? ` <span class="offm">${esc(lx(rl).off)}</span>` : ""}</li>`;
 }
 function renderRecipe() {
   const r = current; if (!r) return;
   const L = lx(r.language);
   let ing = "", last = null;
   r.ingredients.forEach((i) => {
-    if (i.group !== last) { ing += (last !== null ? "</ul>" : "") + (i.group ? `<div class="grp">${esc(i.group)}</div>` : "") + "<ul>"; last = i.group; }
+    if (i.group !== last) { ing += (last !== null ? "</ul>" : "") + (i.group ? `<div class="grp">${esc(i.group)}</div>` : "") + '<ul class="ing">'; last = i.group; }
     ing += `<li>${esc(ingredientLine(i))}</li>`;
   });
   ing += "</ul>";
   const isMine = currentSource === "mine";
+  const photo = /^(https:|data:image\/)/.test(r.image_url || "")
+    ? `<img class="photo" src="${esc(r.image_url)}" alt="" referrerpolicy="no-referrer" onerror="this.className='photo tile';this.removeAttribute('src')">`
+    : `<div class="photo tile" aria-hidden="true"></div>`;
+  const facts = [
+    [ICON.people, servingsLabel(r)],
+    [ICON.clock, `${L.total} ${r.total_time_min} min`],
+    [ICON.machine, r.machine],
+    ...(r.author ? [[ICON.user, `${t("by")} ${r.author}`]] : []),
+  ].map(([i, x]) => `<li>${i}${esc(x)}</li>`).join("");
   $("#recipeView").innerHTML = `
-    ${/^(https:|data:image\/)/.test(r.image_url || "") ? `<img src="${esc(r.image_url)}" alt="" style="width:100%;max-height:320px;object-fit:cover;border-radius:12px;margin-bottom:12px" referrerpolicy="no-referrer" onerror="this.remove()">` : ""}
-    ${r.category ? `<div class="eyebrow">${esc(r.category)}</div>` : ""}
-    <h2>${esc(r.title)}</h2>
-    ${r.original_title ? `<div class="muted">${esc(r.original_title)}</div>` : ""}
-    ${r.description ? `<p>${esc(r.description)}</p>` : ""}
-    <div class="meta">${esc(servingsLabel(r))} · ${esc(L.prep)} ${r.prep_time_min} · ${esc(L.total)} ${r.total_time_min} · ${esc(r.machine)}${r.author ? ` · ${esc(t("by"))} ${esc(r.author)}` : ""}${r.source_url ? ` · <a href="${esc(r.source_url)}" target="_blank" rel="noopener">${esc(t("source"))}</a>` : ""}</div>
-    <div class="btns" style="margin-top:16px">
-      <button class="btn p" data-a="cookidoo">${esc(t("save_cookidoo"))}</button>
-      <button class="btn" data-a="code">${esc(t("copy_code"))}</button>
-      <button class="btn" data-a="text">${esc(t("copy_text"))}</button>
-      ${isMine ? `<button class="btn" data-a="share">${esc(t("share"))}</button>` : ""}
-    </div>
-    <h3>${esc(L.ing)}</h3>${ing}
-    <h3>${esc(L.steps)}</h3><ol class="steps">${r.steps.map((s) => stepHtml(s, r.language)).join("")}</ol>
-    ${r.hints?.length ? `<h3>${esc(L.hints)}</h3><ul>${r.hints.map((h) => `<li>${esc(h)}</li>`).join("")}</ul>` : ""}
-    ${r.warnings?.length ? `<div class="warn" style="margin-top:18px"><b>${esc(t("check"))}:</b> ${r.warnings.map(esc).join(" · ")}</div>` : ""}
-    <div class="btns" style="margin-top:18px">
-      <button class="btn" data-a="json">${esc(t("download"))}</button>
-      <button class="btn" data-a="md">Markdown</button>
-      ${isMine ? `<button class="btn" data-a="edit">${esc(t("edit"))}</button><button class="btn d" data-a="del">${esc(t("del"))}</button>` : ""}
+    ${photo}
+    <div class="body" lang="${esc(r.language || "")}" dir="${r.language === "ar" ? "rtl" : "ltr"}">
+      <div>
+        ${r.category ? `<div class="cat">${esc(r.category)}</div>` : ""}
+        <h2>${esc(r.title)}</h2>
+        ${r.original_title ? `<div class="muted">${esc(r.original_title)}</div>` : ""}
+      </div>
+      ${r.description ? `<p style="margin:0">${esc(r.description)}</p>` : ""}
+      <ul class="facts">${facts}</ul>
+      <button class="btn p big wide" data-a="cookidoo">${esc(t("save_cookidoo"))}</button>
+      <div class="more">
+        <button class="btn ghost" data-a="code">${esc(t("copy_code"))}</button>
+        <button class="btn ghost" data-a="text">${esc(t("copy_text"))}</button>
+        ${isMine ? `<button class="btn ghost" data-a="share">${esc(t("share"))}</button>` : ""}
+        ${r.source_url ? `<a class="btn ghost" href="${esc(r.source_url)}" target="_blank" rel="noopener">${esc(t("source"))}</a>` : ""}
+      </div>
+      <section><h3>${esc(L.ing)}</h3>${ing}</section>
+      <section><h3>${esc(L.steps)}</h3><ol class="steps">${r.steps.map((s) => stepHtml(s, r.language)).join("")}</ol></section>
+      ${r.hints?.length ? `<section><h3>${esc(L.hints)}</h3><ul class="hints">${r.hints.map((h) => `<li>${esc(h)}</li>`).join("")}</ul></section>` : ""}
+      ${r.warnings?.length ? `<div class="warn"><b>${esc(t("check"))}:</b> ${r.warnings.map(esc).join(" ")}</div>` : ""}
+      <div class="more">
+        <button class="btn ghost" data-a="json">${esc(t("download"))}</button>
+        <button class="btn ghost" data-a="md">Markdown</button>
+        ${isMine ? `<button class="btn ghost" data-a="edit">${esc(t("edit"))}</button><button class="btn ghost d" data-a="del">${esc(t("del"))}</button>` : ""}
+      </div>
     </div>`;
   $("#recipeView").querySelectorAll("[data-a]").forEach((b) => b.addEventListener("click", () => ACTIONS[b.dataset.a]()));
 }
@@ -420,9 +444,12 @@ let cat = "";
 function card(r, src) {
   const b = document.createElement("button");
   b.className = "rc";
-  b.innerHTML = `${r.category ? `<span class="eyebrow">${esc(r.category)}</span>` : ""}<span class="t">${esc(r.title)}</span>
+  const pic = /^(https:|data:image\/)/.test(r.image_url || "")
+    ? `<img class="pic" src="${esc(r.image_url)}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.outerHTML='<span class=&quot;pic tile&quot;></span>'">`
+    : `<span class="pic tile" aria-hidden="true"></span>`;
+  b.innerHTML = `${pic}<span class="in">${r.category ? `<span class="cat">${esc(r.category)}</span>` : ""}<span class="t">${esc(r.title)}</span>
     ${r.original_title ? `<span class="o">${esc(r.original_title)}</span>` : ""}
-    <span class="meta">${esc(servingsLabel(r))} · ${r.total_time_min} min · ${esc(r.machine)}</span>`;
+    <span class="m">${esc(servingsLabel(r))}, ${r.total_time_min} min, ${esc(r.machine)}</span></span>`;
   b.addEventListener("click", () => openRecipe(r, src));
   return b;
 }
@@ -431,7 +458,7 @@ function renderRecipes() {
   const q = $("#q").value.trim().toLowerCase();
   const m = mine().filter((r) => match(r, q));
   const mg = $("#mineGrid"); mg.innerHTML = "";
-  if (!m.length) mg.innerHTML = `<p class="muted">${esc(t("empty_mine"))}</p>`;
+  if (!m.length) mg.innerHTML = `<p class="empty" style="grid-column:1/-1">${esc(t("empty_mine"))}</p>`;
   m.forEach((r) => mg.appendChild(card(r, "mine")));
   const cats = [...new Set(community.map((r) => r.category).filter(Boolean))];
   $("#cats").innerHTML = "";

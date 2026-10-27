@@ -7,135 +7,230 @@
 <meta name="description" content="Jedes Rezept in deinen Thermomix: Link, Gericht, Text oder Foto → Guided-Cooking-Rezept → Cookidoo. Kostenlos, Open Source, ohne Server.">
 <meta property="og:title" content="TuniMix – jedes Rezept in deinen Thermomix">
 <meta property="og:description" content="Link, Gericht, Text oder Foto → Guided-Cooking-Rezept → Cookidoo. Kostenlos und Open Source.">
-<meta name="theme-color" content="#1b5fae">
+<meta name="theme-color" content="#1d4e9e">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="icons/icon-192.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Reem+Kufi:wght@500;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Sans+Arabic:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Reem+Kufi:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Sans+Arabic:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-/* layout: one column, tabbed views; recipe cards in a wrapping grid; actions as a wrapping button row */
+/* TuniMix — whitewashed walls, Sidi Bou Said cobalt, Nabeul tile saffron, harissa red for warnings.
+   One bold element: the khatem (8-point star) tile motif. Everything else stays quiet. */
 :root{
-  --bg:#f4f7fb;--paper:#ffffff;--ink:#132036;--muted:#56637b;--line:#dbe3ee;--soft:#eaf1fa;
-  --blue:#1b5fae;--blue-ink:#ffffff;--chili:#c8341f;--olive:#5b7a2b;--chip:#e6effa;--chip-ink:#164c8c;--warn:#fff2df;--warn-ink:#6b4400;--ok:#2d7a3a;
-  --display:"Reem Kufi",Georgia,serif;--body:"IBM Plex Sans","IBM Plex Sans Arabic",system-ui,-apple-system,"Segoe UI",sans-serif;
-  --r:14px;
+  --bg:#f3f6f6;--paper:#ffffff;--ink:#16213a;--muted:#5a6579;--line:#dfe5ea;--soft:#e9eff7;
+  --cobalt:#1d4e9e;--on-cobalt:#ffffff;--cobalt-tint:#e3ebf7;--harissa:#b23a26;--olive:#55702e;--saffron:#e2a93b;
+  --warn:#fdf1dc;--warn-ink:#6a4300;--ok:#2b7a3d;
+  --readout:#16213a;--readout-ink:#f3f6f6;
+  --display:"Reem Kufi","IBM Plex Sans Arabic",Georgia,serif;
+  --body:"IBM Plex Sans","IBM Plex Sans Arabic",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --r-s:8px;--r-m:12px;--r-l:20px;
+  --shadow:0 1px 2px rgba(22,33,58,.06),0 8px 24px -12px rgba(22,33,58,.18);
+  --nav-h:64px;
 }
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0c1220;--paper:#141c2c;--ink:#e6ecf6;--muted:#9ba7bd;--line:#26324a;--soft:#18243a;
-  --blue:#78b0f2;--blue-ink:#0c1220;--chili:#f27a64;--olive:#a7c56c;--chip:#1a2a45;--chip-ink:#acd0f8;--warn:#2c2413;--warn-ink:#f3d19a;--ok:#7fd08c;color-scheme:dark}}
-:root[data-theme="dark"]{--bg:#0c1220;--paper:#141c2c;--ink:#e6ecf6;--muted:#9ba7bd;--line:#26324a;--soft:#18243a;
-  --blue:#78b0f2;--blue-ink:#0c1220;--chili:#f27a64;--olive:#a7c56c;--chip:#1a2a45;--chip-ink:#acd0f8;--warn:#2c2413;--warn-ink:#f3d19a;--ok:#7fd08c;color-scheme:dark}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e1524;--paper:#152038;--ink:#e7ecf5;--muted:#9eabc2;--line:#253252;--soft:#1a2745;
+  --cobalt:#86adee;--on-cobalt:#0e1524;--cobalt-tint:#1b2c4d;--harissa:#ef866f;--olive:#abc472;--saffron:#e9b752;--warn:#2d2513;--warn-ink:#f2d29b;--ok:#82d391;
+  --readout:#e7ecf5;--readout-ink:#0e1524;--shadow:0 1px 2px rgba(0,0,0,.3),0 10px 30px -14px rgba(0,0,0,.6);color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0e1524;--paper:#152038;--ink:#e7ecf5;--muted:#9eabc2;--line:#253252;--soft:#1a2745;
+  --cobalt:#86adee;--on-cobalt:#0e1524;--cobalt-tint:#1b2c4d;--harissa:#ef866f;--olive:#abc472;--saffron:#e9b752;--warn:#2d2513;--warn-ink:#f2d29b;--ok:#82d391;
+  --readout:#e7ecf5;--readout-ink:#0e1524;--shadow:0 1px 2px rgba(0,0,0,.3),0 10px 30px -14px rgba(0,0,0,.6);color-scheme:dark}
+
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 var(--body);
-  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 var(--body);
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));
+  padding-bottom:calc(var(--nav-h) + env(safe-area-inset-bottom,0px))}
 [hidden]{display:none!important}
-a{color:var(--blue)}
-.wrap{max-width:860px;margin:0 auto}
-header.top{display:flex;align-items:center;gap:12px;padding-block:18px 8px}
-.brand{display:flex;align-items:center;gap:10px;font:700 22px var(--display);color:var(--ink);text-decoration:none;margin-inline-end:auto}
-.brand svg{width:34px;height:34px;flex:none}
-select,input,textarea{font:inherit;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:10px 12px;width:100%}
-textarea{min-height:120px;resize:vertical}
-select:focus-visible,input:focus-visible,textarea:focus-visible,button:focus-visible,a:focus-visible{outline:3px solid color-mix(in srgb,var(--blue) 45%,transparent);outline-offset:2px}
-.lang{width:auto;padding:7px 10px;font-size:14px}
-nav.tabs{display:flex;gap:4px;overflow-x:auto;border-bottom:1px solid var(--line);margin-bottom:20px;scrollbar-width:none}
-nav.tabs button{flex:none;background:none;border:none;border-bottom:3px solid transparent;padding:10px 12px;font:600 15px var(--body);color:var(--muted);cursor:pointer}
-nav.tabs button[aria-current="page"]{color:var(--blue);border-bottom-color:var(--blue)}
-.hero{padding-block:6px 18px}
-.hero h1{font:700 clamp(28px,6.5vw,44px)/1.15 var(--display);margin:0 0 8px;text-wrap:balance}
-.hero p{margin:0;color:var(--muted);max-width:60ch}
-.card{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:18px}
-.stack{display:grid;gap:14px}
-label.l{display:block;font-weight:600;margin-bottom:6px}
-.row{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px}
+a{color:var(--cobalt);text-underline-offset:3px}
+.wrap{max-width:760px;margin:0 auto}
+:where(select,input,textarea,button,a,summary):focus-visible{outline:3px solid color-mix(in srgb,var(--cobalt) 50%,transparent);outline-offset:2px}
+
+/* the tile motif */
+.tile{background-color:var(--cobalt);
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cg fill='none' stroke='%23ffffff' stroke-opacity='.55' stroke-width='1.4'%3E%3Cpath d='M20 6l4 10 10 4-10 4-4 10-4-10-10-4 10-4z'/%3E%3Crect x='13' y='13' width='14' height='14' transform='rotate(45 20 20)'/%3E%3C/g%3E%3Ccircle cx='20' cy='20' r='2.6' fill='%23e2a93b'/%3E%3Ccircle cx='0' cy='0' r='2' fill='%23e2a93b'/%3E%3Ccircle cx='40' cy='0' r='2' fill='%23e2a93b'/%3E%3Ccircle cx='0' cy='40' r='2' fill='%23e2a93b'/%3E%3Ccircle cx='40' cy='40' r='2' fill='%23e2a93b'/%3E%3C/svg%3E");
+  background-size:40px 40px}
+:root[data-theme="dark"] .tile{background-color:#1d4e9e}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .tile{background-color:#1d4e9e}}
+
+/* header */
+header.top{display:flex;align-items:center;gap:10px;padding-block:16px 4px}
+.brand{display:flex;align-items:center;gap:10px;font:700 24px/1 var(--display);color:var(--ink);text-decoration:none;margin-inline-end:auto}
+.brand .mark{width:36px;height:36px;border-radius:10px;flex:none;background-size:36px 36px;background-position:center}
+.support{display:inline-flex;align-items:center;gap:6px;padding:7px 12px;border-radius:999px;border:1px solid var(--line);background:var(--paper);
+  color:var(--ink);font:500 14px var(--body);text-decoration:none;white-space:nowrap}
+.support svg{width:17px;height:17px;color:var(--harissa);flex:none}
+@media (max-width:479px){.support span{display:none}.support{padding:8px}}
+.support:hover{border-color:var(--harissa)}
+.lang{width:auto!important;padding:7px 28px 7px 10px!important;font-size:14px!important;border-radius:999px!important}
+
+/* navigation: bottom bar on phones, inline tabs from 720px */
+nav.tabs{position:fixed;inset-inline:0;bottom:0;z-index:40;display:grid;grid-template-columns:repeat(4,1fr);
+  background:color-mix(in srgb,var(--paper) 94%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  border-top:1px solid var(--line);padding-bottom:env(safe-area-inset-bottom,0px)}
+nav.tabs button{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;min-height:var(--nav-h);
+  background:none;border:0;color:var(--muted);font:500 12px var(--body);cursor:pointer;padding:6px 2px}
+nav.tabs svg{width:22px;height:22px}
+nav.tabs button[aria-current="page"]{color:var(--cobalt)}
+nav.tabs button[aria-current="page"] svg{stroke-width:2.2}
+@media (min-width:720px){
+  body{padding-bottom:0}
+  nav.tabs{position:static;display:flex;gap:4px;background:none;backdrop-filter:none;-webkit-backdrop-filter:none;border-top:0;border-bottom:1px solid var(--line);margin-bottom:8px;padding:0}
+  nav.tabs button{flex-direction:row;gap:8px;min-height:48px;padding:0 14px;font-size:15px;border-bottom:2px solid transparent;margin-bottom:-1px}
+  nav.tabs svg{width:18px;height:18px}
+  nav.tabs button[aria-current="page"]{border-bottom-color:var(--cobalt)}
+}
+
+main{padding-block:12px 8px}
+.hero{display:grid;gap:10px;padding-block:18px 22px}
+.hero h1{font:700 clamp(32px,8vw,52px)/1.08 var(--display);margin:0;text-wrap:balance;max-width:16ch;letter-spacing:-.005em}
+.hero p{margin:0;color:var(--muted);max-width:56ch;font-size:17px}
+.hero .band{height:20px;width:100px;border-radius:5px;background-size:20px 20px;margin-bottom:4px}
+
+/* surfaces */
+.card{background:var(--paper);border:1px solid var(--line);border-radius:var(--r-l);padding:20px;box-shadow:var(--shadow)}
+.stack{display:grid;gap:16px}
+.quiet{background:transparent;border:1px solid var(--line);border-radius:var(--r-l);padding:18px}
+h3.h{font:700 19px/1.3 var(--display);margin:0}
+label.l{display:block;font-weight:600;margin-bottom:8px}
+select,input,textarea{font:inherit;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:var(--r-m);padding:11px 13px;width:100%}
+textarea{min-height:128px;resize:vertical}
+#src{background:var(--bg);border-color:transparent;font-size:16px}
+#src:focus{background:var(--paper);border-color:var(--cobalt)}
+.row{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
 .row>*{min-width:0}
-details summary{cursor:pointer;font-weight:600;color:var(--blue);padding-block:4px}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:1px solid var(--blue);background:transparent;color:var(--blue);
-  padding:10px 16px;border-radius:11px;font:600 15px var(--body);cursor:pointer;text-decoration:none;min-height:44px}
-.btn.p{background:var(--blue);color:var(--blue-ink)}
-.btn.d{border-color:var(--chili);color:var(--chili)}
+details>summary{cursor:pointer;font-weight:600;color:var(--cobalt);padding-block:4px;list-style:none;display:flex;align-items:flex-start;gap:10px}
+details>summary::-webkit-details-marker{display:none}
+details>summary::before{content:"";width:8px;height:8px;margin-top:.55em;border-inline-end:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(-45deg);transition:transform .15s;flex:none}
+[dir="rtl"] details>summary::before{transform:rotate(45deg)}
+details[open]>summary::before{transform:rotate(45deg)}
+@media (prefers-reduced-motion:reduce){details>summary::before{transition:none}}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:1px solid var(--line);background:var(--paper);color:var(--ink);
+  padding:10px 16px;border-radius:var(--r-m);font:600 15px var(--body);cursor:pointer;text-decoration:none;min-height:44px}
+.btn:hover{border-color:var(--cobalt);color:var(--cobalt)}
+.btn.p{background:var(--cobalt);border-color:var(--cobalt);color:var(--on-cobalt)}
+.btn.p:hover{filter:brightness(1.08);color:var(--on-cobalt)}
+.btn.big{min-height:52px;font-size:16px;padding-inline:22px}
+.btn.wide{width:100%}
+.btn.d{color:var(--harissa)}
+.btn.d:hover{border-color:var(--harissa);color:var(--harissa)}
+.btn.ghost{border-color:transparent;background:transparent;color:var(--cobalt);padding-inline:10px}
 .btn[disabled]{opacity:.6;cursor:wait}
-.btns{display:flex;flex-wrap:wrap;gap:8px}
+.btns{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
 .filebtn{position:relative;overflow:hidden}
 .filebtn input{position:absolute;inset:0;opacity:0;cursor:pointer}
+.btn svg{width:18px;height:18px;flex:none}
 .muted{color:var(--muted)}.small{font-size:14px}
-.banner{background:var(--soft);border-radius:10px;padding:10px 12px}
-.warn{background:var(--warn);color:var(--warn-ink);border-radius:10px;padding:10px 12px;font-size:14px}
-.err{background:color-mix(in srgb,var(--chili) 14%,var(--paper));color:var(--chili);border-radius:10px;padding:10px 12px}
+.banner{background:var(--cobalt-tint);color:var(--ink);border-radius:var(--r-m);padding:12px 14px;font-size:15px}
+.warn{background:var(--warn);color:var(--warn-ink);border-radius:var(--r-m);padding:12px 14px;font-size:14px}
+.err{background:color-mix(in srgb,var(--harissa) 12%,var(--paper));color:var(--harissa);border-radius:var(--r-m);padding:12px 14px}
 .ok{color:var(--ok);font-weight:600}
-.free ol{margin:0;padding-inline-start:20px;display:grid;gap:12px}
-.divider{display:flex;align-items:center;gap:10px;color:var(--muted);font-size:14px}
-.divider::before,.divider::after{content:"";flex:1;border-top:1px solid var(--line)}
-/* recipe view */
-.recipe h2{font:700 clamp(26px,5vw,34px)/1.2 var(--display);margin:2px 0;text-wrap:balance}
-.eyebrow{font:600 12px var(--body);letter-spacing:.08em;text-transform:uppercase;color:var(--chili)}
-.meta{color:var(--muted);font-size:14px;font-variant-numeric:tabular-nums;unicode-bidi:plaintext}
-.how{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin:0;padding:0;list-style:none;counter-reset:h}
-.how li{counter-increment:h;display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:start;font-size:15px}
-.how li::before{content:counter(h);width:28px;height:28px;border-radius:8px;background:var(--soft);color:var(--blue);font:700 15px/28px var(--body);text-align:center}
-.how b{display:block}
-.recipe h3{font:600 13px var(--body);letter-spacing:.08em;text-transform:uppercase;color:var(--olive);margin:22px 0 8px}
-.recipe ul{margin:0;padding-inline-start:20px}.recipe li{margin:3px 0}
-.grp{font-weight:600;margin:10px 0 2px}
-ol.steps{list-style:none;padding:0;margin:0;counter-reset:s}
-ol.steps li{counter-increment:s;position:relative;padding:10px 0;padding-inline-start:42px;border-top:1px solid var(--line)}
-ol.steps li::before{content:counter(s);position:absolute;inset-inline-start:0;top:10px;width:28px;height:28px;border-radius:50%;
-  background:var(--blue);color:var(--blue-ink);font:600 14px/28px var(--body);text-align:center}
-.chip{display:inline;background:var(--chip);color:var(--chip-ink);font-weight:600;padding:1px 7px;border-radius:6px;unicode-bidi:isolate;direction:ltr}
-.offm{font-size:12.5px;color:var(--chili);font-weight:600}
-/* recipe grid */
-.toolbar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:12px}
-.toolbar input{flex:1 1 200px;width:auto}
-.pill{border:1px solid var(--line);background:var(--paper);color:var(--ink);padding:7px 12px;border-radius:999px;font:500 14px var(--body);cursor:pointer}
-.pill[aria-pressed="true"]{background:var(--blue);border-color:var(--blue);color:var(--blue-ink)}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px}
-.rc{display:flex;flex-direction:column;gap:4px;text-align:start;background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:16px;cursor:pointer;font:inherit;color:inherit}
-.rc:hover{border-color:var(--blue)}
+.free ol{margin:0;padding-inline-start:20px;display:grid;gap:14px}
+
+/* how it works: a real 3-step sequence */
+.how{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;margin:28px 0 0;padding:0;list-style:none;counter-reset:h}
+.how li{counter-increment:h;display:grid;gap:4px;font-size:15px;padding-top:14px;border-top:2px solid var(--line)}
+.how li::before{content:counter(h);font:700 26px/1 var(--display);color:var(--cobalt)}
+.how b{display:block;font-size:16px}
+
+/* recipe */
+.recipe{padding:0;overflow:hidden}
+.recipe .photo{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;background-color:var(--soft)}
+.recipe .body{padding:22px 20px 24px;display:grid;gap:14px}
+.recipe h2{font:700 clamp(28px,6vw,38px)/1.15 var(--display);margin:0;text-wrap:balance}
+.cat{font-weight:600;color:var(--harissa);font-size:14px}
+.facts{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;list-style:none}
+.facts li{display:inline-flex;align-items:center;gap:6px;background:var(--bg);border-radius:999px;padding:5px 12px;font-size:14px;font-variant-numeric:tabular-nums;color:var(--ink)}
+.facts svg{width:15px;height:15px;color:var(--muted)}
+.more{display:flex;flex-wrap:wrap;gap:2px;margin-inline:-10px}
+.recipe h3{font:700 22px/1.3 var(--display);margin:18px 0 4px;color:var(--ink)}
+.ing{margin:0;padding:0;list-style:none;display:grid}
+.ing li{padding:9px 0;border-bottom:1px dashed var(--line)}
+.grp{font-weight:600;margin:14px 0 2px;color:var(--olive)}
+ol.steps{list-style:none;padding:0;margin:0;counter-reset:s;display:grid}
+ol.steps li{counter-increment:s;position:relative;padding:14px 0;padding-inline-start:46px;border-top:1px solid var(--line);line-height:1.75}
+ol.steps li:first-child{border-top:0}
+ol.steps li::before{content:counter(s);position:absolute;inset-inline-start:0;top:14px;width:30px;height:30px;border-radius:50%;
+  background:var(--cobalt-tint);color:var(--cobalt);font:700 15px/30px var(--body);text-align:center}
+/* setting chip, styled like the Thermomix display */
+.chip{display:inline-block;max-width:100%;vertical-align:baseline;line-height:1.45;background:var(--readout);color:var(--readout-ink);font-weight:600;font-variant-numeric:tabular-nums;padding:2px 8px;border-radius:6px;
+  unicode-bidi:isolate;direction:ltr;-webkit-box-decoration-break:clone;box-decoration-break:clone;white-space:normal}
+.offm{display:inline-block;font-size:12.5px;color:var(--harissa);font-weight:600;margin-inline-start:4px}
+.hints{margin:0;padding-inline-start:20px}
+
+/* recipe lists */
+.toolbar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:14px}
+.search{position:relative;flex:1 1 220px}
+.search svg{position:absolute;inset-inline-start:13px;top:50%;width:18px;height:18px;transform:translateY(-50%);color:var(--muted)}
+.search input{padding-inline-start:40px;border-radius:999px}
+.pills{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px;margin-bottom:14px}
+.pill{flex:none;border:1px solid var(--line);background:var(--paper);color:var(--ink);padding:7px 14px;border-radius:999px;font:500 14px var(--body);cursor:pointer}
+.pill[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--bg)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px}
+.rc{display:flex;flex-direction:column;text-align:start;background:var(--paper);border:1px solid var(--line);border-radius:var(--r-l);padding:0;overflow:hidden;cursor:pointer;font:inherit;color:inherit;box-shadow:var(--shadow)}
+.rc:hover{border-color:var(--cobalt)}
+.rc .pic{display:block;width:100%;aspect-ratio:16/10;object-fit:cover;background-color:var(--soft)}
+.rc .pic.tile,.recipe .photo.tile{background-color:#1d4e9e;aspect-ratio:auto;height:52px;background-size:26px 26px}
+.rc .in{display:grid;gap:3px;padding:14px 16px 16px}
 .rc .t{font:700 19px/1.25 var(--display)}
 .rc .o{color:var(--muted);font-size:14px}
-h2.sec{font:700 22px var(--display);margin:26px 0 12px}
+.rc .m{color:var(--muted);font-size:13px;font-variant-numeric:tabular-nums;margin-top:4px}
+h2.sec{font:700 24px var(--display);margin:30px 0 14px}
+h2.sec:first-of-type{margin-top:6px}
+.empty{border:1px dashed var(--line);border-radius:var(--r-l);padding:22px;color:var(--muted);text-align:center}
+
 /* bookmarklet */
-.bmcode{display:block;word-break:break-all;font-size:12px;background:#f3f6fb;border:1px solid #ccd6e6;border-radius:8px;padding:8px;margin:8px 0;user-select:all}
-.bm{display:inline-flex;align-items:center;gap:8px;background:var(--blue);color:var(--blue-ink);font:700 17px var(--body);padding:12px 20px;border-radius:12px;text-decoration:none;cursor:grab;border:2px dashed color-mix(in srgb,var(--blue-ink) 50%,transparent)}
+.bmcode{display:block;word-break:break-all;font:12px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;background:var(--bg);border:1px solid var(--line);border-radius:var(--r-m);padding:10px 12px;user-select:all;direction:ltr}
+.bm{display:inline-flex;align-items:center;gap:8px;background:var(--cobalt);color:var(--on-cobalt);font:700 17px var(--body);padding:13px 22px;border-radius:var(--r-m);text-decoration:none;cursor:grab;box-shadow:0 0 0 4px var(--cobalt-tint)}
 .steps-list{display:grid;gap:10px;margin:0;padding-inline-start:22px}
-dialog{border:none;border-radius:16px;padding:0;width:min(560px,calc(100% - 24px));background:var(--paper);color:var(--ink)}
-dialog::backdrop{background:rgba(8,12,20,.55)}
-dialog .in{padding:22px;display:grid;gap:12px}
-dialog h3{font:700 22px var(--display);margin:0}
-footer{color:var(--muted);font-size:13px;padding-block:36px 28px;border-top:1px solid var(--line);margin-top:40px;display:grid;gap:6px}
-.toast{position:fixed;inset-inline:0;bottom:calc(18px + env(safe-area-inset-bottom,0px));margin:auto;width:max-content;max-width:calc(100% - 32px);
-  background:var(--ink);color:var(--bg);padding:10px 16px;border-radius:10px;font-weight:600;z-index:50}
+.split{display:grid;gap:16px}
+@media (min-width:720px){.split{grid-template-columns:1fr 1fr}}
+
+/* support */
+.kofi{display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:start;margin-top:36px}
+.kofi .tile{width:52px;height:52px;border-radius:14px;background-size:26px 26px}
+.kofi p{margin:0}
+.kofi b{font:700 18px/1.3 var(--display);display:block}
+
+dialog{border:none;border-radius:var(--r-l);padding:0;width:min(560px,calc(100% - 24px));background:var(--paper);color:var(--ink);box-shadow:var(--shadow)}
+dialog::backdrop{background:rgba(14,21,36,.55)}
+dialog .in{padding:24px;display:grid;gap:14px}
+dialog h3{font:700 23px/1.25 var(--display);margin:0}
+footer{color:var(--muted);font-size:13px;padding-block:28px 28px;margin-top:36px;border-top:1px solid var(--line);display:grid;gap:8px}
+footer nav{display:flex;flex-wrap:wrap;gap:6px 18px}
+.toast{position:fixed;inset-inline:0;bottom:calc(var(--nav-h) + 16px + env(safe-area-inset-bottom,0px));margin:auto;width:max-content;max-width:calc(100% - 32px);
+  background:var(--ink);color:var(--bg);padding:11px 18px;border-radius:999px;font-weight:600;z-index:50;box-shadow:var(--shadow)}
+@media (min-width:720px){.toast{bottom:24px}}
 .spin{width:16px;height:16px;border:2px solid currentColor;border-top-color:transparent;border-radius:50%;animation:sp .8s linear infinite}
 @keyframes sp{to{transform:rotate(360deg)}}
 @media (prefers-reduced-motion:reduce){.spin{animation:none}}
 [dir="rtl"] .chip{direction:ltr}
-code{font:13px ui-monospace,SFMono-Regular,Menlo,monospace;background:var(--paper);border:1px solid var(--line);padding:1px 5px;border-radius:5px;overflow-wrap:anywhere;direction:ltr;unicode-bidi:isolate}
+code{font:13px ui-monospace,SFMono-Regular,Menlo,monospace;background:var(--bg);border:1px solid var(--line);padding:1px 5px;border-radius:5px;overflow-wrap:anywhere;direction:ltr;unicode-bidi:isolate}
 </style>
 </head>
 <body>
 <div class="wrap">
   <header class="top">
     <a class="brand" href="./" aria-label="TuniMix">
-      <svg viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="var(--blue)"/>
-        <path d="M24 7l5 12 12 5-12 5-5 12-5-12-12-5 12-5z" fill="var(--paper)"/><circle cx="24" cy="24" r="4.5" fill="var(--chili)"/></svg>
+      <span class="mark tile" aria-hidden="true"></span>
       TuniMix
     </a>
+    <a class="support kofiLink" href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h12v6a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5z"/><path d="M16 10h1.5a2.5 2.5 0 0 1 0 5H16"/><path d="M8.5 13.2c.6.7 1.5.8 1.5.8s.9-.1 1.5-.8c.6-.8-.1-1.9-1.5-1.1-1.4-.8-2.1.3-1.5 1.1z" fill="currentColor"/></svg><span data-i="support"></span></a>
     <select id="uiLang" class="lang" aria-label="Sprache / Language">
       <option value="de">Deutsch</option><option value="fr">Français</option><option value="en">English</option><option value="ar">العربية</option>
     </select>
   </header>
   <nav class="tabs" id="tabs" aria-label="Main">
-    <button data-view="new" data-i="nav_new"></button>
-    <button data-view="recipes" data-i="nav_recipes"></button>
-    <button data-view="button" data-i="nav_button"></button>
-    <button data-view="settings" data-i="nav_settings"></button>
+    <button data-view="new"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l2.2 5.8L20 11l-5.8 2.2L12 19l-2.2-5.8L4 11l5.8-2.2z"/></svg><span data-i="nav_new"></span></button>
+    <button data-view="recipes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5z"/><path d="M4 20.5A2.5 2.5 0 0 0 6.5 23H20v-5"/></svg><span data-i="nav_recipes"></span></button>
+    <button data-view="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12v18l-6-4.5L6 21z"/><path d="M12 7v6M9 10h6"/></svg><span data-i="nav_button"></span></button>
+    <button data-view="settings"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg><span data-i="nav_settings"></span></button>
   </nav>
 
   <main id="app">
     <!-- NEW -->
     <section id="v-new" class="stack">
-      <div class="hero"><h1 data-i="tagline"></h1><p data-i="sub"></p></div>
+      <div class="hero"><span class="band tile" aria-hidden="true"></span><h1 data-i="tagline"></h1><p data-i="sub"></p></div>
       <div id="queueNote" class="banner" hidden></div>
       <div class="card stack">
         <div id="capturedNote" class="banner" hidden></div>
@@ -144,7 +239,7 @@ code{font:13px ui-monospace,SFMono-Regular,Menlo,monospace;background:var(--pape
           <textarea id="src" data-iph="input_ph"></textarea>
         </div>
         <div class="btns">
-          <span class="btn filebtn"><span data-i="files"></span><input id="files" type="file" accept="image/*,.pdf,.docx,.txt,.md" multiple aria-label="files"></span>
+          <span class="btn filebtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 16V4M7 9l5-5 5 5"/><path d="M4 16v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3"/></svg><span data-i="files"></span><input id="files" type="file" accept="image/*,.pdf,.docx,.txt,.md" multiple aria-label="files"></span>
           <span id="filesN" class="muted small" style="align-self:center"></span>
         </div>
         <details>
@@ -158,7 +253,7 @@ code{font:13px ui-monospace,SFMono-Regular,Menlo,monospace;background:var(--pape
         </details>
         <div id="convertErr" class="err" hidden></div>
         <div class="btns">
-          <button class="btn p" id="btnRules"><span data-i="convert_rules"></span></button>
+          <button class="btn p big" id="btnRules"><span data-i="convert_rules"></span></button>
           <span id="status" class="muted small" style="align-self:center" role="status"></span>
         </div>
         <p class="muted small" data-i="rules_note" style="margin:0"></p>
@@ -167,7 +262,7 @@ code{font:13px ui-monospace,SFMono-Regular,Menlo,monospace;background:var(--pape
           <div class="stack" style="margin-top:12px">
         <div id="noKey" class="stack">
           <div class="free stack">
-            <strong data-i="free_title"></strong>
+            <h3 class="h" data-i="free_title"></h3>
             <ol>
               <li><button class="btn p" id="btnCopyPrompt" data-i="free_1"></button></li>
               <li><span data-i="free_2"></span>
@@ -195,29 +290,30 @@ code{font:13px ui-monospace,SFMono-Regular,Menlo,monospace;background:var(--pape
 
     <!-- RECIPE -->
     <section id="v-recipe" hidden>
-      <button class="btn" id="btnBack" data-i="back" style="margin-bottom:12px"></button>
+      <button class="btn ghost" id="btnBack" data-i="back" style="margin-bottom:8px"></button>
       <article class="card recipe" id="recipeView"></article>
     </section>
 
     <!-- RECIPES -->
     <section id="v-recipes" hidden>
-      <div class="toolbar"><input id="q" type="search" data-iph="search_ph" aria-label="search"></div>
+      <div class="toolbar"><label class="search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg><input id="q" type="search" data-iph="search_ph" aria-label="search"></label></div>
       <h2 class="sec" data-i="mine"></h2>
       <div class="grid" id="mineGrid"></div>
       <h2 class="sec" data-i="community"></h2>
-      <div class="toolbar" id="cats"></div>
+      <div class="pills" id="cats"></div>
       <div class="grid" id="commGrid"></div>
     </section>
 
     <!-- BUTTON -->
     <section id="v-button" class="stack" hidden>
-      <div class="hero"><h1 data-i="bm_title"></h1><p data-i="bm_intro"></p></div>
+      <div class="hero"><span class="band tile" aria-hidden="true"></span><h1 data-i="bm_title"></h1><p data-i="bm_intro"></p></div>
       <div class="card stack">
         <ol class="steps-list"><li data-i="bm_a"></li><li data-i="bm_b"></li></ol>
         <div><label class="l" for="country" data-i="country"></label><select id="country"></select></div>
-        <p data-i="bm_drag"></p>
+        <h3 class="h" data-i="bm_pc_t"></h3>
+        <p data-i="bm_drag" style="margin:0"></p>
         <div><a class="bm" id="bmLink" href="#"><span data-i="bm_btn"></span></a></div>
-        <h3 data-i="bm_phone_t"></h3>
+        <h3 class="h" data-i="bm_phone_t"></h3>
         <ol class="steps-list"><li data-i="bm_p1"></li><li data-i="bm_p2"></li><li data-i="bm_p3"></li></ol>
         <code id="bmShort" class="bmcode"></code>
         <div><button class="btn p" id="btnCopyShort" data-i="bm_copy_short"></button></div>
@@ -229,11 +325,11 @@ code{font:13px ui-monospace,SFMono-Regular,Menlo,monospace;background:var(--pape
     <!-- SETTINGS -->
     <section id="v-settings" class="stack" hidden>
       <div class="card stack">
-        <strong data-i="set_links"></strong>
+        <h3 class="h" data-i="set_links"></h3>
         <label class="small" style="display:flex;gap:8px;align-items:flex-start"><input id="useReader" type="checkbox" style="width:auto;margin-top:4px"> <span data-i="set_reader"></span></label>
       </div>
       <div class="card stack">
-        <strong data-i="set_data"></strong>
+        <h3 class="h" data-i="set_data"></h3>
         <div class="btns"><button class="btn" id="btnExport" data-i="export"></button>
           <span class="btn filebtn"><span data-i="import"></span><input id="importFile" type="file" accept=".json,application/json" aria-label="import"></span></div>
         <p class="muted small" data-i="privacy"></p>
@@ -241,9 +337,15 @@ code{font:13px ui-monospace,SFMono-Regular,Menlo,monospace;background:var(--pape
     </section>
   </main>
 
+  <section class="kofi" aria-labelledby="kofiT">
+    <span class="tile" aria-hidden="true"></span>
+    <div><b id="kofiT" data-i="kofi_t"></b><p class="muted small" data-i="kofi_b"></p>
+      <a class="btn p kofiLink" href="#" target="_blank" rel="noopener" style="margin-top:10px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h12v6a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5z"/><path d="M16 10h1.5a2.5 2.5 0 0 1 0 5H16"/><path d="M8.5 13.2c.6.7 1.5.8 1.5.8s.9-.1 1.5-.8c.6-.8-.1-1.9-1.5-1.1-1.4-.8-2.1.3-1.5 1.1z" fill="currentColor"/></svg><span data-i="kofi_btn"></span></a></div>
+  </section>
   <footer>
     <span data-i="footer"></span>
-    <span><a id="repoLink" href="https://github.com/Aminost/tunimix" target="_blank" rel="noopener">GitHub · Open Source (MIT)</a></span>
+    <nav><a id="repoLink" href="https://github.com/Aminost/tunimix" target="_blank" rel="noopener">GitHub (Open Source, MIT)</a>
+      <a class="kofiLink" href="#" target="_blank" rel="noopener">Ko-fi</a></nav>
   </footer>
 </div>
 
